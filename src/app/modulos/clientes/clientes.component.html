@@ -1,0 +1,198 @@
+<nav aria-label="ruta de navegación">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Clientes</li>
+    </ol>
+  </nav>
+  
+  <div class="row g-4 container-fluid mt-4">
+    <div class="col-12">
+      <h1 class="text-center">Clientes</h1>
+    </div>
+    <hr />
+    <div class="container text-center">
+      <button
+        class="btn btn-outline-primary btn-lg"
+        (click)="mostrar_formulario('ver')"
+      >
+        <i class="bi bi-plus-circle"></i> Insertar Datos
+      </button>
+    </div>
+    <hr />
+    <div id="formulario" *ngIf="mostrar == true">
+      <div class="row">
+        <div class="col-lg-4">
+          <label for="Nombre" class="form-label">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre"
+            [(ngModel)]="obj_clientes.Nombre"
+          />
+          <span style="color: red" *ngIf="validar_Nombre == false"
+            >Insertar nombre</span
+          >
+        </div>
+        <div class="col-lg-4">
+          <label for="Apellido" class="form-label">Apellido</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Apellido"
+            [(ngModel)]="obj_clientes.Apellido"
+          />
+          <span style="color: red" *ngIf="validar_Apellido == false"
+            >Insertar apellido</span
+          >
+        </div>
+        <div class="col-lg-4">
+          <label for="Identificacion" class="form-label">Identificacion</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Identificacion"
+            [(ngModel)]="obj_clientes.Identificacion"
+          />
+          <span style="color: red" *ngIf="validar_Identificacion == false"
+            >Insertar Identificacion</span
+          >
+        </div>
+        <div class="col-lg-4">
+          <label for="Telefono" class="form-label">Telefono</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Telefono"
+            [(ngModel)]="obj_clientes.Telefono"
+          />
+          <span style="color: red" *ngIf="validar_Telefono == false"
+            >Insertar telefono</span
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label for="Correo" class="form-label">Correo</label>
+          <input
+            type="email"
+            class="form-control"
+            placeholder="Correo"
+            [(ngModel)]="obj_clientes.Correo"
+          />
+          <span style="color: red" *ngIf="validar_Correo == false"
+            >Insertar correo</span
+          >
+        </div>
+        <div class="col-lg-4">
+          <label for="Cargo" class="form-label">Ciudad</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Ciudad"
+            [(ngModel)]="obj_clientes.Ciudad"
+          />
+          <span style="color: red" *ngIf="validar_Ciudad == false"
+            >Insertar Ciudad</span
+          >
+        </div>
+        <div class="col-lg-4">
+          <label for="Nit" class="form-label">Departamento</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Departamento"
+            [(ngModel)]="obj_clientes.Departamento"
+          />
+          <span style="color: red" *ngIf="validar_Departamento == false"
+            >Insertar departamento</span
+          >
+        </div>
+      </div>
+      <hr />
+      <!-- Botones -->
+      <div class="container mt-3">
+        <div class="row g-3 justify-content-center align-items-center">
+          <div class="col-12 col-md-4">
+            <button
+              type="button"
+              class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
+              value="Insertar"
+              (click)="validar('guardar')"
+              *ngIf="botones_formulario == false"
+            >
+              <i class="bi bi-plus-circle me-1"></i>
+              Guardar
+            </button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button
+              type="button"
+              class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
+              value="editar"
+              (click)="validar('editar')"
+              *ngIf="botones_formulario == true"
+            >
+              <i class="bi bi-pencil-square me-1"></i>
+              Editar
+            </button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button
+              type="button"
+              class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
+              value="Cancelar"
+              (click)="mostrar_formulario('no ver')"
+            >
+              <i class="bi bi-x-circle me-1"></i>
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- Tabla  -->
+    <div class="container-fluid" id="tabla">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Identificacion</th>
+              <th>Telefono</th>
+              <th>Correo</th>
+              <th>Ciudad</th>
+              <th>Departamento</th>
+              
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of clientes">
+              <td>{{ item.Nombre }}</td>
+              <td>{{ item.Apellido }}</td>
+              <td>{{item.Identificacion}}</td>
+              <td>{{ item.Telefono }}</td>
+              <td>{{ item.Correo }}</td>
+              <td>{{ item.Ciudad }}</td>
+              <td>{{ item.Departamento }}</td>
+              <td class="text-center">
+                <span
+                  class="bi bi-pencil me-3"
+                  style="color: blue; cursor: pointer" title="Editar"
+                  (click)="cargar_datos(item, item.id_clientes)"
+                ></span>
+                <span
+                  class="bi bi-trash me-3"
+                  style="color: red; cursor: pointer" title="Eliminar"
+                  (click)="eliminar(item.id_clientes)"
+                ></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

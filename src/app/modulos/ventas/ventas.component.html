@@ -1,0 +1,137 @@
+<nav aria-label="ruta de navegación">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ventas</li>
+  </ol>
+</nav>
+
+<div class="row g-4 container-fluid mt-4">
+  <div class="col-12">
+    <h1 class="text-center fw-bold">Ventas</h1>
+  </div>
+  <hr />
+  <div class="container text-center">
+    <button
+      class="btn btn-outline-primary btn-lg"
+      (click)="mostrar_formulario('ver')"
+    >
+      <i class="bi bi-plus-circle"></i> Insertar Datos
+    </button>
+  </div>
+  <hr />
+  <div id="formulario" class="formulario" *ngIf="mostrar == true">
+    <div class="row">
+      <div class="col-lg-4">
+        <label for="Productos" class="form-label">Productos</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Productos"
+          [(ngModel)]="obj_ventas.Productos"
+        />
+        <span style="color: red" *ngIf="validar_Productos == false"
+          >Insertar Productos</span
+        >
+      </div>
+      <div class="col-lg-4">
+        <label for="Cantidad" class="form-label">Cantidad</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Cantidad"
+          [(ngModel)]="obj_ventas.Cantidad"
+        />
+        <span style="color: red" *ngIf="validar_Cantidad == false"
+          >Insertar cantidad</span
+        >
+      </div>
+      <div class="col-lg-4">
+        <label for="Referencia" class="form-label">Referencia</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Referencia"
+          [(ngModel)]="obj_ventas.Referencia"
+        />
+        <span style="color: red" *ngIf="validar_Referencia == false"
+          >Insertar referencia</span
+        >
+      </div>
+    </div>
+    <div class="container mt-3">
+      <div class="row g-3 justify-content-center align-items-center">
+        <div class="col-12 col-md-4">
+          <button
+            type="button"
+            class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
+            value="Insertar"
+            (click)="validar('guardar')"
+            *ngIf="botones_formulario == false"
+          >
+            <i class="bi bi-plus-circle me-1"></i>
+            Guardar
+          </button>
+        </div>
+        <div class="col-12 col-md-4">
+          <button
+            type="button"
+            class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
+            value="Insertar"
+            (click)="validar('editar')"
+            *ngIf="botones_formulario == true"
+          >
+            <i class="bi bi-plus-circle me-1"></i>
+            Editar
+          </button>
+        </div>
+        <div class="col-12 col-md-4">
+          <button
+            type="button"
+            class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
+            value="Cancelar"
+            (click)="mostrar_formulario('no ver')"
+          >
+            <i class="bi bi-x-circle me-1"></i>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <!-- Tabla -->
+  <div class="container-fluid" id="tabla">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>Productos</th>
+            <th>Cantidad</th>
+            <th>Referencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ventas">
+            <td>{{ item.Productos }}</td>
+            <td>{{ item.Cantidad }}</td>
+            <td>{{ item.Referencia }}</td>
+
+            <td class="text-center">
+              <span
+                class="bi bi-pencil me-3"
+                style="color: blue; cursor: pointer" title="Editar"
+                (click)="cargar_datos(item, item.id_ventas)"
+              ></span>
+              <span
+                class="bi bi-trash me-3"
+                style="color: red; cursor: pointer" title="Eliminar"
+                (click)="eliminar(item.id_ventas)"
+              ></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

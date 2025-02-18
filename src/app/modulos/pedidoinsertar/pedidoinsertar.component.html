@@ -1,0 +1,125 @@
+<nav aria-label="ruta de navegación">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Insertar Pedidos</li>
+  </ol>
+</nav>
+<div class="row g-4 container-fluid mt-4">
+  <div class="col-12">
+    <h1 class="text-center fw-bold">INSERTAR PEDIDOS</h1>
+  </div>
+  <hr />
+</div>
+
+<section class="content">
+  <div class="row">
+    <div class="col-lg-6">
+      <div id="Producto">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <caption>
+                INVENTARIO
+              </caption>
+              <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Referencia</th>
+                <th>proveedor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of inventario">
+                <td>{{ item.Producto }}</td>
+                <td>{{ item.Cantidad }}</td>
+                <td>{{ item.Precio | currency }}</td>
+                <td>{{ item.Referencia }}</td>
+                <td>{{ item.Proveedor }}</td>
+                <td>
+                  <span
+                    style="color: rgb(32, 168, 5); background: transparent"
+                    title="Seleccionar" (click)="seleccionar(item)"
+                    ><i
+                      class="bi bi-check-all"
+                      style="cursor: pointer; font-size: 24px"
+                    ></i
+                  ></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <caption>
+              CLIENTE
+            </caption>
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Identificacion del cliente"
+                      [(ngModel)]="indent_clientes"
+                      (keyup)="consulta_clientes()"
+                    />
+                  </div>
+                  <div class="col-lg-8">
+                    {{ nombre_clientes }}
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <caption>
+              PEDIDO
+            </caption>
+            <tr>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio</th>
+              <th>Referencia</th>
+              <th>Subtotal</th>
+              <th>Acciones</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let itemp of arreglo_productos">
+              <td>{{itemp["Producto"]}}</td>
+              <td>{{itemp["Cantidad"]}}</td>
+              <td>{{itemp["Precio"] | currency}}</td>
+              <td>{{itemp["Referencia"]}}</td>
+              <td>{{itemp["subtotal"] | currency}}</td>
+              <td class="text-center">
+                <span
+                  class="bi bi-trash me-3"
+                  style="color: red; cursor: pointer"
+                  title="Eliminar"
+                ></span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3"></td>
+              <td><b>TOTAL {{total | currency}}</b></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
