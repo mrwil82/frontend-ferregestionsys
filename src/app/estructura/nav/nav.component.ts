@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
+[x: string]: any;
   Nombre: any;
   Cargo: any;
   constructor(private router: Router) {}
@@ -23,4 +24,5 @@ export class NavComponent {
     sessionStorage.setItem('Cargo', '');
     this.router.navigate(['/login']);
   }
+  
 }

@@ -27,5 +27,12 @@ consulta() {
   insertar() {
     this.router.navigate(['pedidosinsertar']);
 }
+eliminar(id: any) {
+  this.spedidos.eliminar(id).subscribe((resultado: any) => {
+    if (resultado['resultado'] == 'OK') {
+      this.consulta();
+    }
+  });
+}
 
 }

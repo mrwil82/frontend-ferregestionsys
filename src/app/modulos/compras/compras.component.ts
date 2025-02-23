@@ -120,10 +120,10 @@ export class ComprasComponent implements OnInit {
   eliminar(id: any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success mx-3 px-4', // Added margin and padding
-        cancelButton: 'btn btn-danger mx-3 px-4', // Added margin and padding
-        actions: 'my-3', // Added vertical margin to button container
-        popup: 'swal2-popup-custom', // Custom class for popup
+        confirmButton: 'btn btn-success mx-3 px-4', 
+        cancelButton: 'btn btn-danger mx-3 px-4', 
+        actions: 'my-3',
+        popup: 'swal2-popup-custom',
       },
       buttonsStyling: false,
     });
@@ -136,8 +136,8 @@ export class ComprasComponent implements OnInit {
         confirmButtonText: '¡Sí, elimínalo!',
         cancelButtonText: '¡No, cancelar!',
         reverseButtons: true,
-        padding: '2em', // Added more padding to the popup
-        width: '32em', // Made popup slightly wider
+        padding: '2em',
+        width: '32em',
       })
       .then((result) => {
         if (result.isConfirmed) {

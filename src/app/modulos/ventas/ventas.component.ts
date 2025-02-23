@@ -13,10 +13,12 @@ export class VentasComponent implements OnInit {
   id_ventas: any;
   contabilidad: any;
   obj_ventas = {
+    Fecha: '',
     Productos: '',
     Referencia: '',
     Cantidad: '',
   };
+  validar_Fecha = true;
   validar_Productos = true;
   validar_Cantidad = true;
   validar_Referencia = true;
@@ -54,12 +56,18 @@ export class VentasComponent implements OnInit {
   }
   limpiar() {
     this.obj_ventas = {
+      Fecha: '',
       Productos: '',
       Referencia: '',
       Cantidad: '',
     };
   }
   validar(funcion: any) {
+    if (this.obj_ventas.Fecha == '') {
+      this.validar_Fecha = false;
+    } else {
+      this.validar_Fecha = true;
+    }
     if (this.obj_ventas.Productos == '') {
       this.validar_Productos = false;
     } else {
@@ -77,6 +85,7 @@ export class VentasComponent implements OnInit {
     }
 
     if (
+      this.validar_Fecha == true &&
       this.validar_Productos == true &&
       this.validar_Cantidad == true &&
       this.validar_Referencia == true &&
@@ -85,6 +94,7 @@ export class VentasComponent implements OnInit {
       this.guardar();
     }
     if (
+      this.validar_Fecha == true &&
       this.validar_Productos == true &&
       this.validar_Cantidad == true &&
       this.validar_Referencia == true &&
@@ -106,10 +116,10 @@ export class VentasComponent implements OnInit {
   eliminar(id: any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'btn btn-success mx-3 px-4', // Added margin and padding
-        cancelButton: 'btn btn-danger mx-3 px-4', // Added margin and padding
-        actions: 'my-3', // Added vertical margin to button container
-        popup: 'swal2-popup-custom', // Custom class for popup
+        confirmButton: 'btn btn-success mx-3 px-4', 
+        cancelButton: 'btn btn-danger mx-3 px-4', 
+        actions: 'my-3',
+        popup: 'swal2-popup-custom', 
       },
       buttonsStyling: false,
     });
@@ -122,8 +132,8 @@ export class VentasComponent implements OnInit {
         confirmButtonText: '¡Sí, elimínalo!',
         cancelButtonText: '¡No, cancelar!',
         reverseButtons: true,
-        padding: '2em', // Added more padding to the popup
-        width: '32em', // Made popup slightly wider
+        padding: '2em', 
+        width: '32em', 
       })
       .then((result) => {
         if (result.isConfirmed) {
@@ -152,6 +162,7 @@ export class VentasComponent implements OnInit {
   }
   cargar_datos(items: any, id: number) {
     this.obj_ventas = {
+      Fecha: items.Fecha,
       Productos: items.Productos,
       Referencia: items.Referencia,
       Cantidad: items.Cantidad,

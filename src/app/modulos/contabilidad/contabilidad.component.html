@@ -130,10 +130,10 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of contabilidad">
-            <td>{{ item.Ingresos }}</td>
-            <td>{{ item.Egresos }}</td>
-            <td>{{ item.Activos }}</td>
-            <td>{{ item.Pasivos }}</td>
+            <td>{{ item.Ingresos | currency }}</td>
+            <td>{{ item.Egresos | currency }}</td>
+            <td>{{ item.Activos | currency }}</td>
+            <td>{{ item.Pasivos | currency }}</td>
             <td class="text-center">
               <span
                 class="bi bi-pencil me-3"

@@ -22,6 +22,18 @@
   <div id="formulario" class="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
+        <label for="Fecha" class="form-label">Fecha</label>
+        <input
+          type="date"
+          class="form-control"
+          placeholder="Productos"
+          [(ngModel)]="obj_ventas.Fecha"
+        />
+        <span style="color: red" *ngIf="validar_Fecha == false"
+          >Insertar Productos</span
+        >
+      </div>
+      <div class="col-lg-4">
         <label for="Productos" class="form-label">Productos</label>
         <input
           type="text"
@@ -105,6 +117,7 @@
       <table class="table table-hover table-striped">
         <thead>
           <tr>
+            <th>Fecha</th>
             <th>Productos</th>
             <th>Cantidad</th>
             <th>Referencia</th>
@@ -113,6 +126,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of ventas">
+            <td>{{ item.Fecha }}</td>
             <td>{{ item.Productos }}</td>
             <td>{{ item.Cantidad }}</td>
             <td>{{ item.Referencia }}</td>

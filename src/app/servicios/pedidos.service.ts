@@ -2,16 +2,19 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PedidosService {
   url =
     'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/pedidos.php';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   consultar() {
     return this.http.get(`${this.url}?control=consulta`);
+  }
+  consultarpedidos(id: number) {
+    return this.http.get(`${this.url}?control=consultarproductos&id=${id}`);
   }
   eliminar(id: number) {
     return this.http.get(`${this.url}?control=eliminar&id=${id}`);

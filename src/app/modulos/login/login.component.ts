@@ -49,8 +49,13 @@ export class LoginComponent {
           } else {
             console.log('No se encontro el usuario');
             this.error = true;
+
+            this.Correo = '';
+            this.clave = '';
           }
         });
     }
   }
+
 }
+
