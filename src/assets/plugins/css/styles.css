@@ -7,28 +7,28 @@
 :root {
   --primary-color: #97aff3;
   --secondary-color: #dce0b0;
-  --accent-color: #b7f805;
+  --accent-color: #ffa256;
   --text-color: #333;
   --bg-color: #99ccbf;
   --hover-color: #a2a1b9;
   --footer-color: #c1cae9;
-  --nav-height: 70px;
+  --nav-height: 75px;
   --footer-height: 30px;
-  --sidebar-width: 230px;
-  --sidebar-collapsed-width: 60px;
-  --transition-speed: 0.3s;
-  --border-radius: 35px;
+  --sidebar-width: 170px;
+  --sidebar-collapsed-width: 40px;
+  --transition-speed: 0.4s;
+  --border-radius: 45px;
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] {
   --primary-color: #2a3757;
   --secondary-color: #3d4339;
-  --text-color: #ffffff;
+  --text-color: #bae7b1;
   --hover-color: #4a4960;
   --nav-button-bg: #2a2a2a;
   --search-bg: #2a2a2a;
-  --bg-secondary: #2a2a2a;
+  --bg-secondary: #bae7b1;
 }
 
 body {
