@@ -6,11 +6,14 @@
 </nav>
 <hr />
 
-<div class="row g-4 container-fluid mt-4">
-  <div class="col-12">
-    <h1 class="text-center">Soporte Tecnico</h1>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-12 text-center color-primary">
+      <h4 class="text-center fw-bold display-4">SOPORTE TÉCNICO</h4>
+      <hr />
+    </div>
   </div>
-  <hr />
+  
   <div class="container text-center">
     <button
       class="btn btn-outline-primary btn-lg"
@@ -35,7 +38,7 @@
         >
       </div>
       <div class="col-lg-4">
-        <label for="Tecnico" class="form-label">Tecnico</label>
+        <label for="Tecnico" class="form-label">Técnico</label>
         <input
           type="text"
           class="form-control"
@@ -47,7 +50,7 @@
         >
       </div>
       <div class="col-lg-4">
-        <label for="Solucion" class="form-label">Solucion</label>
+        <label for="Solucion" class="form-label">Solución</label>
         <input
           type="text"
           class="form-control"
@@ -55,7 +58,7 @@
           [(ngModel)]="obj_soporte_tecnico.Solucion"
         />
         <span style="color: red" *ngIf="validar_Solucion == false"
-          >Insertar solucion</span
+          >Insertar solución</span
         >
       </div>
     </div>
@@ -109,8 +112,8 @@
         <thead>
           <tr>
             <th>Incidencia</th>
-            <th>Tecnico</th>
-            <th>Solucion</th>
+            <th>Técnico</th>
+            <th>Solución</th>
             <th>Acciones</th>
           </tr>
         </thead>
