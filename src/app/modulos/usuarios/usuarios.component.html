@@ -19,6 +19,7 @@
     </button>
   </div>
   <hr />
+  <!-- Formulario -->
   <div id="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
@@ -180,12 +181,14 @@
             <td class="text-center">
               <span
                 class="bi bi-pencil me-3"
-                style="color: blue; cursor: pointer" title="Editar"
+                style="color: blue; cursor: pointer"
+                title="Editar"
                 (click)="cargar_datos(item, item.id_usuarios)"
               ></span>
               <span
                 class="bi bi-trash me-3"
-                style="color: red; cursor: pointer" title="Eliminar"
+                style="color: red; cursor: pointer"
+                title="Eliminar"
                 (click)="eliminar(item.id_usuarios)"
               ></span>
             </td>

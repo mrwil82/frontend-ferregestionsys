@@ -11,7 +11,12 @@ import { PedidosService } from '../../servicios/pedidos.service';
 })
 export class PedidosComponent {
   
-  ventas: any = [];
+  ventas: any;
+  modal = false;
+  productos: any;
+
+
+
 
   constructor(private router: Router, private spedidos: PedidosService) { }
 
@@ -24,15 +29,24 @@ consulta() {
     this.ventas = resultado;
   });
 }
+consultarpedidos(id: number) {
+  this.spedidos.consultarpedidos(id).subscribe((resultado: any) => {
+    this.productos = resultado;
+  });
+}
   insertar() {
     this.router.navigate(['pedidosinsertar']);
 }
-eliminar(id: any) {
-  this.spedidos.eliminar(id).subscribe((resultado: any) => {
-    if (resultado['resultado'] == 'OK') {
-      this.consulta();
-    }
-  });
-}
+mostrar_modal(dato:any, id:number) {
+  switch(dato){
+    case 0:
+      this.modal = false;
+      break;
+    case 1:
+      this.modal = true;
+      this.consultarpedidos(id);
+      break;
+  } 
 
+}
 }

@@ -15,14 +15,12 @@ export class ProveedoresComponent implements OnInit {
   inventario: any = [];
   obj_proveedor = {
     Nombre: '',
-    Apellido: '',
     Telefono: '',
     Correo: '',
     Direccion: '',
     Nit: '',
   };
   validar_Nombre = true;
-  validar_Apellido = true;
   validar_Telefono = true;
   validar_Correo = true;
   validar_Direccion = true;
@@ -54,7 +52,6 @@ export class ProveedoresComponent implements OnInit {
   limpiar() {
     this.obj_proveedor = {
       Nombre: '',
-      Apellido: '',
       Telefono: '',
       Correo: '',
       Direccion: '',
@@ -66,11 +63,6 @@ export class ProveedoresComponent implements OnInit {
       this.validar_Nombre = false;
     } else {
       this.validar_Nombre = true;
-    }
-    if (this.obj_proveedor.Apellido == '') {
-      this.validar_Apellido = false;
-    } else {
-      this.validar_Apellido = true;
     }
     if (this.obj_proveedor.Telefono == '') {
       this.validar_Telefono = false;
@@ -94,7 +86,6 @@ export class ProveedoresComponent implements OnInit {
     }
     if (
       this.validar_Nombre == true &&
-      this.validar_Apellido == true &&
       this.validar_Telefono == true &&
       this.validar_Correo == true &&
       this.validar_Direccion == true &&
@@ -105,7 +96,6 @@ export class ProveedoresComponent implements OnInit {
     }
     if (
       this.validar_Nombre == true &&
-      this.validar_Apellido == true &&
       this.validar_Telefono == true &&
       this.validar_Correo == true &&
       this.validar_Direccion == true &&
@@ -119,6 +109,13 @@ export class ProveedoresComponent implements OnInit {
     this.sproveedor.insertar(this.obj_proveedor).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado! ',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em',
+        });
       }
     });
 
@@ -175,7 +172,6 @@ export class ProveedoresComponent implements OnInit {
   cargar_datos(items: any, id: number) {
     this.obj_proveedor = {
       Nombre: items.Nombre,
-      Apellido: items.Apellido,
       Telefono: items.Telefono,
       Correo: items.Correo,
       Direccion: items.Direccion,
@@ -190,6 +186,13 @@ export class ProveedoresComponent implements OnInit {
       (datos: any) => {
         if (datos['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '32em',
+          });
         }
       }
     );

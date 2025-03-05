@@ -114,6 +114,13 @@ obj_empleado = {
     this.sempleado.insertar(this.obj_empleado).subscribe((resultado: any) => {
       if (resultado['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado! ',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em',
+        });
       }
     });
     this.limpiar();
@@ -184,6 +191,13 @@ obj_empleado = {
       .subscribe((resultado: any) => {
         if (resultado['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '32em',
+          });
         }
       });
     this.limpiar();

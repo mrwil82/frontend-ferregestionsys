@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
+//Servicio de usuarios
 export class UsuariosService {
   url =
     'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/usuarios.php';

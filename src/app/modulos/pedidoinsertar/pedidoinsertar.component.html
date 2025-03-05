@@ -23,11 +23,11 @@
               </caption>
               <tr>
                 <th>Producto</th>
-                <th>Cantidad</th>
+                <th>Stock</th>
                 <th>Precio</th>
                 <th>Referencia</th>
                 <th>proveedor</th>
-                <th>Acciones</th>
+                <th>Seleccionar</th>
               </tr>
             </thead>
             <tbody>
@@ -38,18 +38,19 @@
                 <td>{{ item.Referencia }}</td>
                 <td>{{ item.Proveedor }}</td>
                 <td>
-                  <span
+                    <span
+                    class="text-center d-block"
                     style="color: rgb(32, 168, 5); background: transparent"
                     title="Seleccionar" (click)="seleccionar(item)"
                     ><i
                       class="bi bi-check-all"
-                      style="cursor: pointer; font-size: 24px"
+                      style="cursor: pointer; font-size: 24px !important"
                     ></i
-                  ></span>
+                    ></span>
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table>  
         </div>
       </div>
     </div>
@@ -68,7 +69,7 @@
                       type="text"
                       class="form-control"
                       placeholder="Identificacion del cliente"
-                      [(ngModel)]="indent_clientes"
+                      [(ngModel)]="ident_clientes"
                       (keyup)="consulta_clientes()"
                     />
                   </div>
@@ -82,7 +83,7 @@
         </table>
       </div>
       <div class="table-responsive">
-        <table class="table">
+        <table class="table table-hover table-striped">
           <thead>
             <caption>
               PEDIDO
@@ -113,9 +114,9 @@
               </td>
             </tr>
             <tr>
-              <td colspan="3"></td>
+              <td colspan="4"></td>
               <td><b>TOTAL {{total | currency}}</b></td>
-              <td></td>
+              <td colspan="2"></td>
             </tr>
           </tbody>
         </table>

@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
   templateUrl: './usuarios.component.html',
   styleUrls: ['./usuarios.component.scss'],
 })
+//Componente de usuarios
 export class UsuariosComponent implements OnInit {
   usuarios: any;
   administracion: any;
@@ -40,6 +41,7 @@ export class UsuariosComponent implements OnInit {
   ngOnInit(): void {
     this.consulta();
   }
+  //Consultar usuarios
   consulta() {
     this.susuarios.consultar().subscribe((resultado: any) => {
       this.usuarios = resultado;
@@ -50,6 +52,7 @@ export class UsuariosComponent implements OnInit {
       this.administracion = resultado;
     });
   }
+  //Mostrar formulario
   mostrar_formulario(dato: any) {
     switch (dato) {
       case 'ver':
@@ -61,6 +64,7 @@ export class UsuariosComponent implements OnInit {
         break;
     }
   }
+  //Limpiar formulario
   limpiar() {
     this.obj_usuarios = {
       Nombre: '',
@@ -73,6 +77,7 @@ export class UsuariosComponent implements OnInit {
 
     };
   }
+  //Validar datos
   validar(funcion: any) {
     if (this.obj_usuarios.Nombre == '') {
       this.validar_Nombre = false;
@@ -134,16 +139,25 @@ export class UsuariosComponent implements OnInit {
       this.editar();
     }
   }
+  //Guardar datos
   guardar() {
     this.susuarios.insertar(this.obj_usuarios).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado!',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em',
+        });
       }
     });
 
     this.limpiar();
     this.mostrar_formulario('no ver');
   }
+  //Eliminar usuario
   eliminar(id: any) {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -191,6 +205,7 @@ export class UsuariosComponent implements OnInit {
         }
       });
   }
+  //Cargar datos
   cargar_datos(items: any, id: number) {
     this.obj_usuarios = {
       Nombre: items.Nombre,
@@ -205,12 +220,20 @@ export class UsuariosComponent implements OnInit {
     this.botones_formulario = true;
     this.mostrar_formulario('ver');
   }
+  //Editar usuario
   editar() {
     this.susuarios
       .editar(this.id_usuario, this.obj_usuarios)
       .subscribe((datos: any) => {
         if (datos['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '32em',
+          });
         }
       });
 

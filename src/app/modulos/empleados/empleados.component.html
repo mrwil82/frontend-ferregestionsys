@@ -21,6 +21,7 @@
   </div>
   <hr />
   <!-- Formulario de ingreso de datos -->
+
   <div id="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
@@ -47,8 +48,6 @@
           >Insertar apellido</span
         >
       </div>
-    </div>
-    <div class="row">
       <div class="col-lg-4">
         <label for="Direccion" class="form-label">Direccion</label>
         <input
@@ -61,6 +60,8 @@
           >Insertar direccion</span
         >
       </div>
+    </div>
+    <div class="row">
       <div class="col-lg-4">
         <label for="Telefono" class="form-label">Telefono</label>
         <input
@@ -105,15 +106,15 @@
         </div>
         <div class="col-12 col-md-4">
           <button
-          type="button"
-          class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
-          value="editar"
-          (click)="validar('editar')"
-          *ngIf="botones_formulario == true"
-        >
-          <i class="bi bi-pencil-square me-1"></i>
-          Editar
-        </button>
+            type="button"
+            class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
+            value="editar"
+            (click)="validar('editar')"
+            *ngIf="botones_formulario == true"
+          >
+            <i class="bi bi-pencil-square me-1"></i>
+            Editar
+          </button>
         </div>
         <div class="col-12 col-md-4">
           <button
@@ -154,12 +155,14 @@
             <td class="text-center">
               <span
                 class="bi bi-pencil me-3"
-                style="color: blue; cursor: pointer" title="Editar"
+                style="color: blue; cursor: pointer"
+                title="Editar"
                 (click)="cargar_datos(item, item.id_empleado)"
               ></span>
               <span
                 class="bi bi-trash me-3"
-                style="color: red; cursor: pointer" title="Eliminar"
+                style="color: red; cursor: pointer"
+                title="Eliminar"
                 (click)="eliminar(item.id_empleado)"
               ></span>
             </td>

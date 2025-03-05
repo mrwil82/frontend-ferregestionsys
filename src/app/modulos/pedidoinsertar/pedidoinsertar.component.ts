@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PedidosService } from '../../servicios/pedidos.service';
 import { InventarioService } from '../../servicios/inventario.service';
 import { ClientesService } from '../../servicios/clientes.service';
+import { VentasService } from '../../servicios/ventas.service';
 
 @Component({
   selector: 'app-pedidoinsertar',
@@ -14,7 +15,7 @@ import { ClientesService } from '../../servicios/clientes.service';
 export class PedidoinsertarComponent {
   inventario: any;
   clientes: any;
-  indent_clientes = '';
+  ident_clientes = '';
   nombre_clientes = '';
   total: any;
   productos = {
@@ -30,7 +31,7 @@ export class PedidoinsertarComponent {
     Productos: '',
     Cantidad: '',
     Referencia: '',
-    indent_clientes: '',
+    ident_clientes: '',
     inventario: 0,
     subtotal: 0,
     total: 0,
@@ -57,7 +58,7 @@ export class PedidoinsertarComponent {
 
   consulta_clientes() {
     this.sclientes
-      .cclientes(this.indent_clientes)
+      .cclientes(this.ident_clientes)
       .subscribe((resultado: any) => {
         this.clientes = resultado;
         this.nombre_clientes = this.clientes[0].Nombre;
@@ -72,7 +73,7 @@ export class PedidoinsertarComponent {
       alert('Cantidad no válida o excede el inventario disponible');
       return;
     }
-    const producto = {
+    const productos = {
       Fecha: new Date(),
       Producto: valores.Producto,
       Cantidad: cantidad.toString(),
@@ -81,7 +82,7 @@ export class PedidoinsertarComponent {
       subtotal: (cantidad * valores.Precio).toString(),
     };
 
-    this.arreglo_productos.push(producto);
+    this.arreglo_productos.push(productos);
 
     this.total = 0;
     for (let i = 0; i < this.arreglo_productos.length; i++) {
@@ -102,24 +103,22 @@ export class PedidoinsertarComponent {
     this.pedidos.Fecha = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
     this.pedidos.Productos = this.arreglo_productos.map((item: any) => item.Producto).join(',');
     this.pedidos.Cantidad = this.arreglo_productos.length;
-    this.pedidos.Referencia = this.arreglo_productos[0].Referencia;
-    this.pedidos.indent_clientes = this.clientes[0].id_clientes;
-    this.pedidos.inventario = this.inventario.length;
-    this.pedidos.subtotal = this.total;
-    this.pedidos.total = this.total;
+    this.pedidos.Referencia = this.arreglo_productos.map((item: any) => item.Referencia).join(',');
+    this.pedidos.ident_clientes = `${this.clientes[0].id_clientes} - ${this.nombre_clientes}`;
+    this.pedidos.subtotal = this.total.toString();
+    this.pedidos.total = this.total.toString();
     console.log(this.pedidos);
 
     this.spedidos.insertar(this.pedidos).subscribe({
       next: (datos: any) => {
         if (datos['resultado'] == 'OK') {
           console.log('Guardado');
-          this.router.navigate(['/ventas']);
+          this.router.navigate(['/pedidos']);
         }
       },
       error: (error) => {
-        console.error('Error al guardar:', error);
-        alert('Error al guardar el pedido');
+        console.log('Error:', error);
       }
-    });
-  }
+  });
+}
 }

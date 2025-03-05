@@ -31,23 +31,31 @@
         </thead>
         <tbody>
           <tr *ngFor="let item of ventas">
-            <td style="color: darkslateblue; font-weight: bold;">0{{ item.id_ventas }}</td>
-            <td>{{ item.Fecha }}</td>
-            <td>{{ item.Productos }}</td>
-            <td>{{ item.Cantidad }}</td>
-            <td>{{ item.Referencia }}</td>
-            <td>
-               <input type="button" value="ver pedido" class="btn btn-outline-success btn-sm"/>
+            <td style="color: darkslateblue; font-weight: bold">
+              0{{ item.id_ventas }}
             </td>
-
+            <td>{{ item.Fecha }}</td>
+            <td>{{ item.ident_cliente }}</td>
             <td>
-              
-              <span style="color: blue; cursor: pointer" title="Editar"
+              {{ item.Descripcion }}
+              <input
+                type="button"
+                value="ver pedido"
+                class="btn btn-sm btn-outline-success btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#verpedido"
+                (click)="mostrar_modal(1, item.id_ventas)"
+              />
+            </td>
+            <td>{{ item.Total | currency }}</td>
+            <td>{{ item.Vendedor }}</td>
+            <td class="text-center">
+              <span class="" style="color: blue; cursor: pointer" title="Editar"
                 ><i class="bi bi-clipboard-check me-3"></i
               ></span>
               <span
                 style="color: rgb(32, 168, 5); cursor: pointer"
-                title="Anular" (click)="eliminar(item.id_ventas)"
+                title="Anular"
                 ><i class="bi bi-trash me-3"></i
               ></span>
             </td>
@@ -57,4 +65,61 @@
     </div>
   </div>
 </div>
-<!--modal-->
+
+<!-- Modal -->
+
+<div
+  class="modal fade"
+  id="verpedido"
+  tabindex="-1"
+  aria-labelledby="verpedido"
+  aria-hidden="true"
+  *ngIf="modal == true"
+>
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="verpedido">Productos</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body text-center">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>N° Pedido</th>
+              <th>Producto</th>
+              <th>Cantidad</th>
+              <th>Precio Unit.</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productos">
+              <td>0{{ item[0] }}</td>
+              <td>{{ item[1] }}</td>
+              <td>{{ item[2] }}</td>
+              <td>{{ item[3] | currency }}</td>
+              <td>{{ item[4] | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="mostrar_modal(0, 0)"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<style></style>

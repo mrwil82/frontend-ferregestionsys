@@ -109,6 +109,13 @@ export class InventarioComponent implements OnInit {
     this.sinventario.insertar(this.obj_inventario).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado!',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em',
+        });
       }
     });
 
@@ -181,6 +188,13 @@ export class InventarioComponent implements OnInit {
       .subscribe((datos: any) => {
         if (datos['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '26em',
+          });
         }
       });
 

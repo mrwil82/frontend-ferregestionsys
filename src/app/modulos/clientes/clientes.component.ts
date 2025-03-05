@@ -14,7 +14,6 @@ export class ClientesComponent implements OnInit {
   id_clientes: any;
   obj_clientes = {
     Nombre: '',
-    Apellido: '',
     Identificacion: '',
     Correo: '',
     Telefono: '',
@@ -22,7 +21,6 @@ export class ClientesComponent implements OnInit {
     Departamento: '',
   };
   validar_Nombre = true;
-  validar_Apellido = true;
   validar_Identificacion = true;
   validar_Correo = true;
   validar_Telefono = true;
@@ -56,7 +54,6 @@ export class ClientesComponent implements OnInit {
   limpiar() {
     this.obj_clientes = {
       Nombre: '',
-      Apellido: '',
       Identificacion: '',
       Correo: '',
       Telefono: '',
@@ -69,11 +66,6 @@ export class ClientesComponent implements OnInit {
       this.validar_Nombre = false;
     } else {
       this.validar_Nombre = true;
-    }
-    if (this.obj_clientes.Apellido == '') {
-      this.validar_Apellido = false;
-    } else {
-      this.validar_Apellido = true;
     }
     if (this.obj_clientes.Identificacion == '') {
       this.validar_Identificacion = false;
@@ -103,7 +95,6 @@ export class ClientesComponent implements OnInit {
 
     if (
       this.validar_Nombre == true &&
-      this.validar_Apellido == true &&
       this.validar_Identificacion == true &&
       this.validar_Correo == true &&
       this.validar_Telefono == true &&
@@ -115,7 +106,6 @@ export class ClientesComponent implements OnInit {
     }
     if (
       this.validar_Nombre == true &&
-      this.validar_Apellido == true &&
       this.validar_Identificacion == true &&
       this.validar_Correo == true &&
       this.validar_Telefono == true &&
@@ -130,6 +120,13 @@ export class ClientesComponent implements OnInit {
     this.sclientes.insertar(this.obj_clientes).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado!',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em'
+        });
       }
     });
 
@@ -186,7 +183,6 @@ export class ClientesComponent implements OnInit {
   cargar_datos(items: any, id: number) {
     this.obj_clientes = {
       Nombre: items.Nombre,
-      Apellido: items.Apellido,
       Identificacion: items.Identificacion,
       Correo: items.Correo,
       Telefono: items.Telefono,
@@ -203,6 +199,13 @@ export class ClientesComponent implements OnInit {
       .subscribe((datos: any) => {
         if (datos['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '32em'
+          });
         }
       });
 

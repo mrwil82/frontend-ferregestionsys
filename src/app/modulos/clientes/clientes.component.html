@@ -20,8 +20,8 @@
     </div>
     <hr />
     <div id="formulario" *ngIf="mostrar == true">
-      <div class="row">
-        <div class="col-lg-3">
+      <div class="row g-3 mt-3">
+        <div class="col-lg-4">
           <label for="Nombre" class="form-label">Nombre</label>
           <input
             type="text"
@@ -33,19 +33,7 @@
             >Insertar nombre</span
           >
         </div>
-        <div class="col-lg-3">
-          <label for="Apellido" class="form-label">Apellido</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Apellido"
-            [(ngModel)]="obj_clientes.Apellido"
-          />
-          <span style="color: red" *ngIf="validar_Apellido == false"
-            >Insertar apellido</span
-          >
-        </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <label for="Identificacion" class="form-label">Identificacion</label>
           <input
             type="text"
@@ -57,7 +45,7 @@
             >Insertar Identificacion</span
           >
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <label for="Telefono" class="form-label">Telefono</label>
           <input
             type="text"
@@ -70,7 +58,7 @@
           >
         </div>
       </div>
-      <div class="row">
+      <div class="row g-3 mt-3">
         <div class="col-lg-4">
           <label for="Correo" class="form-label">Correo</label>
           <input
@@ -158,7 +146,6 @@
           <thead>
             <tr>
               <th>Nombre</th>
-              <th>Apellido</th>
               <th>Identificacion</th>
               <th>Telefono</th>
               <th>Correo</th>
@@ -171,7 +158,6 @@
           <tbody>
             <tr *ngFor="let item of clientes">
               <td>{{ item.Nombre }}</td>
-              <td>{{ item.Apellido }}</td>
               <td>{{item.Identificacion}}</td>
               <td>{{ item.Telefono }}</td>
               <td>{{ item.Correo }}</td>

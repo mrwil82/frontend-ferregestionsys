@@ -107,6 +107,13 @@ export class VentasComponent implements OnInit {
     this.sventas.insertar(this.obj_ventas).subscribe((datos: any) => {
       if (datos['resultado'] == 'OK') {
         this.consulta();
+        Swal.fire({
+          title: '¡Guardado!',
+          text: 'Los datos han sido guardados correctamente',
+          icon: 'success',
+          padding: '2em',
+          width: '32em',
+        });
       }
     });
 
@@ -177,6 +184,13 @@ export class VentasComponent implements OnInit {
       .subscribe((datos: any) => {
         if (datos['resultado'] == 'OK') {
           this.consulta();
+          Swal.fire({
+            title: '¡Editado!',
+            text: 'Los datos han sido editados correctamente',
+            icon: 'success',
+            padding: '2em',
+            width: '32em',
+          });
         }
       });
     this.limpiar();

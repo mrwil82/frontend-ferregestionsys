@@ -14,7 +14,7 @@ export class PedidosService {
     return this.http.get(`${this.url}?control=consulta`);
   }
   consultarpedidos(id: number) {
-    return this.http.get(`${this.url}?control=consultarproductos&id=${id}`);
+    return this.http.get(`${this.url}?control=productos&id=${id}`);
   }
   eliminar(id: number) {
     return this.http.get(`${this.url}?control=eliminar&id=${id}`);
