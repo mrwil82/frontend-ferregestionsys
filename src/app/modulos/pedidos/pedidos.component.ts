@@ -13,7 +13,7 @@ export class PedidosComponent {
   
   ventas: any;
   modal = false;
-  productos: any;
+  Productos: any;
 
 
 
@@ -31,7 +31,7 @@ consulta() {
 }
 consultarpedidos(id: number) {
   this.spedidos.consultarpedidos(id).subscribe((resultado: any) => {
-    this.productos = resultado;
+    this.Productos = resultado;
   });
 }
   insertar() {

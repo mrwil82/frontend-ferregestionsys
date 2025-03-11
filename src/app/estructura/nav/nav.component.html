@@ -1,38 +1,60 @@
-<nav class="nav d-flex justify-content-between align-items-center flex-wrap container-fluid">
-   <!-- Contenedor izquierdo -->
-   <div class="nav-left d-flex" aria-label="Menú">
+<nav
+  class="nav d-flex justify-content-between align-items-center flex-wrap container-fluid"
+>
+  <!-- Contenedor izquierdo -->
+  <div class="nav-left d-flex" aria-label="Menú" role="navigation">
     <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-      <i class="bi bi-sun-fill" id="themeIcon" aria-hidden="true" title="Cambiar tema"></i>
+      <i
+        class="bi bi-sun-fill"
+        id="themeIcon"
+        aria-hidden="true"
+        title="Cambiar tema"
+      ></i>
     </button>
     <button class="btn" id="toggleBtn" aria-label="menú">
       <i class="bi bi-list" aria-hidden="true" title="menú"></i>
     </button>
-    <li class="nav-item" style="color: rgb(250, 249, 218); font-weight: bold;">Bienvenido {{Nombre}}</li>
+    <li class="nav-item" style="color: rgb(250, 249, 218); font-weight: bold">
+      Bienvenido {{ Nombre }}
+    </li>
   </div>
   <!-- Contenedor central -->
 
-  <div class="nav-center d-flex flex-wrap" aria-label="FerreGestionSys">
+  <div class="nav-center d-flex flex-wrap" aria-label="FerreGestionSys" role="navigation">
     <h1 class="logo fw-bold text-center">FerreGestionSys</h1>
-    <div class="search-container d-flex">
+    <div class="search-container d-flex align-items-center">
+      <form class="d-flex" (ngSubmit)="buscar_modulo(searchInput.value)" role="search">
       <input
-        class="search-input"
-        type="text"
-        placeholder="Buscar..."
+        class="search-input form-control"
+        type="search"
+        placeholder="Buscar módulos..."
         id="searchInput"
-        aria-label="Buscar">
-      
-      <button class="search-btn" aria-label="Buscar">
+        #searchInput
+        aria-label="Campo de búsqueda"
+        autocomplete="off"
+      />
+      <button
+        class="search-btn btn btn-outline-primary ms-2"
+        type="submit"
+        aria-label="Realizar búsqueda"
+      >
         <i class="bi bi-search" aria-hidden="true" title="Buscar"></i>
+        <span class="visually-hidden">Buscar</span>
       </button>
+      </form>
     </div>
   </div>
 
   <!-- Contenedor derecho -->
-  <div class="nav-right d-flex align-items-right" >
-   
-    <button class="btn me-2" id="logoutBtn" aria-label="Cerrar sesión">
-      <i class="bi bi-box-arrow-right" aria-hidden="true" title="Cerrar sesión" (click)="cerrar()" ></i>
+  <div class="nav-right d-flex align-items-right" aria-label="Cerrar sesión" role="navigation">
+    <button 
+      class="btn me-2" 
+      id="logoutBtn" 
+      aria-label="Cerrar sesión"
+      (click)="cerrar()"
+      title="Cerrar sesión">
+      <i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+      <span class="visually-hidden">Cerrar sesión</span>
     </button>
   </div>
-
-</nav> 
+</nav>

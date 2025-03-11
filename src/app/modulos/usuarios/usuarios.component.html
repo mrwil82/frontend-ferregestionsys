@@ -21,7 +21,7 @@
   </div>
   <hr />
   <!-- Formulario -->
-  <div id="formulario" *ngIf="mostrar == true">
+  <div class="container formulario" id="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
         <label for="Nombre" class="form-label">Nombre</label>
@@ -102,7 +102,7 @@
         <input
           type="password"
           class="form-control"
-          placeholder="Documento"
+          placeholder="Clave"
           [(ngModel)]="obj_usuarios.clave"
         />
         <span style="color: red" *ngIf="validar_clave == false"

@@ -23,14 +23,12 @@ export class PedidoinsertarComponent {
     Producto: '',
     Cantidad: '',
     Precio: 0,
-    Referencia: '',
     subtotal: 0,
   };
   pedidos = {
     Fecha: '',
     Productos: '',
     Cantidad: '',
-    Referencia: '',
     ident_clientes: '',
     inventario: 0,
     subtotal: 0,
@@ -77,9 +75,8 @@ export class PedidoinsertarComponent {
       Fecha: new Date(),
       Producto: valores.Producto,
       Cantidad: cantidad.toString(),
-      Precio: valores.Precio,
-      Referencia: valores.Referencia,
-      subtotal: (cantidad * valores.Precio).toString(),
+      Precio: Number(valores.Precio),
+      subtotal: Number(cantidad * valores.Precio),
     };
 
     this.arreglo_productos.push(productos);
@@ -89,6 +86,7 @@ export class PedidoinsertarComponent {
       this.total += Number(this.arreglo_productos[i].subtotal);
     }
   }
+  
   //metodo
   calcularTotal(): any {
     throw new Error('metodo no implementado');
@@ -103,7 +101,6 @@ export class PedidoinsertarComponent {
     this.pedidos.Fecha = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
     this.pedidos.Productos = this.arreglo_productos.map((item: any) => item.Producto).join(',');
     this.pedidos.Cantidad = this.arreglo_productos.length;
-    this.pedidos.Referencia = this.arreglo_productos.map((item: any) => item.Referencia).join(',');
     this.pedidos.ident_clientes = `${this.clientes[0].id_clientes} - ${this.nombre_clientes}`;
     this.pedidos.subtotal = this.total.toString();
     this.pedidos.total = this.total.toString();

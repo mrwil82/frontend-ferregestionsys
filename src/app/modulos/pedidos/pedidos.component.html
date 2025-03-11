@@ -103,12 +103,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of productos">
-              <td>0{{ item[0] }}</td>
-              <td>{{ item[1] }}</td>
-              <td>{{ item[2] }}</td>
-              <td>{{ item[3] | currency }}</td>
-              <td>{{ item[4] | currency }}</td>
+            <tr *ngFor="let itemp of Productos">
+              <td>0{{ itemp.id_ventas }}</td>
+              <td>{{ itemp.Producto }}</td>
+              <td>{{ itemp.Cantidad }}</td>
+              <td>{{ itemp.Precio | currency }}</td>
+              <td>{{ itemp.Subtotal | currency }}</td>
             </tr>
           </tbody>
         </table>

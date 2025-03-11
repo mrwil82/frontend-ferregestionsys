@@ -18,14 +18,12 @@ export class ClientesComponent implements OnInit {
     Correo: '',
     Telefono: '',
     Ciudad: '',
-    Departamento: '',
   };
   validar_Nombre = true;
   validar_Identificacion = true;
   validar_Correo = true;
   validar_Telefono = true;
   validar_Ciudad = true;
-  validar_Departamento = true;
   mostrar = false;
   botones_formulario = false;
 
@@ -58,7 +56,6 @@ export class ClientesComponent implements OnInit {
       Correo: '',
       Telefono: '',
       Ciudad: '',
-      Departamento: '',
     };
   }
   validar(funcion: any) {
@@ -72,25 +69,20 @@ export class ClientesComponent implements OnInit {
     } else {
       this.validar_Identificacion = true;
     }
-    if (this.obj_clientes.Telefono == '') {
-      this.validar_Telefono = false;
-    } else {
-      this.validar_Telefono = true;
-    }
     if (this.obj_clientes.Correo == '') {
       this.validar_Correo = false;
     } else {
       this.validar_Correo = true;
     }
+    if (this.obj_clientes.Telefono == '') {
+      this.validar_Telefono = false;
+    } else {
+      this.validar_Telefono = true;
+    }
     if (this.obj_clientes.Ciudad == '') {
       this.validar_Ciudad = false;
     } else {
       this.validar_Ciudad = true;
-    }
-    if (this.obj_clientes.Departamento == '') {
-      this.validar_Departamento = false;
-    } else {
-      this.validar_Departamento = true;
     }
 
     if (
@@ -99,7 +91,6 @@ export class ClientesComponent implements OnInit {
       this.validar_Correo == true &&
       this.validar_Telefono == true &&
       this.validar_Ciudad == true &&
-      this.validar_Departamento == true &&
       funcion == 'guardar'
     ) {
       this.guardar();
@@ -110,7 +101,6 @@ export class ClientesComponent implements OnInit {
       this.validar_Correo == true &&
       this.validar_Telefono == true &&
       this.validar_Ciudad == true &&
-      this.validar_Departamento == true &&
       funcion == 'editar'
     ) {
       this.editar();
@@ -187,7 +177,6 @@ export class ClientesComponent implements OnInit {
       Correo: items.Correo,
       Telefono: items.Telefono,
       Ciudad: items.Ciudad,
-      Departamento: items.Departamento,
     };
     this.id_clientes = id;
     this.botones_formulario = true;

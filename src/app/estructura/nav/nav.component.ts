@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nav',
@@ -24,5 +25,16 @@ export class NavComponent {
     sessionStorage.setItem('Cargo', '');
     this.router.navigate(['/login']);
   }
-  
+  buscar_modulo(modulo: string) {
+    this.router.navigate([modulo]);
+    Swal.fire({
+      icon: 'success',
+      title:'vamos a '+''+ modulo,
+      showConfirmButton: false,
+      position: 'center',
+      width: '32em',
+      padding: '2em',
+      timer: 1500,
+    });
+  }
 }

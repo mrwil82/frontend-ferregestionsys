@@ -15,13 +15,13 @@ export class VentasComponent implements OnInit {
   obj_ventas = {
     Fecha: '',
     Productos: '',
-    Referencia: '',
     Cantidad: '',
+    Precio: 0,
   };
   validar_Fecha = true;
   validar_Productos = true;
   validar_Cantidad = true;
-  validar_Referencia = true;
+  validar_Precio = true;
   botones_formulario = false;
   mostrar = false;
 
@@ -58,8 +58,8 @@ export class VentasComponent implements OnInit {
     this.obj_ventas = {
       Fecha: '',
       Productos: '',
-      Referencia: '',
       Cantidad: '',
+      Precio: 0,
     };
   }
   validar(funcion: any) {
@@ -73,10 +73,10 @@ export class VentasComponent implements OnInit {
     } else {
       this.validar_Productos = true;
     }
-    if (this.obj_ventas.Referencia == '') {
-      this.validar_Referencia = false;
+    if (this.obj_ventas.Precio == 0) {
+      this.validar_Precio = false;
     } else {
-      this.validar_Referencia = true;
+      this.validar_Precio = true;
     }
     if (this.obj_ventas.Cantidad == '') {
       this.validar_Cantidad = false;
@@ -88,7 +88,7 @@ export class VentasComponent implements OnInit {
       this.validar_Fecha == true &&
       this.validar_Productos == true &&
       this.validar_Cantidad == true &&
-      this.validar_Referencia == true &&
+      this.validar_Precio == true &&
       funcion == 'guardar'
     ) {
       this.guardar();
@@ -97,7 +97,7 @@ export class VentasComponent implements OnInit {
       this.validar_Fecha == true &&
       this.validar_Productos == true &&
       this.validar_Cantidad == true &&
-      this.validar_Referencia == true &&
+      this.validar_Precio == true &&
       funcion == 'editar'
     ) {
       this.editar();
@@ -171,8 +171,8 @@ export class VentasComponent implements OnInit {
     this.obj_ventas = {
       Fecha: items.Fecha,
       Productos: items.Productos,
-      Referencia: items.Referencia,
       Cantidad: items.Cantidad,
+      Precio: items.Precio,
     };
     this.id_ventas = id;
     this.mostrar_formulario('ver');

@@ -16,7 +16,7 @@ export class InventarioComponent implements OnInit {
   obj_inventario = {
     Producto: '',
     Cantidad: '',
-    Precio: '',
+    Precio: 0,
     Referencia: '',
     Proveedor: '',
   };
@@ -53,7 +53,7 @@ export class InventarioComponent implements OnInit {
     this.obj_inventario = {
       Producto: '',
       Cantidad: '',
-      Precio: '',
+      Precio: 0,
       Referencia: '',
       Proveedor: '',
     };
@@ -69,7 +69,7 @@ export class InventarioComponent implements OnInit {
     } else {
       this.validar_Cantidad = true;
     }
-    if (this.obj_inventario.Precio == '') {
+    if (this.obj_inventario.Precio == 0) {
       this.validar_Precio = false;
     } else {
       this.validar_Precio = true;

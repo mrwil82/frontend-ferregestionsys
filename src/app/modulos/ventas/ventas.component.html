@@ -61,14 +61,14 @@
         >
       </div>
       <div class="col-lg-4">
-        <label for="Referencia" class="form-label">Referencia</label>
+        <label for="Precio" class="form-label">Precio</label>
         <input
           type="text"
           class="form-control"
           placeholder="Referencia"
-          [(ngModel)]="obj_ventas.Referencia"
+          [(ngModel)]="obj_ventas.Precio"
         />
-        <span style="color: red" *ngIf="validar_Referencia == false"
+        <span style="color: red" *ngIf="validar_Precio == false"
           >Insertar referencia</span
         >
       </div>
@@ -123,7 +123,7 @@
             <th>Fecha</th>
             <th>Productos</th>
             <th>Cantidad de Productos</th>
-            <th>Referencia</th>
+            <th>Precio</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -132,7 +132,7 @@
             <td>{{ item.Fecha | date }}</td>
             <td>{{ item.Productos }}</td>
             <td>{{ item.Cantidad }}</td>
-            <td>{{ item.Referencia }}</td>
+            <td>{{ item.Precio | currency }}</td>
 
             <td class="text-center">
               <span
