@@ -1,7 +1,7 @@
 <nav aria-label="ruta de navegación">
-  <ol class="breadcrumb">
+  <ol class="seccion breadcrumb">
     <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Soporte Tecnico</li>
+    <li class="breadcrumb-item active text-white aria-current=" page>Soporte Técnico</li>
   </ol>
 </nav>
 <hr />
@@ -23,6 +23,7 @@
     </button>
   </div>
   <hr />
+  <!-- Formulario -->
   <div id="formulario" class="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
@@ -106,9 +107,10 @@
   </div>
 
   <hr />
+  <!-- Tabla -->
   <div class="container-fluid" id="tabla">
     <div class="table-responsive">
-      <table class="table table-hover table-striped">
+      <table class="table table-success table-hover table-striped">
         <thead>
           <tr>
             <th>Incidencia</th>

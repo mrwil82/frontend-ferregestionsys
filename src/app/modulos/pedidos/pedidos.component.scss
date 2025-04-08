@@ -3,3 +3,85 @@
     color: #007bff;
     text-decoration: underline;
 }
+input {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    border: 2px solid #0c0c29;
+    border-radius: 30px;
+
+    &:hover {
+        background: #747791;
+        color: #070101;
+        border: 2px solid #007bff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transform: translateX(5px);
+        transition: all 0.3s ease-in-out;
+    }
+}
+.table {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+
+  }
+  .btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+
+    &:hover {
+        background: #25273d;
+        color: #ffffff;
+        border: 2px solid #007bff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transform: translateX(15px);
+
+    }
+
+  }
+  .seccion{
+    background: linear-gradient(to right, rgba(15, 18, 55, 0.8), rgba(15, 18, 55, 0.9));
+    color: #ffffff;
+    border: 1px solid #007bff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+    padding: 10px;
+    margin: 10px 0; 
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 50%;
+    min-width: 100%;
+
+
+    
+  }
+  @media screen and (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+    .btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+    .seccion {
+        font-size: 12px;
+        padding: 5px;
+    }
+    input {
+        font-size: 12px;
+        padding: 5px;
+    }
+    
+  }
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }

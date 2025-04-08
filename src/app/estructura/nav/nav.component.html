@@ -1,104 +1,72 @@
-<nav
-  class="navbar navbar-expand-lg navbar-dark fixed-up "
-  style="background-color: rgb(26, 26, 96); border: 1px solid white; border-radius: 10px; padding: 10px 15px; margin: 5px;"
->
-  <div class="container-fluid me-4 me-lg-4">
-    <li class="nav-item dropdown me-2 me-lg-4">
-      <a
-        class="nav-link dropdown-toggle menu-button "
-        href="#"
-        id="navbarDropdown"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        style="
+<nav class="navbar navbar-expand-lg d-flex flex-wrap navbar-dark fixed-top w-100 flex-wrap align-items-space-between"
+  style="background-color: #0f1237;">
+  <div class="container-fluid d-flex flex-wrap  w-100 mx-auto">
+    <li class="nav-item dropdown me-2 me-lg-4" style=" margin: 0; padding: 0;">
+      <a class="nav-link dropdown-toggle menu-button" href="#" id="navbarDropdown" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false" style="
           background-color: rgb(78, 78, 140);
           color: white;
           border: 1px solid white;
-          border-radius: 10px;
-          padding: 10px 15px;
-          margin: 5px;
-        "
-      >
-        <i class="bi bi-house me-2 me-lg-4 fw-bold"></i
-        ><span class="text-align center me-4">MENU </span>
+          border-radius: 15px;
+          padding: 5px 8px;
+          margin: 3px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-weight: bold;
+          font-size: 12px;
+          text-align: center;
+          text-decoration: none;
+        " onmouseover="this.style.backgroundColor='#0f1237'"
+        onmouseout="this.style.backgroundColor='rgb(78, 78, 140)'">
+        <i class="bi bi-house me-1 me-lg-2 fw-bold"></i><span class="text-align center me-2 me-lg-2">MENU</span>
       </a>
-      <ul
-        class="dropdown-menu me-2 me-lg-4" 
-        aria-labelledby="navbarDropdown"
-        
-      >
+      <ul class="dropdown-menu me-2 me-lg-4" aria-labelledby="navbarDropdown">
         <li class="dropdown-item text-center">
-        <div class="dropdown-item">
+          <div class="dropdown-item">
             <div class="d-flex text-center text-lg-center me-4 me-lg-4">
-            <img
-              src="../../../assets/plugins/imagenes/logo/Logo.png"
-              class="img-fluid me-4 me-lg-4"
-              alt="Logo"
-              style="max-width: 180px; height: auto; margin: 0 auto; border-radius: 20PX;"
-            />
+              <img [loading]="'lazy' " src="../../../assets/plugins/imagenes/logo/Logo.png"
+                class="img-fluid me-4 me-lg-4" alt="Logo"
+                style="max-width: min(180px, 80%); height: auto; margin: auto; border-radius: 20PX; margin: 20px auto; margin-top: 20px; margin-bottom: 20px; margin-left: 20px; margin-right: 20px; padding: 10px; border: 2px solid #fff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"
+                title="Logo FerreGestionSys" />
             </div>
-        </div>
-        <hr />
+          </div>
+          <hr />
+          
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/dashboard']"
-            class="sidebar-link "
-            title="Dashboard"
-            
-          >
+          <a [routerLink]="['/dashboard']" class="sidebar-link " title="Dashboard">
             <i class="bi bi-house me-4"></i><span class="text">Dashboard</span>
           </a>
         </li>
+
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/administracion']"
-            class="sidebar-link"
-            title="Administración"
-          >
-            <i class="bi bi-gear me-4"></i
-            ><span class="text">Administración</span>
+          <a [routerLink]="['/administracion']" class="sidebar-link" title="Administración">
+            <i class="bi bi-gear me-4"></i><span class="text">Administración</span>
           </a>
         </li>
         <li class="dropdown-item">
           <a [routerLink]="['/usuarios']" class="sidebar-link" title="Usuarios">
-            <i class="bi bi-person-plus me-4"></i
-            ><span class="text">Usuarios</span>
+            <i class="bi bi-person-plus me-4"></i><span class="text">Usuarios</span>
           </a>
         </li>
         <li class="dropdown-item">
           <a [routerLink]="['/pedidos']" class="sidebar-link" title="pedidos">
-            <i class="bi bi-list-check me-4"></i
-            ><span class="text">Pedidos</span>
+            <i class="bi bi-list-check me-4"></i><span class="text">Pedidos</span>
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/empleados']"
-            class="sidebar-link"
-            title="Empleados"
-          >
+          <a [routerLink]="['/empleados']" class="sidebar-link" title="Empleados">
             <i class="bi bi-people me-4"></i><span class="text">Empleados</span>
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/contabilidad']"
-            class="sidebar-link"
-            title="Contabilidad"
-          >
-            <i class="bi bi-cash me-4"></i
-            ><span class="text">Contabilidad</span>
+          <a [routerLink]="['/contabilidad']" class="sidebar-link" title="Contabilidad">
+            <i class="bi bi-cash me-4"></i><span class="text">Contabilidad</span>
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/inventario']"
-            class="sidebar-link"
-            title="Inventario"
-          >
-            <i class="bi bi-archive me-4"></i
-            ><span class="text">Inventario</span>
+          <a [routerLink]="['/inventario']" class="sidebar-link" title="Inventario">
+            <i class="bi bi-archive me-4"></i><span class="text">Inventario</span>
           </a>
         </li>
         <li class="dropdown-item">
@@ -107,13 +75,8 @@
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/proveedores']"
-            class="sidebar-link"
-            title="Proveedores"
-          >
-            <i class="bi bi-truck me-4"></i
-            ><span class="text">Proveedores</span>
+          <a [routerLink]="['/proveedores']" class="sidebar-link" title="Proveedores">
+            <i class="bi bi-truck me-4"></i><span class="text">Proveedores</span>
           </a>
         </li>
         <li class="dropdown-item">
@@ -127,112 +90,72 @@
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/soporte_tecnico']"
-            class="sidebar-link"
-            title="Soporte Técnico"
-          >
-            <i class="bi bi-tools me-4"></i
-            ><span class="text">Soporte Técnico</span>
+          <a [routerLink]="['/soporte_tecnico']" class="sidebar-link" title="Soporte Técnico">
+            <i class="bi bi-tools me-4"></i><span class="text">Soporte Técnico</span>
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/configuracion']"
-            class="sidebar-link"
-            title="Configuración"
-          >
-            <i class="bi bi-toggle-on me-4"></i
-            ><span class="text">Configuración</span>
+          <a [routerLink]="['/configuracion']" class="sidebar-link" title="Configuración">
+            <i class="bi bi-toggle-on me-4"></i><span class="text">Configuración</span>
           </a>
         </li>
         <li class="dropdown-item">
-          <a
-            [routerLink]="['/contactanos']"
-            class="sidebar-link"
-            title="Contáctanos"
-          >
-            <i class="bi bi-telephone me-4"></i
-            ><span class="text">Contáctanos</span>
+          <a [routerLink]="['/contactanos']" class="sidebar-link" title="Contáctanos">
+            <i class="bi bi-telephone me-4"></i><span class="text">Contáctanos</span>
           </a>
         </li>
       </ul>
     </li>
 
-    <a
-      class="navbar-brand me-4"
-      href="#"
-      style="
-        color: white;
-        font-weight: bold;
-        font-size: 24px;
-        text-align: center;
-      "
-      me-4
-      >FerreGestionSys</a
-    >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-      title="Opciones"
-    >
-      <span class="navbar-toggler-icon text-white"></span>
+    <h3 class="d-block text-align-right me-4 fw-bold"
+              style="text-align: center; font-weight: bold; font-size: 18px; color: white; margin: 0; padding: 0;">
+              Bienvenido: {{ Nombre }}
+            </h3>
+    <button class="navbar-toggler" type="button" style="transform: scale(0.5);" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation" title="Menu">
+      <span class="navbar-toggler-icon me-4"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
-        <li class="nav-item dropdown">
-          <h3
-            class="d-block text-center me-4 fw-bold"
-            style="color: royalblue; text-align: center; font-weight: bold"
-          >
-            Bienvenido {{ Nombre }}
-          </h3>
-        </li>
-      
-      <form
-        class="d-flex justify-content-center justify-content-lg-end w-100 me-4"
-        (ngSubmit)="buscar_modulo(searchInput.value)"
-        role="search"
-      >
-        <input
-          #searchInput
-          class="form-control me-2"
-          type="search"
-          placeholder="Buscar"
-          aria-label="Search"
-          title="Buscar"
-        />
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
 
-      <div
-        class="d-flex justify-content-center justify-content-lg-end mt-3 mt-lg-0 w-100"
-      >
-        <button
-          class="btn me-2"
-          id="logoutBtn"
-          aria-label="Cerrar sesión"
-          (click)="cerrar()"
-          title="Cerrar sesión"
-          style="
+
+
+      <form class="d-flex justify-content-center align-items-center w-50 mx-auto"
+        (ngSubmit)="buscar_modulo(searchInput.value)" role="search">
+        <input #searchInput class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
+          title="Buscar" style="
+            border-radius: 15px;
+            padding: 5px 8px;
+            margin: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+            font-size: 14px;
+
+            " />
+        <button class="btn btn-success" type="submit"
+          style="border-radius: 15px; padding: 5px 8px; margin: 3px; font-size: 14px;">Buscar</button>
+      </form>
+      <button class="btn me-3" id="logoutBtn" aria-label="Cerrar sesión" (click)="cerrar()" title="Cerrar sesión" style="
           background-color: rgb(78, 78, 140);
           color: white;
           border: 1px solid white;
-          border-radius: 10px;
-          padding: 10px 15px;
-          margin: 5px;
-          
-        "
-        >
-          <i class="bi bi-box-arrow-right me-4 text-white fw-bold"></i>Cerrar
-          sesión
-        </button>
-      </div>
+          border-radius: 15px;
+          padding: 5px 8px;
+          margin: 3px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          transform: scale(0.5);
+          font-size: 28px;
+          text-align: center;
+          font-weight: bold;
+        " onmouseover="this.style.backgroundColor='#0f1237'"
+        onmouseout="this.style.backgroundColor='rgb(78, 78, 140)'">
+        <i class="bi bi-box-arrow-right me-2 text-white fw-bold"></i>Cerrar
+        sesión
+      </button>
+
     </div>
   </div>
 </nav>

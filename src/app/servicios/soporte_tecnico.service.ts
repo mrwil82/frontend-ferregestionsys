@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class Soporte_TecnicoService {
   
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/soporte_tecnico.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/soporte_tecnico.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/soporte_tecnico.php';
 
   constructor(private http: HttpClient) {}
 

@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
   url = 'http://localhost/Proyecto_sena/Backend-ferregestionsys/Controladores/login.php';
+  //url = 'https://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/login.php';
 
   constructor(private http: HttpClient) {}
 

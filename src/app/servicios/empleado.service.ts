@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class EmpleadoService {
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/empleado.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/empleado.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/empleado.php';
 
   constructor(private http: HttpClient) {}
   consultar() {

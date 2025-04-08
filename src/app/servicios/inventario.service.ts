@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class InventarioService {
  
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/inventario.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/inventario.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/inventario.php';
 
   constructor(private http: HttpClient) {}
 

@@ -1,7 +1,7 @@
 <nav aria-label="ruta de navegación">
-  <ol class="breadcrumb">
+  <ol class="seccion breadcrumb">
     <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Inventario</li>
+    <li class="breadcrumb-item active text-white aria-current=" page>Inventario</li>
   </ol>
 </nav>
 <hr />
@@ -13,7 +13,8 @@
       <hr />
     </div>
   </div>
-
+  
+  
   <div class="container text-center">
     <button
       class="btn btn-outline-primary btn-lg"
@@ -23,6 +24,7 @@
     </button>
   </div>
   <hr />
+  <!-- Formulario -->
   <div id="formulario" *ngIf="mostrar == true">
     <div class="row">
       <div class="col-lg-4">
@@ -142,7 +144,7 @@
   <!-- Tabla de datos -->
   <div class="container-fluid" id="tabla">
     <div class="table-responsive">
-      <table class="table table-hover table-striped">
+      <table class="table table-success table-hover table-striped">
         <thead>
           <tr>
             <th>Producto</th>

@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class ProveedorService {
 
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/proveedor.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/proveedor.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/proveedor.php';
 
   constructor(private http: HttpClient) {}
 

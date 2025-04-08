@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class VentasService {
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/ventas.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/ventas.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/ventas.php';
 
   constructor(private http: HttpClient) {}
 

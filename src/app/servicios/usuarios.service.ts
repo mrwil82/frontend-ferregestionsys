@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 //Servicio de usuarios
 export class UsuariosService {
-  url =
-    'http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/usuarios.php';
+  url ='http://localhost/proyecto_sena/Backend-ferregestionsys/Controladores/usuarios.php';
+  //url = 'http://ferregestionsys.ct.ws/Backend-ferregestionsys/Controladores/usuarios.php';
 
   constructor(private http: HttpClient) {}
 

@@ -51,6 +51,7 @@ export class PedidoinsertarComponent {
   consulta_inventario() {
     this.sinventario.consultar().subscribe((resultado: any) => {
       this.inventario = resultado;
+      console.log(this.inventario);
     });
   }
 
@@ -60,7 +61,7 @@ export class PedidoinsertarComponent {
       .subscribe((resultado: any) => {
         this.clientes = resultado;
         this.nombre_clientes = this.clientes[0].Nombre;
-        //console.log(this.clientes);
+        console.log(this.clientes);
       });
   }
 
@@ -84,6 +85,7 @@ export class PedidoinsertarComponent {
     this.total = 0;
     for (let i = 0; i < this.arreglo_productos.length; i++) {
       this.total += Number(this.arreglo_productos[i].subtotal);
+      console.log(this.total);
     }
   }
   
@@ -93,10 +95,11 @@ export class PedidoinsertarComponent {
   }
   //metodo
   guardar() {
-    if (!this.arreglo_productos.length || !this.clientes?.length || !this.inventario?.length) {
+    if (!this.arreglo_productos.length || !this.clientes?.length || !this.ident_clientes || !this.nombre_clientes) {
       alert('Faltan datos necesarios para crear el pedido');
       return;
     }
+  
     let fecha = new Date();
     this.pedidos.Fecha = `${fecha.getFullYear()}-${fecha.getMonth() + 1}-${fecha.getDate()}`;
     this.pedidos.Productos = this.arreglo_productos.map((item: any) => item.Producto).join(',');
@@ -105,17 +108,20 @@ export class PedidoinsertarComponent {
     this.pedidos.subtotal = this.total.toString();
     this.pedidos.total = this.total.toString();
     console.log(this.pedidos);
-
+  
     this.spedidos.insertar(this.pedidos).subscribe({
       next: (datos: any) => {
         if (datos['resultado'] == 'OK') {
           console.log('Guardado');
           this.router.navigate(['/pedidos']);
+        } else {
+          alert('Error al guardar el pedido: ' + datos['mensaje']);
         }
       },
       error: (error) => {
         console.log('Error:', error);
+        alert('Error al guardar el pedido: ' + error.message);
       }
-  });
-}
+    });
+  }
 }
