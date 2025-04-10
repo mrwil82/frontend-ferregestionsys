@@ -1,69 +1,56 @@
-<div class="container-fluid" style="
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(../../../assets/plugins/imagenes/logo/fondo\ login.png)
-      no-repeat center center fixed;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-  ">
-  <form class="login-form text-center needs-validation" id="login-form" name="login-form" style="
-      background-color: rgb(17, 17, 43);
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 500px;
-      margin: 20px auto;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-      border: 1px solid #ccc;
-    ">
-
-    <div class="login-container text-center">
-      <h1 class="text-center fw-bold text-white mb-4" style="font-size: calc(1.8rem + 1.5vw);">FerreGestionSys</h1>
-      <div class="logo text-center">
-        <img src="../../../assets/plugins/imagenes/logo/Logo.png" alt="Logo" class="img-fluid" style="
-            max-width: min(180px, 80%);
-            height: auto;
-            border-radius: 20px;
-            margin: 20px auto;
-            border: solid 2px #fff;
-          " />
+<!-- Container principal con fondo de imagen -->
+<div class="container-fluid login-background">
+  <!-- Formulario de login con efecto de tarjeta -->
+  <form class="login-form text-center needs-validation" id="login-form" name="login-form">
+    <!-- Sección de cabecera con logo y título -->
+    <div class="login-header text-center">
+      <h1 class="text-center fw-bold text-white mb-4">FerreGestionSys</h1>
+      <div class="logo-container text-center">
+        <img src="../../../assets/plugins/imagenes/logo/Logo.png" alt="Logo" class="img-fluid logo-img" />
       </div>
-      <div class="mb-4">
-        <label for="username" class="form-label text-white fw-bold mb-3" style="font-size: calc(1rem + 0.5vw)">Datos de
-          acceso</label>
-        <div class="input-group">
-          <span class="input-group-text"><i class="fas fa-user me-2"></i></span>
-          <input type="email" class="form-control" style="border-radius: 20px;"
-            onmouseover="this.style.borderColor='#007bff'" onmouseout="this.style.borderColor=''" id="username"
+    </div>
+
+    <!-- Sección de formulario con campos de entrada -->
+    <div class="login-container">
+      <div class="form-section">
+        <label for="username" class="form-label text-white fw-bold mb-3">Datos de acceso</label>
+        <div class="input-group mb-4">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+          <input type="email" class="form-control custom-input" id="username" 
             placeholder="Ingrese su correo electrónico" [(ngModel)]="Correo" name="Correo" #emailInput />
         </div>
+        
+        <div class="input-group mb-4">
+          <span class="input-group-text"><i class="fas fa-lock"></i></span>
+          <input type="password" class="form-control custom-input" id="password"
+            placeholder="Ingrese su contraseña" [(ngModel)]="clave" name="clave" #passwordInput />
+          <span class="input-group-text password-toggle" id="togglePassword">
+            <i class="fas fa-eye" title="Mostrar contraseña"></i>
+          </span>
+        </div>
+        
+        <!-- Mensaje de error (aparece condicionalmente) -->
+        <div class="alert alert-danger" *ngIf="error === true">
+          <i class="fas fa-exclamation-circle me-2"></i>
+          Credenciales incorrectas. Por favor, intente de nuevo.
+        </div>
       </div>
-    </div>
-    <div class="mb-4">
-      <div class="input-group">
-        <span class="input-group-text"><i class="fas fa-lock me-2 "></i></span>
-        <input type="password" class="form-control" style="border-radius: 20px ;" aria-label="Password" id="password"
-          placeholder="Ingrese su contraseña" [(ngModel)]="clave" name="clave" #passwordInput />
-        <span class="input-group-text" id="togglePassword">
-          <i class="fas fa-eye" title="Mostrar contraseña"></i>
-        </span>
+      
+      <div class="divider"></div>
+      
+      <!-- Botón de acceso con efecto de hover mejorado -->
+      <button type="button" class="btn btn-primary login-btn w-100 py-3"
+        value="Iniciar Sesión" (click)="consulta('')">
+        <i class="fas fa-sign-in-alt me-2"></i>
+        Iniciar Sesión
+      </button>
+      
+      <div class="divider"></div>
+      
+      <!-- Pie de página -->
+      <div class="footer-text">
+        <small><i>Copyright © 2025 FerreGestionSys</i></small>
       </div>
-    </div>
-
-    <div class="col-12" *ngIf="error === true"></div>
-    <hr class="my-4" />
-    <button type="button" class="btn btn-primary w-100 py-2"
-      style="border-radius: 20px; background-color: #12355a;" value="Iniciar Sesión"
-      (click)="consulta('')">
-      <i class="fas fa-sign-in-alt me-2"></i>
-      Iniciar Sesión
-    </button>
-    <hr class="my-4" />
-    <div class="text-white">
-      <small><i>Copyright © 2025 FerreGestionSys</i></small>
     </div>
   </form>
 </div>
