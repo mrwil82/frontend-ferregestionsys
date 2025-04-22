@@ -180,7 +180,7 @@ export class UsuariosComponent implements OnInit {
         padding: '2em', 
         width: '32em', 
       })
-      .then((result) => {
+      .then((result: any) => {
         if (result.isConfirmed) {
           this.susuarios.eliminar(id).subscribe((datos: any) => {
             if (datos['resultado'] == 'OK') {

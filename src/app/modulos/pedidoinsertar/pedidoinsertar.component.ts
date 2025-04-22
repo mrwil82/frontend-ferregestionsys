@@ -41,7 +41,7 @@ export class PedidoinsertarComponent {
     private router: Router,
     private sinventario: InventarioService,
     private sclientes: ClientesService,
-    private spedidos: PedidosService
+    private spedidos: PedidosService,
   ) {}
 
   ngOnInit(): void {

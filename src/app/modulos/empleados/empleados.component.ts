@@ -11,9 +11,9 @@ import Swal from 'sweetalert2';
 })
 export class EmpleadosComponent implements OnInit {
   empleado: any = [];
-id_empleado: any = 0;
-administracion: any = [];
-obj_empleado = {
+  id_empleado: any = 0;
+  administracion: any = [];
+  obj_empleado = {
     Nombre: '',
     Apellido: '',
     Direccion: '',
@@ -148,7 +148,7 @@ obj_empleado = {
         padding: '2em', // Added more padding to the popup
         width: '32em', // Made popup slightly wider
       })
-      .then((result) => {
+      .then((result: any) => {
         if (result.isConfirmed) {
           this.sempleado.eliminar(id).subscribe((datos: any) => {
             if (datos['resultado'] == 'OK') {

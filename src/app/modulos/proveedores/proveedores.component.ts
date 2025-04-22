@@ -144,7 +144,7 @@ export class ProveedoresComponent implements OnInit {
         padding: '2em', // Added more padding to the popup
         width: '32em', // Made popup slightly wider
       })
-      .then((result) => {
+      .then((result: any) => {
         if (result.isConfirmed) {
           this.sproveedor.eliminar(id).subscribe((datos: any) => {
             if (datos['resultado'] == 'OK') {

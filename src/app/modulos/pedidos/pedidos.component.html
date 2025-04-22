@@ -4,7 +4,7 @@
     <li class="breadcrumb-item active text-white aria-current=" page>Pedidos</li>
   </ol>
 </nav>
-  <hr />
+<hr />
 
 <div class="container-fluid mt-4">
   <div class="row">
@@ -28,10 +28,7 @@
           <tr>
             <th>N_pedido</th>
             <th>Fecha</th>
-            <th>Cliente</th>
             <th>Descripcion</th>
-            <th>Total</th>
-            <th>vendedor</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -41,29 +38,18 @@
               0{{ item.id_ventas }}
             </td>
             <td>{{ item.Fecha }}</td>
-            <td>{{ item.ident_cliente }}</td>
-            <td>
-              {{ item.Descripcion }}
-              <input
-                type="button"
-                value="ver pedido"
-                class="btn btn-sm btn-outline-success btn-sm"
-                data-bs-toggle="modal"
-                data-bs-target="#verpedido"
-                (click)="mostrar_modal(1, item.id_ventas)"
-              />
-            </td>
-            <td>{{ item.Total | currency }}</td>
-            <td>{{ item.Vendedor }}</td>
-            <td class="text-center">
-              <span class="" style="color: blue; cursor: pointer" title="Editar"
-                ><i class="bi bi-clipboard-check me-3"></i
-              ></span>
-              <span
-                style="color: rgb(32, 168, 5); cursor: pointer"
-                title="Anular"
-                ><i class="bi bi-trash me-3"></i
-              ></span>
+            <td><span class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#verpedido"
+                (click)="mostrar_modal(1, item.id_ventas)">
+                Ver pedido
+              </span></td>
+           
+            <td class="text-left">
+
+              <span class="" style="color: blue; cursor: pointer" title="Editar">
+                <i class="bi bi-clipboard-check me-3"></i>
+              </span>
+              <span style="color: rgb(32, 168, 5); cursor: pointer" title="Anular"><i
+                  class="bi bi-trash me-3"></i></span>
             </td>
           </tr>
         </tbody>
@@ -74,39 +60,28 @@
 
 <!-- Modal -->
 
-<div
-  class="modal fade"
-  id="verpedido"
-  tabindex="-1"
-  aria-labelledby="verpedido"
-  aria-hidden="true"
-  *ngIf="modal == true"
->
+<div class="modal fade" id="verpedido" tabindex="-1" aria-labelledby="verpedido" aria-hidden="true"
+  *ngIf="modal == true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="verpedido">Productos</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
         <table class="table table-hover table-striped">
           <thead>
             <tr>
               <th>N° Pedido</th>
-              <th>Producto</th>
+              <th>Productos</th>
               <th>Cantidad</th>
-              <th>Precio Unit.</th>
+              <th>Precio</th>
               <th>Subtotal</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let itemp of Productos">
-              <td>0{{ itemp.id_ventas }}</td>
+              <td>0{{ pedidoSeleccionadoId }}</td>
               <td>{{ itemp.Producto }}</td>
               <td>{{ itemp.Cantidad }}</td>
               <td>{{ itemp.Precio | currency }}</td>
@@ -116,12 +91,7 @@
         </table>
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-bs-dismiss="modal"
-          (click)="mostrar_modal(0, 0)"
-        >
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="mostrar_modal(0, 0)">
           Cerrar
         </button>
       </div>
