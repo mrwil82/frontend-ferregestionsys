@@ -1,77 +1,184 @@
-input {
-    font-size: 14px;
-    margin-bottom: 5px;
-    display: block;
-    border: 2px solid #0c0c29;
-    border-radius: 30px;
 
-    &:hover {
-        background: #747791;
-        color: #070101;
-        border: 2px solid #007bff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        transform: translateX(5px);
-        transition: all 0.3s ease-in-out;
-    }
-}
-.table {
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-
-  }
-  .btn {
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-
-    &:hover {
-        background: #25273d;
-        color: #ffffff;
-        border: 2px solid #007bff;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        transform: translateX(15px);
-
-    }
-
-  }
   .seccion{
-    background: linear-gradient(to right, rgba(15, 18, 55, 0.8), rgba(15, 18, 55, 0.9));
+    background: linear-gradient(to right, rgba(29, 33, 80, 0.8), rgba(15, 18, 55, 0.9));
     color: #ffffff;
     border: 1px solid #007bff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 30px;
     padding: 10px;
     margin: 10px 0; 
-    font-size: 14px;
+    font-size: 24px;
     font-weight: bold;
     text-align: center;
     max-width: 50%;
     min-width: 100%;
+  }
 
 
-    
-  }
-  @media screen and (max-width: 768px) {
-    .table {
-        font-size: 14px;
+/* --- Estilos generales aplicados a la etiqueta body (fuente, fondo, color de texto, etc.) --- */
+.container {
+    /* Cambio de fuente a Poppins */
+    font-family: 'Poppins', sans-serif;
+    /* Cambio de fondo a un azul oscuro usando la variable */
+    background-color:#0a192f;
+    margin: 0;
+    padding: 0;
+    /* Color de texto principal por defecto usando la variable */
+    color:#e6f1ff;
+    line-height: 1.6; /* Mejorar legibilidad */
+    font-weight: 400; /* Peso de fuente regular */
+    font-size: 14px; /* Tamaño de fuente */
+    text-align: center; /* Centrar el texto */
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    border-radius: 20px;
+}
+  .admin-container {
+    max-width: 1000px;
+    margin: 40px auto; /* Aumentar margen superior y centrar */
+    padding: 20px;
+}
+
+/* --- Estilos para la cabecera que contiene el título principal --- */
+.admin-header {
+    text-align: center;
+    margin-bottom: 50px; /* Aumentar separación inferior */
+}
+
+/* --- Estilos específicos para el título principal H1 --- */
+.admin-header h1 {
+    font-size: 42px; /* Ligeramente más pequeño */
+    margin: 0;
+    color:#e6f1ff;
+    text-shadow: 0 2px 4px rgba(2, 12, 27, 0.7);
+    letter-spacing: 3px; /* Aumentar espaciado entre letras */
+    font-weight: 600; /* Peso de fuente semibold */
+    text-transform: uppercase; /* Todo en mayúsculas */
+}
+
+/* --- Configuración del layout de CSS Grid para organizar las tarjetas --- */
+.admin-grid {
+    display: grid;
+    /* Crea dos columnas de igual fracción del espacio disponible */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* Aumentar separación entre tarjetas */
+}
+
+/* --- Estilos base comunes para todas las tarjetas de administración --- */
+.admin-card {
+    background-color:#172a46;
+    border-radius: 50px; /* Reducir un poco el radio de borde */
+    padding: 25px; /* Ajustar padding interno */
+    box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
+    display: flex; /* Usar flexbox para alinear icono y texto */
+    align-items: center; /* Centrar verticalmente los items */
+    gap: 20px; /* Espacio entre icono y texto */
+    /* Transiciones suaves para efectos hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    /* Quitar subrayado si fueran enlaces <a>, aunque aquí se usa div con onclick */
+    text-decoration: none;
+    /* Hereda el color de texto del body o el definido en :root */
+    color: inherit;
+    cursor: pointer; /* Indicar que es clickeable */
+}
+
+/* --- Efectos visuales al pasar el cursor sobre una tarjeta (hover) --- */
+.admin-card:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta */
+    box-shadow: 0 10px 20px     rgba(2, 12, 27, 0.7); /* Sombra más pronunciada */
+    /* Cambio sutil de fondo al pasar el ratón */
+    background-color: #1f3a5f;
+}
+
+/* --- Estilo específico para la tarjeta ancha, haciéndola ocupar dos columnas en el grid --- */
+.wide-card {
+    grid-column: span 2; /* Ocupa el espacio de 2 columnas */
+}
+
+/* --- Estilos para el contenedor de iconos dentro de las tarjetas --- */
+.icon-container {
+    font-size: 38px; /* Ajustar tamaño de icono */
+    /* Color de acento para iconos usando variable */
+    color: #64ffda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Evitar que el icono se encoja si el texto es largo */
+    width: 50px; /* Ancho fijo para mantener alineación */
+    text-align: center; /* Centrar icono si fuera necesario */
+}
+
+/* --- Estilo específico para el icono dentro de la tarjeta del logo --- */
+.logo-card .icon-container {
+    color: #ffffff; /* Icono blanco usando variable */
+    font-size: 42px; /* Puede ser un poco más grande */
+}
+
+/* --- Estilos para el contenedor del texto dentro de las tarjetas --- */
+.card-text {
+    display: flex;
+    flex-direction: column; /* Apila el H2 y el P verticalmente */
+}
+
+/* --- Estilos para los títulos (H2, H3) dentro de las tarjetas --- */
+.admin-card h2,
+.admin-card h3 {
+    margin: 0; /* Quitar margen por defecto */
+    font-size: 20px; /* Reducir tamaño de fuente */
+    font-weight: 600; /* Semibold */
+    color: #e6f1ff; /* Asegurar color usando variable */
+}
+
+/* --- Ajuste específico del tamaño de fuente para los H2 (usado en la tarjeta logo) --- */
+.admin-card h2 {
+    font-size: 22px; /* El H2 del logo puede ser un poco mayor */
+}
+
+/* --- Estilos para el texto de párrafo (usado en la tarjeta logo) --- */
+.card-text p {
+    margin: 4px 0 0 0; /* Pequeño margen superior */
+    font-size: 14px;
+    /* Color de texto secundario usando variable */
+    color: #a8b2d1;
+    opacity: 0.9; /* Ligera transparencia */
+    font-weight: 300; /* Fuente más ligera */
+}
+
+/* --- Bloque de Media Query para aplicar estilos específicos en pantallas pequeñas (responsive) --- */
+@media (max-width: 768px) {
+    /* --- Ajuste del tamaño del título principal para móviles --- */
+    .admin-header h1 {
+        font-size: 32px;
     }
-    .btn {
-        font-size: 14px;
-        padding: 5px 10px;
+
+    /* --- Cambio del grid a una sola columna en móviles --- */
+    .admin-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 20px; /* Reducir gap en móvil */
     }
-    .seccion {
-        font-size: 12px;
-        padding: 5px;
+
+    /* --- Asegura que la tarjeta ancha también ocupe una columna en móviles --- */
+    .wide-card {
+        grid-column: span 1;
     }
-    input {
-        font-size: 12px;
-        padding: 5px;
+
+    /* --- Reducción de padding en las tarjetas para móviles --- */
+    .admin-card {
+        padding: 20px;
     }
-    
-  }
+
+    /* --- Reducción del tamaño de fuente de los títulos H2 y H3 en móviles --- */
+    .admin-card h2,
+    .admin-card h3 {
+        font-size: 18px;
+    }
+
+    /* --- Reducción del tamaño del icono y su contenedor en móviles --- */
+    .icon-container {
+        font-size: 30px;
+        width: 40px;
+    }
+}

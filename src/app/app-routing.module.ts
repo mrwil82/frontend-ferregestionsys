@@ -17,6 +17,11 @@ import { ValidaruserGuard } from './guard/validaruser.guard';
 import { PedidosComponent } from './modulos/pedidos/pedidos.component';
 import { PedidoinsertarComponent } from './modulos/pedidoinsertar/pedidoinsertar.component';
 import { ClientesComponent } from './modulos/clientes/clientes.component';
+import { ConfiguracionComponent } from './modulos/configuracion/configuracion.component';
+import { ContactanosComponent } from './modulos/contactanos/contactanos.component';
+import { GestionDeSedesComponent } from './modulos/gestion-de-sedes/gestion-de-sedes.component';
+import { ConfiguracionGeneralComponent } from './modulos/configuracion-general/configuracion-general.component';
+import { ConfiguracionSeguridadComponent } from './modulos/configuracion-seguridad/configuracion-seguridad.component';
 
 const routes: Routes = [
   {
@@ -83,7 +88,38 @@ const routes: Routes = [
         component: PedidoinsertarComponent,
         canActivate: [ValidaruserGuard],
       },
-      { path: 'clientes', component: ClientesComponent, canActivate: [ValidaruserGuard] },
+      {
+        path: 'clientes',
+        component: ClientesComponent,
+        canActivate: [ValidaruserGuard]
+      },
+
+      {
+        path: 'configuracion',
+        component: ConfiguracionComponent,
+        canActivate: [ValidaruserGuard]
+      },
+
+      {
+        path: 'contactanos',
+        component: ContactanosComponent,
+        canActivate: [ValidaruserGuard]
+      },
+      {
+        path: 'gestion-de-sedes',
+        component: GestionDeSedesComponent,
+        canActivate: [ValidaruserGuard]
+      },
+      {
+        path: 'configuracion-general',
+        component: ConfiguracionGeneralComponent,
+        canActivate: [ValidaruserGuard]
+      },
+      {
+        path: 'configuracion-seguridad',
+        component: ConfiguracionSeguridadComponent,
+        canActivate: [ValidaruserGuard]
+      },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
@@ -95,4 +131,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -1,0 +1,388 @@
+/* --- Estilos generales aplicados al body: fuente, fondo, color base, etc. --- */
+.main-container {
+    font-family: 'Poppins', sans-serif; /* Fuente principal Poppins o sans-serif como alternativa */
+    background-color: #dfe7ee; /* Aplica el color de fondo general */
+    color: #333; /* Color de texto por defecto */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    line-height: 1.5; /* Interlineado estándar para legibilidad */
+    font-size: 15px; /* Tamaño de fuente base */
+}
+
+/* --- Estilos para el contenedor principal de la interfaz administrativa --- */
+.admin-container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 30px auto; /* Margen superior/inferior y centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* --- Estilos para la cabecera de la página (contiene título y botón Volver) --- */
+.page-header {
+    display: flex; /* Usa Flexbox para alinear elementos horizontalmente */
+    align-items: center; /* Centra verticalmente el botón y el título */
+    justify-content: space-between; /* Separa el botón del título */
+    margin-bottom: 30px; /* Espacio debajo de la cabecera */
+    padding-bottom: 15px; /* Espacio debajo de la línea */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria inferior */
+}
+
+/* --- Estilos para el título principal H1 de la página --- */
+.page-header h1 {
+    font-size: 26px; /* Tamaño del título */
+    font-weight: 600; /* Peso semibold */
+    color: #212529; /* Color del título */
+    margin: 0; /* Sin márgenes */
+    text-align: right; /* Alineación a la derecha (opcional) */
+    flex-grow: 1; /* Permite que ocupe el espacio disponible */
+}
+
+/* --- Estilos base generales para todos los botones (.btn) --- */
+.btn {
+    display: inline-flex; /* Necesario para alinear icono y texto correctamente */
+    align-items: center; /* Centrado vertical del contenido del botón */
+    justify-content: center; /* Centrado horizontal del contenido */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    vertical-align: middle; /* Alineación vertical */
+    cursor: pointer; /* Cursor de mano */
+    user-select: none; /* Evita selección de texto */
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: 1px solid transparent; /* Borde transparente por defecto */
+    padding: 0.4rem 0.8rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño de fuente de los botones */
+    border-radius: 0.3rem; /* Bordes redondeados */
+    /* Transiciones suaves para efectos hover */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* --- Estilos para los iconos dentro de los botones --- */
+.btn i {
+    margin-right: 6px; /* Espacio entre el icono y el texto */
+}
+
+/* --- Definición de colores específicos para variantes de botones (primario, secundario, etc.) --- */
+.btn-primary { color: #fff; background-color: #0d6efd; border-color: #0d6efd; } /* Botón primario azul */
+.btn-primary:hover { background-color: #0b5ed7; border-color: #0a58ca; } /* Hover botón primario */
+.btn-secondary { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Botón secundario gris */
+.btn-secondary:hover { background-color: #5c636a; border-color: #565e64; } /* Hover botón secundario */
+.btn-outline-secondary { color: #6c757d; border-color: #6c757d; } /* Botón secundario con borde */
+.btn-outline-secondary:hover { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Hover botón secundario con borde */
+
+/* --- Estilos para el contenedor que agrupa las tarjetas de configuración de seguridad --- */
+.security-container {
+    display: grid; /* Usa CSS Grid para organizar las tarjetas */
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* --- Estilos base para las tarjetas de sección dentro de la configuración de seguridad --- */
+.security-card {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 25px; /* Espaciado interno */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07); /* Sombra sutil */
+    border: 1px solid #dee2e6; /* Borde claro */
+}
+
+/* --- Estilos para los títulos H2 dentro de las tarjetas de seguridad --- */
+.security-card h2 {
+    font-size: 1.25rem; /* Tamaño de fuente (aprox 20px) */
+    font-weight: 600; /* Peso semibold */
+    color: #0d6efd; /* Color azul primario */
+    margin-top: 0; /* Sin margen superior */
+    margin-bottom: 25px; /* Espacio inferior */
+    padding-bottom: 10px; /* Espacio bajo el texto */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria */
+    display: flex; /* Permite alinear icono y texto */
+    align-items: center; /* Centra verticalmente icono y texto */
+}
+/* --- Estilos para los iconos dentro de los títulos H2 de las tarjetas de seguridad --- */
+.security-card h2 i {
+    margin-right: 10px; /* Espacio a la derecha del icono */
+    color: #0d6efd; /* Mismo color que el título */
+}
+
+/* --- Estilos para el contenedor que envuelve las tablas, permitiendo scroll horizontal si es necesario --- */
+.table-wrapper {
+    overflow-x: auto; /* Habilita scroll horizontal si la tabla es más ancha que el contenedor */
+    margin-bottom: 20px; /* Espacio debajo de la tabla, antes de los botones */
+    border: 1px solid #dee2e6; /* Borde alrededor del área de la tabla */
+    border-radius: 8px; /* Bordes redondeados consistentes con las tarjetas */
+}
+
+/* --- Estilos base para las tablas de datos (.data-table) --- */
+.data-table {
+    width: 100%; /* Ocupa todo el ancho del wrapper */
+    border-collapse: collapse; /* Colapsa los bordes de las celdas */
+    background-color: #ffffff; /* Fondo blanco base */
+    color: #212529; /* Color de texto para la tabla */
+    min-width: 600px; /* Ancho mínimo para asegurar legibilidad y forzar scroll si es necesario */
+}
+
+/* --- Estilos para la cabecera (thead) de las tablas --- */
+.data-table thead th {
+    background-color: #d1e7dd; /* Fondo verde-azulado claro */
+    font-weight: 600; /* Texto en negrita */
+    padding: 12px 15px; /* Padding interno */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border-bottom: 2px solid #dee2e6; /* Borde inferior más grueso */
+    white-space: nowrap; /* Evita que el texto de la cabecera se divida en múltiples líneas */
+}
+
+/* --- Estilos para las celdas (td) del cuerpo (tbody) de las tablas --- */
+.data-table tbody td {
+    padding: 10px 15px; /* Padding interno */
+    border-top: 1px solid #dee2e6; /* Línea divisoria superior */
+    vertical-align: middle; /* Alineación vertical del contenido */
+    background-color: #ffffff; /* Fondo blanco por defecto */
+}
+
+/* --- Estilo al pasar el ratón (hover) sobre las filas del cuerpo de la tabla --- */
+.data-table tbody tr:hover td {
+    background-color: #f1f5f9; /* Cambia el fondo a un gris muy claro */
+}
+
+/* --- Estilos específicos para las celdas de la tabla de permisos (.permisos-table) --- */
+.permisos-table tbody td {
+    background-color: #d1e7dd; /* Fondo verde-azulado para estas celdas */
+    text-align: center; /* Centra el contenido (los selects) */
+}
+/* --- Estilo hover específico para las celdas de la tabla de permisos --- */
+.permisos-table tbody tr:hover td {
+    background-color: #c7e2ef; /* Fondo hover verde-azulado más oscuro */
+}
+
+/* --- Estilos para los elementos Select (listas desplegables) usados en formularios y tablas --- */
+.form-select {
+    display: block; /* Ocupa el ancho disponible */
+    width: 100%; /* Ancho completo */
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem; /* Padding estándar, deja espacio para la flecha */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    color: #212529; /* Color del texto */
+    background-color: #ffffff; /* Fondo blanco */
+    /* Flecha desplegable personalizada usando SVG */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat; /* No repetir la imagen de la flecha */
+    background-position: right 0.75rem center; /* Posición de la flecha */
+    background-size: 16px 12px; /* Tamaño de la flecha */
+    border: 1px solid #ced4da; /* Borde */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    appearance: none; /* Quita la apariencia nativa del navegador */
+    /* Transición suave para el foco */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    min-width: 120px; /* Ancho mínimo para asegurar que se vean bien las opciones */
+}
+/* --- Estilo al enfocar (hacer clic) en un select --- */
+.form-select:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    /* Sombra de realce azul estilo Bootstrap */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+/* --- Estilo específico para los selects dentro de la tabla de permisos --- */
+.permisos-table .form-select {
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco semi-transparente para que se vea el verde debajo */
+}
+
+
+/* --- Estilos para la sección de filtros del historial de accesos --- */
+.access-filter {
+    display: flex; /* Usa Flexbox para alinear elementos horizontalmente */
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si no caben */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 15px; /* Espacio entre los elementos del filtro */
+    margin-bottom: 20px; /* Espacio debajo del bloque de filtros */
+    padding: 15px; /* Padding interno */
+    background-color: #f8f9fa; /* Fondo gris claro para diferenciar los filtros */
+    border-radius: 6px; /* Bordes redondeados */
+    border: 1px solid #dee2e6; /* Borde sutil */
+}
+/* --- Estilos para las etiquetas (label) dentro de los filtros --- */
+.access-filter label {
+    margin-bottom: 0; /* Sin margen inferior para alinear con los inputs/selects */
+    font-weight: 500; /* Peso medio */
+    font-size: 0.9rem; /* Tamaño fuente */
+    color: #212529; /* Color gris secundario */
+}
+/* --- Estilos para los selects e inputs dentro de los filtros --- */
+.access-filter .form-select,
+.access-filter .form-control {
+    flex: 1; /* Permite que ocupen el espacio disponible */
+    min-width: 150px; /* Ancho mínimo para que no se compriman demasiado */
+}
+/* --- Estilos para el botón de filtrar dentro de los filtros --- */
+.access-filter .btn-filtrar {
+    flex-shrink: 0; /* Evita que el botón se encoja si falta espacio */
+}
+
+/* --- Estilos base para inputs de texto, número, fecha, etc. (.form-control) --- */
+.form-control {
+    display: block; /* Ocupa el ancho disponible */
+    width: 100%; /* Ancho completo */
+    padding: 0.375rem 0.75rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    color: #212529; /* Color del texto */
+    background-color: #ffffff; /* Fondo blanco */
+    background-clip: padding-box; /* Controla cómo se recorta el fondo */
+    border: 1px solid #ced4da; /* Borde */
+    appearance: none; /* Quita estilos nativos */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    /* Transición suave para el foco */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* --- Estilo al enfocar (hacer clic) en un input .form-control --- */
+.form-control:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    /* Sombra de realce azul */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* --- Estilos para el contenedor de botones de acción al final de una tarjeta --- */
+.card-actions {
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-top: 20px; /* Espacio superior separador */
+}
+
+/* --- Estilos para el formulario de configuración de seguridad (complejidad contraseña, etc.) --- */
+.security-settings {
+    display: grid; /* Usa CSS Grid */
+    /* Columnas que se ajustan automáticamente con un mínimo de 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px; /* Espacio entre los grupos de configuración */
+}
+/* --- Estilos para un grupo de configuración (label + control/es) --- */
+.setting-group {
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Apila label sobre control */
+    gap: 8px; /* Espacio entre label y control */
+}
+/* --- Modificador para que un grupo ocupe todo el ancho del grid --- */
+.setting-group.full-width {
+    grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+}
+/* --- Estilos para la etiqueta principal de un grupo de configuración --- */
+.setting-group > label {
+    font-weight: 500; /* Peso medio */
+    color: var(--text-muted); /* Color gris secundario */
+    margin-bottom: 5px; /* Pequeño espacio antes del input o del grupo de checkboxes */
+}
+/* --- Layout de Grid para organizar múltiples checkboxes relacionados --- */
+.checkbox-grid {
+    display: grid;
+    /* Columnas automáticas de mínimo 150px para los checkboxes */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Espacio entre checkboxes */
+}
+/* --- Estilos para un grupo individual de checkbox (caja + etiqueta) --- */
+.checkbox-group {
+    display: flex; /* Alineación horizontal */
+    align-items: center; /* Centrado vertical */
+    gap: 8px; /* Espacio entre la caja y la etiqueta */
+}
+/* --- Estilos para la caja del checkbox (input[type=checkbox]) --- */
+.form-check-input {
+    width: 1em; /* Ancho relativo al tamaño de fuente */
+    height: 1em; /* Alto relativo al tamaño de fuente */
+    margin-top: 0.15em; /* Ajuste vertical fino */
+    vertical-align: top; /* Alineación vertical */
+    background-color: #ffffff; /* Fondo blanco */
+    background-repeat: no-repeat; /* No repetir imagen de fondo (check) */
+    background-position: center; /* Centrar imagen de fondo */
+    background-size: contain; /* Ajustar tamaño de imagen */
+    border: 1px solid rgba(0,0,0,.25); /* Borde sutil */
+    appearance: none; /* Quita estilo nativo */
+    border-radius: 0.25em; /* Bordes ligeramente redondeados */
+}
+/* --- Asegura bordes redondeados para tipo checkbox explícitamente --- */
+.form-check-input[type=checkbox] { border-radius: 0.25em; }
+/* --- Estilo cuando el checkbox está marcado (checked) --- */
+.form-check-input:checked {
+    background-color: #0d6efd; /* Fondo azul */
+    border-color: #0d6efd; /* Borde azul */
+}
+/* --- Añade la marca de verificación (check) como imagen de fondo cuando está marcado --- */
+.form-check-input:checked[type=checkbox] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+/* --- Estilo al enfocar (hacer clic o navegar con teclado) un checkbox --- */
+.form-check-input:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    /* Sombra de realce azul */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+/* --- Estilos para la etiqueta (label) asociada a un checkbox --- */
+.form-check-label {
+    font-size: 0.9rem; /* Tamaño fuente */
+    color: #333; /* Color de texto */
+}
+
+/* --- Estilo Específico para el Botón Volver (ROJO) --- */
+.btn-volver {
+    color: #dc3545; /* Usa la variable de color rojo definida */
+    border-color: #dc3545; /* Borde rojo */
+    background-color: transparent; /* Asegura fondo transparente por si acaso */
+}
+/* --- Estilo hover para el Botón Volver --- */
+.btn-volver:hover {
+    color: #ffffff; /* Texto blanco al pasar el ratón */
+    background-color: #dc3545; /* Fondo rojo al pasar el ratón */
+    border-color: #dc3545; /* Mantiene borde rojo */
+}
+/* --- Fin Estilo Botón Volver --- */
+
+
+/* --- Responsividad: Ajustes para diferentes tamaños de pantalla --- */
+/* --- Media Query para pantallas medianas (ej. tablets horizontales, laptops pequeñas) --- */
+@media (max-width: 992px) {
+    /* --- Ajusta el ancho máximo del contenedor principal --- */
+    .admin-container {
+        max-width: 960px;
+    }
+}
+
+/* --- Media Query para pantallas pequeñas (ej. tablets verticales, móviles) --- */
+@media (max-width: 768px) {
+    /* --- Reduce el tamaño de fuente base --- */
+    body { font-size: 14px; }
+    /* --- Reduce el padding del contenedor principal --- */
+    .admin-container { padding: 15px; }
+    /* --- Cambia la dirección del header a columna y centra elementos --- */
+    .page-header {
+        flex-direction: column-reverse; /* Botón Volver arriba */
+        align-items: center; /* Centra horizontalmente */
+        gap: 15px; /* Espacio entre botón y título */
+        text-align: center; /* Centra texto */
+    }
+    /* --- Reduce tamaño del título y lo centra --- */
+    .page-header h1 { font-size: 22px; text-align: center; }
+    /* --- Centra el botón Volver explícitamente --- */
+    .page-header .btn-volver { align-self: center; }
+
+    /* --- Reduce el padding de las tarjetas --- */
+    .security-card { padding: 20px; }
+    /* --- Reduce el tamaño de los títulos H2 dentro de las tarjetas --- */
+    .security-card h2 { font-size: 1.1rem; } /* aprox 18px */
+
+    /* --- Ajusta los filtros a una columna y estira elementos --- */
+    .access-filter {
+        flex-direction: column; /* Apila elementos verticalmente */
+        align-items: stretch; /* Estira elementos al ancho completo */
+        gap: 10px; /* Reduce espacio */
+        padding: 10px; /* Reduce padding */
+    }
+    /* --- Quita el ancho mínimo de los filtros en móvil --- */
+    .access-filter .form-select,
+    .access-filter .form-control { min-width: 0; }
+
+    /* --- Cambia el grid de configuración de seguridad a una sola columna --- */
+    .security-settings { grid-template-columns: 1fr; }
+    /* --- Apila los checkboxes uno debajo del otro --- */
+    .checkbox-grid { grid-template-columns: 1fr; }
+}
+/* --- Fin de estilos para Responsividad --- */

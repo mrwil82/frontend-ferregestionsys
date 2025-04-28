@@ -28,6 +28,9 @@ import { NoEncontroComponent } from './modulos/no-encontro/no-encontro.component
 import { PedidoinsertarComponent } from './modulos/pedidoinsertar/pedidoinsertar.component';
 import { PedidosComponent } from './modulos/pedidos/pedidos.component';
 import { ClientesComponent } from './modulos/clientes/clientes.component';
+import { GestionDeSedesComponent } from './modulos/gestion-de-sedes/gestion-de-sedes.component';
+import { ConfiguracionGeneralComponent } from './modulos/configuracion-general/configuracion-general.component';
+import { ConfiguracionSeguridadComponent } from './modulos/configuracion-seguridad/configuracion-seguridad.component';
 
 @NgModule({
   declarations: [
@@ -52,8 +55,15 @@ import { ClientesComponent } from './modulos/clientes/clientes.component';
     PedidoinsertarComponent,
     PedidosComponent,
     ClientesComponent,
+    GestionDeSedesComponent,
+    ConfiguracionGeneralComponent,
+    ConfiguracionSeguridadComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
   bootstrap: [AppComponent],
 })

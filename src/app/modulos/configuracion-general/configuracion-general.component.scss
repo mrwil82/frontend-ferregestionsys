@@ -1,0 +1,347 @@
+/*
+:root {
+    --table-bg-color: #e1f0ed;
+    --table-text-color: #1e404a;
+    --primary-blue: #0d6efd;
+    --secondary-gray: #6c757d;
+    --success-green: #198754;
+    --danger-red: #dc3545;
+    --body-bg-color: #f8f9fa;
+    --card-bg-color: #ffffff;
+    --title-color: #212529;
+    --border-light: #dee2e6;
+    --hover-row-bg: #cfe8e2;
+    --input-border-color: #ced4da;
+    --input-bg-color: #ffffff;
+    --text-muted: #6c757d;
+}
+*/
+
+/* --- Estilos generales aplicados al body (fuente, fondo, color, etc.) --- */
+.admin-container {
+    font-family: 'Poppins', sans-serif; /* Fuente principal */
+    background-color:#f8f9fa; /* Fondo general */
+    color: #333; /* Color de texto por defecto */
+    margin: 0; /* Sin márgenes externos */
+    padding: 0; /* Sin padding interno */
+    line-height: 1.5; /* Interlineado para mejor legibilidad */
+    font-size: 15px; /* Tamaño de fuente base */
+}
+
+/* --- Estilos para el contenedor principal que envuelve todo el contenido de la página --- */
+.main-container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 30px auto; /* Margen superior/inferior y centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* --- Estilos para la cabecera de la página (título y botón Volver) --- */
+.page-header {
+    display: flex; /* Alineación horizontal usando Flexbox */
+    align-items: center; /* Centrado vertical de elementos */
+    justify-content: space-between; /* Espacio entre botón Volver y título */
+    margin-bottom: 30px; /* Espacio inferior */
+    padding-bottom: 15px; /* Espacio interno inferior */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria inferior */
+}
+
+/* --- Estilos para el título principal H1 dentro de la cabecera --- */
+.page-header h1 {
+    font-size: 26px; /* Tamaño de fuente */
+    font-weight: 600; /* Peso (semibold) */
+    color: #212529; /* Color del título */
+    margin: 0; /* Sin margen */
+    text-align: right; /* Alineado a la derecha */
+    flex-grow: 1; /* Permite que ocupe el espacio restante */
+}
+
+/* --- Estilos base generales para todos los botones (.btn) --- */
+.btn {
+    display: inline-flex; /* Permite alinear icono y texto, se comporta como inline-block */
+    align-items: center; /* Centra verticalmente icono y texto */
+    justify-content: center; /* Centra horizontalmente el contenido (útil si solo hay icono) */
+    font-weight: 400; /* Peso de fuente normal */
+    line-height: 1.5; /* Interlineado */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Sin subrayado */
+    vertical-align: middle; /* Alineación vertical */
+    cursor: pointer; /* Cursor de mano */
+    user-select: none; /* Evita selección de texto del botón */
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: 1px solid transparent; /* Borde transparente por defecto */
+    padding: 0.4rem 0.8rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    border-radius: 0.3rem; /* Bordes redondeados */
+    /* Transiciones suaves para efectos hover */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* --- Estilos para iconos dentro de los botones --- */
+.btn i {
+    margin-right: 6px; /* Espacio a la derecha del icono, antes del texto */
+}
+
+/* --- Definición de colores específicos para variantes de botones --- */
+.btn-primary { color: #fff; background-color: #0d6efd; border-color: #0d6efd; } /* Botón primario (azul) */
+.btn-primary:hover { background-color: #0b5ed7; border-color: #0a58ca; } /* Hover del botón primario */
+.btn-secondary { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Botón secundario (gris) */
+.btn-secondary:hover { background-color: #5c636a; border-color: #565e64; } /* Hover del botón secundario */
+.btn-outline-secondary { color: #6c757d; border-color: #6c757d; } /* Botón secundario con borde */
+.btn-outline-secondary:hover { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Hover del botón secundario con borde */
+
+/* --- Estilo Específico para el Botón Volver (ROJO) --- */
+.btn-volver {
+    color: #dc3545; /* Texto rojo */
+    border-color: #dc3545; /* Borde rojo */
+    background-color: transparent; /* Fondo transparente */
+}
+/* --- Estilo hover para el Botón Volver --- */
+.btn-volver:hover {
+    color: #ffffff; /* Texto blanco */
+    background-color: #dc3545; /* Fondo rojo */
+    border-color: #dc3545; /* Borde rojo */
+}
+/* --- Fin Estilo Botón Volver --- */
+
+
+/* --- Estilos para el contenedor principal de las tarjetas de configuración --- */
+.settings-sections-container {
+    display: grid; /* Usa CSS Grid para organizar las tarjetas */
+    gap: 30px; /* Espacio entre las tarjetas */
+}
+
+/* --- Estilos base para cada tarjeta de sección de configuración --- */
+.settings-card {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 25px; /* Espaciado interno */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07); /* Sombra sutil */
+    border: 1px solid #dee2e6; /* Borde claro */
+}
+
+/* --- Estilos para los títulos H2 dentro de las tarjetas de configuración --- */
+.settings-card h2 {
+    font-size: 1.25rem; /* Tamaño de fuente */
+    font-weight: 600; /* Peso (semibold) */
+    color: #0d6efd; /* Color azul primario */
+    margin-top: 0; /* Sin margen superior */
+    margin-bottom: 25px; /* Espacio inferior */
+    padding-bottom: 10px; /* Espacio bajo el texto */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria */
+    display: flex; /* Permite alinear icono y texto */
+    align-items: center; /* Centra verticalmente icono y texto */
+}
+/* --- Estilos para los iconos dentro de los títulos H2 de las tarjetas --- */
+.settings-card h2 i {
+    margin-right: 10px; /* Espacio a la derecha del icono */
+    color: #0d6efd; /* Mismo color que el título */
+}
+
+/* --- Formularios y Controles --- */
+
+/* --- Layout de CSS Grid para organizar los campos del formulario --- */
+.form-grid {
+    display: grid;
+    /* Crea columnas automáticas que miden mínimo 250px y se ajustan al espacio */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px 25px; /* Espacio vertical y horizontal entre campos */
+}
+
+/* --- Estilos para un grupo de campo (Label + Input/Select/Textarea) --- */
+.setting-group {
+    display: flex; /* Usa Flexbox */
+    flex-direction: column; /* Apila la etiqueta sobre el control */
+    gap: 8px; /* Espacio entre la etiqueta y el control */
+}
+/* --- Modificador para que un grupo ocupe todo el ancho del grid --- */
+.setting-group.full-width {
+    grid-column: 1 / -1; /* Ocupa desde la primera hasta la última columna */
+}
+/* --- Estilos para las etiquetas (label) dentro de los grupos --- */
+.setting-group > label {
+    font-weight: 500; /* Peso medio */
+    color: #6c757d; /* Color gris secundario */
+    margin-bottom: 0; /* Sin margen inferior, el gap ya da espacio */
+    font-size: 0.9rem; /* Tamaño de fuente ligeramente reducido */
+}
+
+/* --- Estilos base para controles de formulario (inputs, textarea) --- */
+.form-control {
+    display: block; /* Ocupa todo el ancho disponible */
+    width: 100%; /* Ancho completo */
+    padding: 0.375rem 0.75rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño de fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    color: #212529; /* Color del texto */
+    background-color: #ffffff; /* Fondo blanco */
+    background-clip: padding-box; /* Controla cómo se recorta el fondo */
+    border: 1px solid #dee2e6; /* Borde */
+    appearance: none; /* Quita estilos por defecto del navegador (importante para consistencia) */
+    border-radius: 0.25rem; /* Bordes redondeados pequeños */
+    /* Transición suave para el foco */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* --- Ajuste específico para inputs de tipo 'date' para asegurar que muestren el selector de fecha --- */
+.form-control[type="date"] {
+    appearance: auto; /* Restaura la apariencia por defecto del navegador para este tipo */
+}
+/* --- Estilo al enfocar (hacer clic) en un control de formulario --- */
+.form-control:focus {
+    border-color: #0d6efd; /* Cambia color del borde a azul */
+    outline: 0; /* Quita el contorno por defecto del navegador */
+    /* Añade una sombra de realce azul */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* --- Estilos específicos para elementos Select (listas desplegables) --- */
+.form-select {
+    display: block; /* Ocupa todo el ancho */
+    width: 100%; /* Ancho completo */
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem; /* Padding (más a la derecha para la flecha) */
+    font-size: 0.9rem; /* Tamaño fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    color: #212529; /* Color texto */
+    background-color: #ffffff   ; /* Fondo blanco */
+    /* Añade una flecha personalizada usando SVG como imagen de fondo */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-position: right 0.75rem center; /* Posición de la flecha */
+    background-size: 16px 12px; /* Tamaño de la flecha */
+    border: 1px solid #dee2e6; /* Borde */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    appearance: none; /* Quita la flecha por defecto del navegador */
+    /* Transición suave para el foco */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+/* --- Estilo al enfocar (hacer clic) en un select --- */
+.form-select:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    /* Sombra de realce azul */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* --- Estilos específicos para Textarea, asegurando que herede de .form-control --- */
+textarea.form-control {
+    /* Altura mínima similar a un input de una línea */
+    min-height: calc(1.5em + 0.75rem + 2px);
+    resize: vertical; /* Permite al usuario redimensionar solo verticalmente */
+}
+
+/* --- Estilos para Checkboxes --- */
+/* --- Layout de Grid para organizar múltiples checkboxes --- */
+.checkbox-grid {
+    display: grid;
+    /* Columnas automáticas de mínimo 150px */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Espacio entre checkboxes */
+}
+/* --- Estilos para un grupo de Checkbox (caja + etiqueta) --- */
+.checkbox-group {
+    display: flex; /* Alineación horizontal */
+    align-items: center; /* Centrado vertical */
+    gap: 8px; /* Espacio entre la caja y la etiqueta */
+}
+/* --- Estilos para la caja del checkbox (input type="checkbox") --- */
+.form-check-input {
+    width: 1em; /* Ancho basado en el tamaño de fuente */
+    height: 1em; /* Alto basado en el tamaño de fuente */
+    margin-top: 0.15em; /* Ajuste vertical leve */
+    vertical-align: top; /* Alineación vertical */
+    background-color: #ffffff; /* Fondo blanco */
+    background-repeat: no-repeat; /* No repetir imagen de fondo */
+    background-position: center; /* Centrar imagen de fondo (check) */
+    background-size: contain; /* Ajustar tamaño de imagen de fondo */
+    border: 1px solid rgba(0,0,0,.25); /* Borde sutil */
+    appearance: none; /* Quita estilo por defecto */
+    border-radius: 0.25em; /* Bordes redondeados (ligeramente) */
+}
+/* --- Asegura bordes redondeados para tipo checkbox --- */
+.form-check-input[type=checkbox] { border-radius: 0.25em; }
+/* --- Estilo cuando el checkbox está marcado (checked) --- */
+.form-check-input:checked {
+    background-color: #0d6efd; /* Fondo azul */
+    border-color: #0d6efd; /* Borde azul */
+}
+/* --- Añade la marca de verificación (check) cuando está marcado --- */
+.form-check-input:checked[type=checkbox] {
+    /* SVG de la marca de verificación */
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+/* --- Estilo al enfocar (hacer clic o navegar con teclado) en un checkbox --- */
+.form-check-input:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    /* Sombra de realce azul */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+/* --- Estilos para la etiqueta (label) asociada al checkbox --- */
+.form-check-label {
+    font-size: 0.9rem; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+}
+
+/* --- Estilos para el contenedor de botones de acción al final de una tarjeta --- */
+.card-actions {
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-top: 25px; /* Espacio superior separador */
+}
+
+/* --- Estilos para agrupar campos usando Fieldset y Legend --- */
+.setting-fieldset {
+    border: 1px solid #dee2e6; /* Borde claro alrededor del grupo */
+    border-radius: 6px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 25px; /* Espacio superior separador de otros elementos */
+}
+/* --- Estilos para la leyenda (título) del fieldset --- */
+.setting-fieldset legend {
+    font-weight: 600; /* Peso (semibold) */
+    padding: 0 10px; /* Espacio horizontal alrededor del texto */
+    margin-left: 10px; /* Pequeño margen izquierdo para alinear */
+    color: #0d6efd; /* Color azul primario */
+    font-size: 1rem; /* Tamaño de fuente */
+    width: auto; /* Permite que el padding funcione correctamente */
+}
+/* --- Fin Estilos Fieldset --- */
+
+
+/* --- Responsividad (adaptación a diferentes tamaños de pantalla) --- */
+/* --- Media Query para pantallas medianas/grandes (ej. tablets en horizontal, laptops pequeñas) --- */
+@media (max-width: 992px) {
+    /* --- Ajusta el ancho máximo del contenedor principal --- */
+    .main-container {
+        max-width: 960px;
+    }
+}
+
+/* --- Media Query para pantallas pequeñas (ej. tablets en vertical, móviles) --- */
+@media (max-width: 768px) {
+    /* --- Reduce el tamaño de fuente base en pantallas pequeñas --- */
+    body { font-size: 14px; }
+    /* --- Reduce el padding del contenedor principal --- */
+    .main-container { padding: 15px; }
+    /* --- Cambia la dirección del header a columna y centra elementos --- */
+    .page-header {
+        flex-direction: column-reverse; /* Pone el botón Volver arriba */
+        align-items: center; /* Centra horizontalmente */
+        gap: 15px; /* Espacio entre botón y título */
+        text-align: center; /* Centra texto */
+    }
+    /* --- Reduce tamaño del título principal y lo centra --- */
+    .page-header h1 { font-size: 22px; text-align: center; }
+    /* --- Centra el botón Volver explícitamente --- */
+    .page-header .btn-volver { align-self: center; }
+
+    /* --- Reduce el padding de las tarjetas de configuración --- */
+    .settings-card { padding: 20px; }
+    /* --- Reduce el tamaño de los títulos H2 dentro de las tarjetas --- */
+    .settings-card h2 { font-size: 1.1rem; }
+
+    /* --- Ajusta el espacio entre campos en el grid de formularios para pantallas pequeñas --- */
+    .form-grid {
+         gap: 15px; /* Reduce el espacio entre campos */
+    }
+}
+/* --- Fin de estilos para Responsividad --- */

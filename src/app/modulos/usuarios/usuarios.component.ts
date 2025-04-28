@@ -32,6 +32,9 @@ export class UsuariosComponent implements OnInit {
   validar_clave = true;
   mostrar = false;
   botones_formulario = false;
+  usuarios_simulados: any[] = [];
+  modalResetVisible: boolean = false;
+  usuarioResetId: any = null;
 
   constructor(
     private susuarios: UsuariosService,
@@ -74,7 +77,6 @@ export class UsuariosComponent implements OnInit {
       Cargo: '',
       Documento: '',
       clave: '',
-
     };
   }
   //Validar datos
@@ -239,5 +241,124 @@ export class UsuariosComponent implements OnInit {
 
     this.limpiar();
     this.mostrar_formulario('no ver');
+  }
+
+  // Variables de estado para mostrar/ocultar formularios y botones
+  mostrar_simulado: boolean = false;
+  botones_formulario_simulado: boolean = false;
+
+  // Objeto para el formulario de usuario
+  obj_usuarios_simulado: any = {
+    Nombre: '',
+    Apellido: '',
+    Telefono: '',
+    Correo: '',
+    Cargo: '',
+    Documento: '',
+    clave: ''
+  };
+
+  // Validaciones simples (puedes mejorar con Angular Forms)
+  validar_Nombre_simulado: boolean = true;
+  validar_Apellido_simulado: boolean = true;
+  validar_Telefono_simulado: boolean = true;
+  validar_Correo_simulado: boolean = true;
+  validar_Cargo_simulado: boolean = true;
+  validar_Documento_simulado: boolean = true;
+  validar_clave_simulado: boolean = true;
+
+  // Mostrar/ocultar formulario
+  mostrar_formulario_simulado(accion: string) {
+    this.mostrar_simulado = accion === 'ver';
+    if (!this.mostrar_simulado) {
+      this.resetFormulario_simulado();
+    }
+  }
+
+  // Cargar datos en el formulario para editar
+  cargar_datos_simulado(usuario: any, id: any) {
+    this.obj_usuarios_simulado = { ...usuario };
+    this.botones_formulario_simulado = true;
+    this.mostrar_simulado = true;
+  }
+
+  // Validar y guardar/editar usuario
+  validar_simulado(accion: string) {
+    // Validaciones básicas
+    this.validar_Nombre_simulado = !!this.obj_usuarios_simulado.Nombre;
+    this.validar_Apellido_simulado = !!this.obj_usuarios_simulado.Apellido;
+    this.validar_Telefono_simulado = !!this.obj_usuarios_simulado.Telefono;
+    this.validar_Correo_simulado = !!this.obj_usuarios_simulado.Correo;
+    this.validar_Cargo_simulado = !!this.obj_usuarios_simulado.Cargo;
+    this.validar_Documento_simulado = !!this.obj_usuarios_simulado.Documento;
+    this.validar_clave_simulado = !!this.obj_usuarios_simulado.clave;
+
+    if (
+      this.validar_Nombre_simulado && this.validar_Apellido_simulado && this.validar_Telefono_simulado &&
+      this.validar_Correo_simulado && this.validar_Cargo_simulado && this.validar_Documento_simulado && this.validar_clave_simulado
+    ) {
+      if (accion === 'guardar') {
+        // Simulación: agregar usuario
+        this.usuarios_simulados.push({ ...this.obj_usuarios_simulado, id_usuarios: Date.now() });
+      } else if (accion === 'editar') {
+        // Simulación: editar usuario
+        const idx = this.usuarios_simulados.findIndex(u => u.id_usuarios === this.obj_usuarios_simulado.id_usuarios);
+        if (idx !== -1) this.usuarios_simulados[idx] = { ...this.obj_usuarios_simulado };
+      }
+      this.resetFormulario_simulado();
+      this.mostrar_simulado = false;
+      this.botones_formulario_simulado = false;
+    }
+  }
+
+  resetFormulario_simulado() {
+    this.obj_usuarios_simulado = {
+      Nombre: '', Apellido: '', Telefono: '', Correo: '', Cargo: '', Documento: '', clave: ''
+    };
+    this.botones_formulario_simulado = false;
+  }
+
+  cerrarFormulario_simulado() {
+    this.mostrar_simulado = false;
+    this.resetFormulario_simulado();
+  }
+
+  eliminar_simulado(id: any) {
+    this.usuarios_simulados = this.usuarios_simulados.filter(u => u.id_usuarios !== id);
+  }
+
+  // Modal de reset de contraseña
+  modalResetVisible_simulado: boolean = false;
+  usuarioResetId_simulado: any = null;
+
+  resetPassword_simulado(id: any) {
+    this.usuarioResetId_simulado = id;
+    this.modalResetVisible_simulado = true;
+    // Aquí podrías mostrar el modal con *ngIf
+  }
+
+  cerrarModalReset_simulado() {
+    this.modalResetVisible_simulado = false;
+    this.usuarioResetId_simulado = null;
+  }
+
+  confirmarResetPassword_simulado() {
+    // Simulación: lógica para resetear contraseña
+    alert('Se ha enviado un correo con la nueva contraseña temporal (simulación)');
+    this.cerrarModalReset_simulado();
+  }
+
+  toggleEstado_simulado(id: any) {
+    const usuario = this.usuarios_simulados.find(u => u.id_usuarios === id);
+    if (usuario) {
+      usuario.estado = usuario.estado === 'activo' ? 'inactivo' : 'activo';
+    }
+  }
+
+  // Búsqueda básica por nombre o correo
+  performSearch_simulado() {
+    // Aquí deberías filtrar la lista de usuarios según el término de búsqueda
+    // Por simplicidad, esto es solo un placeholder
+    // Puedes implementar con un pipe personalizado o lógica en el componente
   }
 }

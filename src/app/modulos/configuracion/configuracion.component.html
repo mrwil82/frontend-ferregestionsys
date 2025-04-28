@@ -1,0 +1,100 @@
+
+    <div class="configuracion">
+        <!-- --- Cabecera de la página con logos y saludo dinámico --- -->
+        <header class="header">
+            <!-- --- Contenedor para los logos de la empresa/aplicación --- -->
+            <div class="logo-container">
+                <!-- --- Imagen del logo principal del sistema --- -->
+                <img src="../../../assets/plugins/imagenes/logo/Logo.png" alt="Logo FerreGestion" class="logo-ferregestion">
+                <!-- --- Imagen del logo secundario o de la ferretería --- -->
+                <img src="../../../assets/plugins/imagenes/logo/logo ferreteria.jpg" alt="Logo Ferretería" class="logo-ferreteria">
+            </div>
+            <!-- --- Contenedor para el mensaje de saludo personalizado --- -->
+            <div class="greeting">
+                <!-- --- Título H2 donde el JavaScript insertará el saludo (Buenos días/tardes/noches) --- -->
+                <div id="saludo">{{ saludo }} {{ Nombre }}</div>
+                <div id="Cargo">{{ Cargo }}</div>
+            </div>
+        </header>
+
+        <!-- --- Sección principal que agrupa todas las opciones de configuración --- -->
+        <section class="config-section">
+            <!-- --- Bloque para configurar el estado del usuario --- -->
+            <div class="config-item estado-item">
+                <h3>Tu Estado</h3>
+                <!-- --- Campo de texto para que el usuario ingrese su estado --- -->
+                <select id="estado">
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+                <!-- --- Botón para enviar/guardar el estado ingresado --- -->
+                <button class="btn-general btn-enviar-estado" (click)="enviarEstado()">Guardar Estado</button>
+            </div>
+
+            <!-- --- Bloque para gestionar la foto de perfil del usuario --- -->
+            <div class="config-item perfil-item">
+                <h3>Imagen de Perfil</h3>
+                <!-- --- Contenedor para mostrar la vista previa de la imagen de perfil --- -->
+                <div class="perfil-preview">
+                    <!-- --- Imagen que muestra la foto actual o la previsualización --- -->
+                    <img id="foto-preview" src="../../../assets/plugins/imagenes/logo/foto de perfil.gif" alt="Vista previa" style="max-width: 150px; max-height: 150px;" />
+                </div>
+                <!-- --- Etiqueta estilizada como botón que activa el input 'file' oculto --- -->
+                <input type="file" id="foto" (change)="onFotoChange($event)">
+                <!-- --- Botón para iniciar la subida de la imagen seleccionada --- -->
+                <button class="btn-general btn-subir" >Subir Imagen</button>
+            </div>
+
+            <!-- --- Bloque para mostrar el tiempo de contratación del usuario --- -->
+            <div class="config-item tiempo-item">
+                <h3>Tiempo de Contratación</h3>
+                <!-- --- Span donde JavaScript insertará el tiempo calculado --- -->
+                <span id="tiempo-contratacion">{{ tiempoContratacion }}</span>
+            </div>
+
+            <!-- --- Contenedor para las tarjetas que se muestran en fila (afiliaciones, certificado, etc.) --- -->
+            <div class="tarjetas-horizontales">
+                <!-- --- Tarjeta para mostrar las afiliaciones del usuario (ARL, EPS, etc.) --- -->
+                <div class="card-afiliaciones card-base">
+                    <!-- --- Cabecera de la tarjeta de afiliaciones --- -->
+                    <div class="card-header">
+                        <h4>Mis afiliaciones</h4>
+                    </div>
+                    <!-- --- Cuerpo de la tarjeta con la información de las afiliaciones --- -->
+                    <div class="card-body">
+                        <p><strong>Adm. Riesgo laboral (A.R.L):</strong><br>[Nombre ARL]</p>
+                        <p><strong>Pensión:</strong><br>[Nombre Fondo Pensiones]</p>
+                        <p><strong>EPS:</strong><br>[Nombre EPS]</p>
+                        <p><strong>Caja de compensación:</strong><br>[Nombre Caja Comp.]</p>
+                        <p><strong>Fondo de cesantías:</strong><br>[Nombre Fondo Cesantías]</p>
+                    </div>
+                </div>
+
+                <!-- --- Tarjeta pequeña para generar el certificado laboral --- -->
+                <div class="card-mini card-base">
+                    <!-- --- Cabecera de la tarjeta de certificado --- -->
+                    <div class="card-header">
+                        <h4>Certificado Laboral</h4>
+                    </div>
+                    <!-- --- Cuerpo de la tarjeta con el botón para generar el certificado --- -->
+                    <div class="card-body centered-content">
+                        <a href="generar_carta_certificacion.pdf" target="_blank" class="btn-general btn-carta">Generar Carta</a>
+                    </div>
+                </div>
+
+                <!-- --- Tarjeta pequeña para descargar los desprendibles de pago --- -->
+                <div class="card-mini card-base">
+                    <!-- --- Cabecera de la tarjeta de desprendibles --- -->
+                    <div class="card-header">
+                        <h4>Desprendibles Pago</h4>
+                    </div>
+                    <!-- --- Cuerpo de la tarjeta con enlaces para descargar los desprendibles --- -->
+                    <div class="card-body centered-content list-items">
+                        <a href="desprendibles/abril2025.pdf" download class="btn-general btn-descargar">Abril 2025</a>
+                        <a href="desprendibles/marzo2025.pdf" download class="btn-general btn-descargar">Marzo 2025</a>
+                        <!-- --- Aquí se podrían agregar más enlaces dinámicamente --- -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

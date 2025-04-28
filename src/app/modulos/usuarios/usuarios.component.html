@@ -5,121 +5,240 @@
   </ol>
 </nav>
 
-<div class="container-fluid mt-4">
-  <div class="container text-center">
-    <button class="btn btn-outline-primary btn-lg" (click)="mostrar_formulario('ver')">
-      <i class="bi-plus-circle"></i> Insertar Datos
-    </button>
-  </div>
-  <hr />
-  <!-- Formulario -->
-  <div class="container formulario" id="formulario" *ngIf="mostrar == true">
-    <div class="row">
-      <div class="col-lg-4">
-        <label for="Nombre" class="form-label">Nombre</label>
-        <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="obj_usuarios.Nombre" />
-        <span style="color: red" *ngIf="validar_Nombre == false">Insertar nombre</span>
-      </div>
-      <div class="col-lg-4">
-        <label for="Apellido" class="form-label">Apellido</label>
-        <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="obj_usuarios.Apellido" />
-        <span style="color: red" *ngIf="validar_Apellido == false">Insertar apellido</span>
-      </div>
-      <div class="col-lg-4">
-        <label for="Telefono" class="form-label">Telefono</label>
-        <input type="number" class="form-control" placeholder="Telefono" [(ngModel)]="obj_usuarios.Telefono" />
-        <span style="color: red" *ngIf="validar_Telefono == false">Insertar telefono</span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <label for="Correo" class="form-label">Correo</label>
-        <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="obj_usuarios.Correo" />
-        <span style="color: red" *ngIf="validar_Correo == false">Insertar correo</span>
-      </div>
-      <div class="col-lg-4">
-        <label for="Cargo" class="form-label">Cargo</label>
-        <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="obj_usuarios.Cargo" />
-        <span style="color: red" *ngIf="validar_Cargo == false">Insertar Cargo</span>
-      </div>
-      <div class="col-lg-4">
-        <label for="Nit" class="form-label">Documento</label>
-        <input type="number" class="form-control" placeholder="Documento" [(ngModel)]="obj_usuarios.Documento" />
-        <span style="color: red" *ngIf="validar_Documento == false">Insertar documento</span>
-      </div>
-      <div class="col-lg-4">
-        <label for="Nit" class="form-label">Clave</label>
-        <input type="password" class="form-control" placeholder="Clave" [(ngModel)]="obj_usuarios.clave" />
-        <span style="color: red" *ngIf="validar_clave == false">Insertar clave</span>
-      </div>
-    </div>
-    <hr />
-    <!-- Botones -->
-    <div class="container mt-3">
-      <div class="row g-3 justify-content-center align-items-center">
-        <div class="col-12 col-md-4">
-          <button type="button"
-            class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
-            value="Insertar" (click)="validar('guardar')" *ngIf="botones_formulario == false">
-            <i class="bi bi-plus-circle me-1"></i>
-            Guardar
-          </button>
+<div class="usuarios">
+  <div class="container-fluid formulario" id="formulario" *ngIf="mostrar == true">
+      <div class="row">
+        <div class="col-lg-4">
+          <label for="Nombre" class="form-label">Nombre</label>
+          <input type="text" class="form-control" placeholder="Nombre" [(ngModel)]="obj_usuarios.Nombre" />
+          <span style="color: red" *ngIf="validar_Nombre == false">Insertar nombre</span>
         </div>
-        <div class="col-12 col-md-4">
-          <button type="button"
-            class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2" value="editar"
-            (click)="validar('editar')" *ngIf="botones_formulario == true">
-            <i class="bi bi-pencil-square me-1"></i>
-            Editar
-          </button>
+        <div class="col-lg-4">
+          <label for="Apellido" class="form-label">Apellido</label>
+          <input type="text" class="form-control" placeholder="Apellido" [(ngModel)]="obj_usuarios.Apellido" />
+          <span style="color: red" *ngIf="validar_Apellido == false">Insertar apellido</span>
         </div>
-        <div class="col-12 col-md-4">
-          <button type="button"
-            class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
-            value="Cancelar" (click)="mostrar_formulario('no ver')">
-            <i class="bi bi-x-circle me-1"></i>
-            Cancelar
-          </button>
+        <div class="col-lg-4">
+          <label for="Telefono" class="form-label">Telefono</label>
+          <input type="number" class="form-control" placeholder="Telefono" [(ngModel)]="obj_usuarios.Telefono" />
+          <span style="color: red" *ngIf="validar_Telefono == false">Insertar telefono</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4">
+          <label for="Correo" class="form-label">Correo</label>
+          <input type="email" class="form-control" placeholder="Correo" [(ngModel)]="obj_usuarios.Correo" />
+          <span style="color: red" *ngIf="validar_Correo == false">Insertar correo</span>
+        </div>
+        <div class="col-lg-4">
+          <label for="Cargo" class="form-label">Cargo</label>
+          <input type="text" class="form-control" placeholder="Cargo" [(ngModel)]="obj_usuarios.Cargo" />
+          <span style="color: red" *ngIf="validar_Cargo == false">Insertar Cargo</span>
+        </div>
+        <div class="col-lg-4">
+          <label for="Nit" class="form-label">Documento</label>
+          <input type="number" class="form-control" placeholder="Documento" [(ngModel)]="obj_usuarios.Documento" />
+          <span style="color: red" *ngIf="validar_Documento == false">Insertar documento</span>
+        </div>
+        <div class="col-lg-4">
+          <label for="Nit" class="form-label">Clave</label>
+          <input type="password" class="form-control" placeholder="Clave" [(ngModel)]="obj_usuarios.clave" />
+          <span style="color: red" *ngIf="validar_clave == false">Insertar clave</span>
+        </div>
+      </div>
+      <hr />
+      <!-- Botones -->
+      <div class=" mt-3">
+        <div class="row g-3 justify-content-center align-items-center">
+          <div class="col-12 col-md-4">
+            <button type="button"
+              class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
+              value="Insertar" (click)="validar('guardar')" *ngIf="botones_formulario == false">
+              <i class="bi bi-plus-circle me-1"></i>
+              Guardar
+            </button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button type="button"
+              class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
+              value="editar" (click)="validar('editar')" *ngIf="botones_formulario == true">
+              <i class="bi bi-pencil-square me-1"></i>
+              Editar
+            </button>
+          </div>
+          <div class="col-12 col-md-4">
+            <button type="button"
+              class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
+              value="Cancelar" (click)="mostrar_formulario('no ver')">
+              <i class="bi bi-x-circle me-1"></i>
+              Cancelar
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <hr />
-  <!-- Tabla  -->
-  <div class="container-fluid" id="tabla">
-    <div class="table-responsive">
-      <table class="table table-success table-hover table-striped">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Telefono</th>
-            <th>Correo</th>
-            <th>Cargo</th>
-            <th>Documento</th>
-            <th>Clave</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of usuarios">
-            <td>{{ item.Nombre }}</td>
-            <td>{{ item.Apellido }}</td>
-            <td>{{ item.Telefono }}</td>
-            <td>{{ item.Correo }}</td>
-            <td>{{ item.Cargo }}</td>
-            <td>{{ item.Documento }}</td>
-            <td>{{ item.clave }}</td>
+    <div class="admin-container">
+      <!-- --- Cabecera de la página con título y botones --- */ -->
+      <header class="page-header">
+        <!-- --- Botón para Volver (con estilo rojo) --- */ -->
+        <a href="administracion.html" class="btn btn-outline-secondary btn-volver" routerLink="/administracion"><i
+            class="fas fa-arrow-left"></i> Administración</a>
+        <!-- --- Título principal de la sección --- */ -->
+        <h1>Gestionar Usuarios</h1>
+        <!-- --- Botón para mostrar formulario de Nuevo Usuario (azul) --- */ -->
+        <button class="btn btn-primary btn-nuevo" (click)="mostrar_formulario('ver')"><i class="fas fa-plus"></i> Nuevo
+          Usuario</button>
+      </header>
 
-            <td class="text-center">
-              <span class="bi bi-pencil me-3" style="color: blue; cursor: pointer" title="Editar"
-                (click)="cargar_datos(item, item.id_usuarios)"></span>
-              <span class="bi bi-trash me-3" style="color: red; cursor: pointer" title="Eliminar"
-                (click)="eliminar(item.id_usuarios)"></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- --- Barra de búsqueda para filtrar usuarios --- */ -->
+      <div class="search-bar settings-card">
+        <input type="text" id="buscar-usuario" class="form-control" placeholder="Buscar usuario por nombre o correo...">
+        <button class="btn btn-secondary btn-buscar" onclick="performSearch()"><i class="fas fa-search"></i>
+          Buscar</button>
+      </div>
+
+      <!-- --- Formulario para agregar/editar usuario (inicialmente oculto) --- */ -->
+      <div class="formulario-container settings-card hidden" id="formulario-usuario">
+        <!-- --- Cabecera del formulario --- */ -->
+        <div class="form-header">
+          <h2 id="form-title">Registrar Nuevo Usuario</h2>
+          <button class="btn-close-form" onclick="cerrarFormulario()"><i class="fas fa-times"></i></button>
+        </div>
+        <!-- --- Formulario con campos para datos del usuario --- */ -->
+        <form id="usuario-form" class="settings-form form-grid">
+          <!-- --- Campo oculto para ID de usuario (en edición) --- */ -->
+          <input type="hidden" id="usuario-id" name="usuario_id">
+          <!-- --- Grupo: Nombre Completo --- */ -->
+          <div class="setting-group full-width">
+            <label for="nombre">Nombre Completo</label>
+            <input type="text" id="nombre" name="nombre" class="form-control" required>
+          </div>
+          <!-- --- Grupo: Correo Electrónico --- */ -->
+          <div class="setting-group">
+            <label for="correo">Correo Electrónico (Login)</label>
+            <input type="email" id="correo" name="correo" class="form-control" required>
+          </div>
+          <!-- --- Grupo: Contraseña Inicial (solo visible al crear) --- */ -->
+          <div class="setting-group hidden" id="password-group"> <!-- Inicialmente oculto, se muestra al crear -->
+            <label for="password">Contraseña Inicial</label>
+            <input type="text" id="password" name="password" class="form-control"
+              value="Auto-generada y enviada por email" disabled>
+            <small class="text-muted">Se enviará una contraseña temporal al correo del usuario.</small>
+          </div>
+          <!-- --- Grupo: Rol del Usuario --- */ -->
+          <div class="setting-group">
+            <label for="rol">Rol</label>
+            <select id="rol" name="rol" class="form-select" required>
+              <option value="" disabled selected>Seleccione un rol</option>
+              <option value="admin_general">Admin General</option>
+              <option value="admin_sede">Admin Sede</option>
+              <option value="inventario">Inventario</option>
+              <option value="cajero_ventas">Cajero/Ventas</option>
+              <option value="compras">Compras</option>
+              <option value="contabilidad">Contabilidad</option>
+              <option value="soporte">Soporte Técnico</option>
+            </select>
+          </div>
+          <!-- --- Grupo: Sede Asignada --- */ -->
+          <div class="setting-group">
+            <label for="sede">Sede Asignada</label>
+            <select id="sede" name="sede" class="form-select" required>
+              <option value="" disabled selected>Seleccione una sede</option>
+              <!-- --- Opciones cargadas dinámicamente desde el backend --- */ -->
+              <option value="1">Sede Principal</option>
+              <option value="2">Sede Norte</option>
+              <option value="0">N/A (Ej: Admin General, Soporte)</option>
+            </select>
+          </div>
+          <!-- --- Grupo: Estado del Usuario --- */ -->
+          <div class="setting-group">
+            <label for="estado">Estado</label>
+            <select id="estado" name="estado" class="form-select" required>
+              <option value="activo">Activo</option>
+              <option value="inactivo">Inactivo</option>
+            </select>
+          </div>
+          <!-- --- Botones de acción del formulario --- */ -->
+          <div class="form-buttons full-width">
+            <button type="button" class="btn btn-secondary btn-cancelar" onclick="cerrarFormulario()">Cancelar</button>
+            <button type="submit" class="btn btn-primary btn-guardar">Guardar Usuario</button>
+          </div>
+        </form>
+      </div>
+      <!-- --- Fin del formulario --- */ -->
+
+      <!-- --- Contenedor de la tabla de usuarios --- */ -->
+      <div class="table-container settings-card">
+        <!-- --- Wrapper de la tabla para scroll horizontal --- */ -->
+        <div class="table-wrapper">
+          <!-- --- Tabla que muestra la lista de usuarios --- */ -->
+          <table class="table table-success table-hover table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Cargo</th>
+                <th>Documento</th>
+                <th>Clave</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of usuarios">
+                <td>{{ item.Nombre }}</td>
+                <td>{{ item.Apellido }}</td>
+                <td>{{ item.Telefono }}</td>
+                <td>{{ item.Correo }}</td>
+                <td>{{ item.Cargo }}</td>
+                <td>{{ item.Documento }}</td>
+                <td>{{ item.clave }}</td>
+
+                <td class="acciones">
+                  <button class="btn btn-sm btn-secondary btn-reset" onclick="resetPassword(2)"
+                    title="Resetear Contraseña"><i class="bi bi-key"></i></button>
+                  <button class="btn btn-sm btn-success btn-toggle" onclick="toggleEstado(2, 'inactivo')"
+                    title="Activar"><i class="bi bi-toggle-off"></i></button>
+
+                  <button class="btn btn-sm btn-secondary btn-reset" style="color: rgb(218, 218, 226); cursor: pointer" title="Editar"
+                    (click)="cargar_datos(item, item.id_usuarios)"><i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-danger btn-reset" style="color: rgb(252, 248, 248); cursor: pointer" title="Eliminar"
+                    (click)="eliminar(item.id_usuarios)"><i class="bi bi-trash"></i></button>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- --- Fin del wrapper de la tabla --- */ -->
+      </div>
+      <!-- --- Fin del contenedor de la tabla --- */ -->
+
+      <!-- --- Modal para confirmar el reseteo de contraseña (inicialmente oculto) --- */ -->
+      <div class="modal hidden" id="modal-reset">
+        <!-- --- Contenido del modal --- */ -->
+        <div class="modal-content">
+          <!-- --- Cabecera del modal --- */ -->
+          <div class="modal-header">
+            <h3>Resetear Contraseña</h3>
+            <button class="btn-close-modal" onclick="cerrarModalReset()"><i class="fas fa-times"></i></button>
+          </div>
+          <!-- --- Cuerpo del modal con mensaje de confirmación --- */ -->
+          <div class="modal-body">
+            <p>Se enviará un correo electrónico al usuario con una nueva contraseña temporal. ¿Desea continuar?</p>
+          </div>
+          <!-- --- Pie del modal con botones de acción --- */ -->
+          <div class="modal-buttons">
+            <button class="btn btn-secondary" onclick="cerrarModalReset()">Cancelar</button>
+            <button class="btn btn-primary btn-confirmar" onclick="confirmarResetPassword()">Sí, Resetear</button>
+          </div>
+        </div>
+      </div>
+      <!-- --- Fin del modal --- */ -->
     </div>
   </div>
-</div>
+
+  <!-- --- Fin del contenedor principal --- */ -->
+

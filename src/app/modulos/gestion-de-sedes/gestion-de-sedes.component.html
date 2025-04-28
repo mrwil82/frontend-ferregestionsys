@@ -1,0 +1,128 @@
+<div class="body">
+  <!-- --- Contenedor principal de la interfaz administrativa --- */ -->
+  <div class="admin-container">
+    <!-- --- Cabecera de la página con título y botones de acción --- */ -->
+    <header class="page-header">
+      <!-- --- Botón para Volver a la página anterior (con estilo rojo) --- */ -->
+      <a href="administracion.html" class="btn btn-outline-secondary btn-volver" routerLink="/administracion"><i class="fas fa-arrow-left"></i> Volver</a>
+      <!-- --- Título principal de la sección --- */ -->
+      <h1>Gestión de Sedes</h1>
+      <!-- --- Botón para mostrar el formulario de creación de nueva sede (azul) --- */ -->
+      <button class="btn btn-primary btn-nuevo" (click)="abrirForm()"><i class="fas fa-plus"></i>Nueva Sede</button>
+    </header>
+
+    <!-- --- Barra de búsqueda para filtrar sedes --- */ -->
+    <div class="search-bar card-style">
+      <input type="text" id="buscar-sede" [(ngModel)]="filtro" placeholder="Buscar sede por nombre o ubicación...">
+      <button class="btn btn-secondary btn-buscar" style="margin-left: 10px;"><i class="fas fa-search"></i>Buscar</button>
+    </div>
+
+    <!-- --- Contenedor del formulario para agregar o editar una sede (inicialmente oculto) --- */ -->
+    <div class="formulario-container card-style" [class.hidden]="!mostrarForm" id="formulario-sede">
+      <!-- --- Cabecera del formulario con título dinámico y botón de cerrar --- */ -->
+      <div class="form-header">
+        <div class="form-container" *ngIf="sedeEditando">
+          <h2 id="form-title">{{ sedeEditando.id && sedeEditando.id !== 0 ? 'Editar Sede' : 'Agregar Nueva Sede' }}</h2>
+          <button class="btn-close-form" (click)="cerrarForm()"><i class="fas fa-times"></i></button>
+          <!-- --- Formulario para los datos de la sede, utiliza layout de grid --- */ -->
+          <form (ngSubmit)="guardarSede()" #sedeForm="ngForm">
+            <!-- --- Campo oculto para almacenar el ID de la sede en caso de edición --- */ -->
+            <input type="hidden" [(ngModel)]="sedeEditando.id" name="id">
+            <!-- --- Grupo de campo: Nombre de la Sede --- */ -->
+            <div class="setting-group">
+              <label for="nombre">Nombre de la Sede</label>
+              <input type="text" id="nombre" name="nombre" [(ngModel)]="sedeEditando.nombre" required>
+            </div>
+            <!-- --- Grupo de campo: Dirección --- */ -->
+            <div class="setting-group">
+              <label for="direccion">Dirección</label>
+              <input type="text" id="direccion" name="direccion" [(ngModel)]="sedeEditando.direccion" required>
+            </div>
+            <!-- --- Grupo de campo: Ciudad --- */ -->
+            <div class="setting-group">
+              <label for="ciudad">Ciudad</label>
+              <input type="text" id="ciudad" name="ciudad" [(ngModel)]="sedeEditando.ciudad" required>
+            </div>
+            <!-- --- Grupo de campo: Teléfono --- */ -->
+            <div class="setting-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" [(ngModel)]="sedeEditando.telefono" required>
+            </div>
+            <!-- --- Grupo de campo: Correo Electrónico --- */ -->
+            <div class="setting-group">
+              <label for="correo">Correo Electrónico</label>
+              <input type="email" id="correo" name="correo" [(ngModel)]="sedeEditando.correo" required>
+            </div>
+            <!-- --- Contenedor para los botones de acción del formulario (Cancelar/Guardar) --- */ -->
+            <div class="form-buttons full-width">
+              <button type="submit" class="btn btn-primary btn-guardar">Guardar Sede</button>
+              <button type="button" class="btn btn-secondary btn-cancelar" (click)="cerrarForm()">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- --- Fin del contenedor del formulario --- */ -->
+
+    <!-- --- Contenedor de la tabla que muestra la lista de sedes --- */ -->
+    <div class="table-container card-style">
+      <!-- --- Wrapper de la tabla para permitir scroll horizontal --- */ -->
+      <div class="table-wrapper">
+        <!-- --- Tabla de datos de las sedes --- */ -->
+        <table class="data-table">
+          <!-- --- Cabecera de la tabla --- */ -->
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Dirección</th>
+              <th>Ciudad</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <!-- --- Cuerpo de la tabla donde se cargarán las filas de sedes --- */ -->
+          <tbody id="sedes-lista">
+            <tr *ngFor="let sede of sedesFiltradas">
+              <td>{{ sede.nombre }}</td>
+              <td>{{ sede.direccion }}</td>
+              <td>{{ sede.ciudad }}</td>
+              <td>{{ sede.telefono }}</td>
+              <td>{{ sede.correo.replace('@', '&#64;') }}</td>
+              <!-- --- Celda con botones de acción (Editar/Eliminar) --- */ -->
+              <td class="acciones">
+                <button class="btn btn-sm btn-info btn-editar" (click)="abrirForm(sede)" title="Editar"><i class="fas fa-edit"></i></button>
+                <button class="btn btn-sm btn-danger btn-eliminar" (click)="confirmarEliminar(sede.id)" title="Eliminar"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- --- Fin del wrapper de la tabla --- */ -->
+    </div>
+    <!-- --- Fin del contenedor de la tabla --- */ -->
+
+    <!-- --- Modal de confirmación para eliminar una sede (inicialmente oculto) --- */ -->
+    <div class="modal" [class.hidden]="!mostrarModal" id="modal-confirmar">
+      <!-- --- Contenido del modal --- */ -->
+      <div class="modal-content">
+        <!-- --- Cabecera del modal --- */ -->
+        <div class="modal-header">
+          <h3>Confirmar Eliminación</h3>
+          <button class="btn-close-modal" (click)="cerrarModal()"><i class="fas fa-times"></i></button>
+        </div>
+        <!-- --- Cuerpo del modal con el mensaje de confirmación --- */ -->
+        <div class="modal-body">
+          <p>¿Estás seguro de que deseas eliminar esta sede?</p>
+        </div>
+        <!-- --- Pie del modal con botones de acción (Cancelar/Eliminar) --- */ -->
+        <div class="modal-buttons">
+          <button class="btn btn-danger" (click)="eliminarSede()">Eliminar</button>
+          <button class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+    <!-- --- Fin del modal --- */ -->
+  </div>
+  <!-- --- Fin del contenedor principal --- */ -->
+</div>

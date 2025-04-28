@@ -1,0 +1,193 @@
+
+.seccion{
+  background: linear-gradient(to right, rgba(15, 18, 55, 0.8), rgba(15, 18, 55, 0.9));
+  color: #ffffff;
+  border: 1px solid #007bff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  max-width: 50%;
+  min-width: 100%;
+}
+
+/* --- Estilos Globales aplicados a toda la página --- */
+.contactanos {
+    margin: 0; /* Elimina el margen por defecto del navegador */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente principal */
+    background-color: #e1e1ea; /* Color de fondo gris definido por el usuario */
+    color: #050000; /* Color de texto principal */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    padding: 20px; /* Añade un padding general a la página */
+    box-sizing: border-box; /* Incluye padding y borde en el tamaño total del elemento */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra suave */
+    border-radius: 30px; /* Bordes redondeados */
+  }
+
+  /* --- Contenedor Principal Flex que organiza el logo y el formulario en columnas --- */
+  .main-content-wrapper {
+    display: flex; /* Habilita Flexbox */
+    align-items: center; /* Centra verticalmente los elementos hijos (logo y formulario) */
+    justify-content: center; /* Centra horizontalmente los elementos hijos en el espacio disponible */
+    gap: 40px; /* Espacio entre la columna del logo y la columna del formulario */
+    max-width: 1100px; /* Ancho máximo para el contenedor principal */
+    margin: auto; /* Centra el wrapper horizontalmente en la página */
+    flex-wrap: wrap; /* Permite que las columnas se apilen en pantallas pequeñas */
+  }
+
+  /* --- Estilos para la Columna que contiene el Logo --- */
+  .logo-column {
+    /* Flex: grow, shrink, basis. Permite flexibilidad con una base de 400px */
+    flex: 1 1 400px;
+    display: flex; /* Usa flex para centrar la imagen dentro de esta columna */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
+    max-width: 550px; /* Limita el ancho máximo de esta columna */
+  }
+
+  /* --- Estilos para la imagen del logo --- */
+  .logo_orva {
+    width: 100%; /* La imagen ocupa el 100% del ancho de su contenedor (.logo-column) */
+    max-width: 100%; /* Asegura que la imagen no se desborde de su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina posible espacio extra debajo de la imagen */
+  }
+
+  /* --- Estilos para el Contenedor del Formulario de Contacto --- */
+  .contact-container {
+    background-color: #908fac; /* Color de fondo verde claro para el formulario */
+    padding: 40px; /* Espaciado interno del contenedor del formulario */
+    border-radius: 20px; /* Bordes redondeados */
+    border: 1px solid #007bff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    /* Flex: grow, shrink, basis. Base de 450px para el formulario */
+    flex: 1 1 450px;
+    max-width: 500px; /* Ancho máximo del propio contenedor del formulario */
+    box-sizing: border-box; /* Asegura que el padding no aumente el tamaño total */
+  }
+
+  /* --- Estilos para el título H1 dentro del contenedor del formulario --- */
+  .contact-container h1 {
+    text-align: center; /* Centra el texto */
+    /* Tamaño de fuente responsivo usando clamp(min, preferred, max) */
+    font-size: clamp(1.5rem, 1rem + 2.5vw, 2rem);
+    color: #000; /* Color de texto negro */
+    margin-top: 0; /* Sin margen superior */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    position: relative; /* Necesario para el pseudo-elemento ::after */
+  }
+
+  /* --- Estilos para la línea decorativa debajo del título H1 --- */
+  .contact-container h1::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    width: 50px; /* Ancho de la línea */
+    height: 4px; /* Altura/grosor de la línea */
+    background: #cf00ff; /* Color morado para la línea */
+    display: block; /* Hace que ocupe su propia línea */
+    margin: 10px auto 0; /* Margen superior y centrado horizontal */
+    border-radius: 2px; /* Bordes redondeados para la línea */
+  }
+
+  /* --- Estilos Generales del Formulario --- */
+  /* --- Define la disposición de los elementos del formulario (vertical) --- */
+  form {
+    display: flex;
+    flex-direction: column; /* Apila los elementos (labels, inputs) verticalmente */
+  }
+
+  /* --- Estilos para las etiquetas (label) del formulario --- */
+  label {
+    margin-top: 15px; /* Espacio superior antes de cada etiqueta */
+    font-weight: 600; /* Peso de fuente semibold */
+    font-size: 0.9rem; /* Tamaño de fuente */
+  }
+
+  /* --- Estilos comunes para campos de texto (input) y área de texto (textarea) --- */
+  input, textarea {
+    padding: 12px; /* Espaciado interno */
+    margin-top: 5px; /* Espacio superior */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 50px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: border-color 0.3s ease; /* Transición suave para el borde al enfocar */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+  }
+
+  /* --- Estilo al enfocar (hacer clic) en un input o textarea --- */
+  input:focus, textarea:focus {
+    border-color: #418ce3; /* Cambia el color del borde a azul */
+    outline: none; /* Elimina el contorno por defecto del navegador */
+  }
+
+  /* --- Estilos específicos para el área de texto (textarea) --- */
+  textarea {
+    resize: vertical; /* Permite al usuario redimensionar verticalmente */
+    min-height: 100px; /* Altura mínima */
+    border-radius: 30px; /* Bordes redondeados */
+  }
+
+  /* --- Estilos para el botón de envío del formulario --- */
+  button {
+    margin-top: 20px; /* Espacio superior antes del botón */
+    padding: 12px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 50px; /* Bordes redondeados */
+    background: #1500ff; /* Color de fondo azul */
+    color: #ffffff; /* Color de texto blanco */
+    font-size: 1rem; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    cursor: pointer; /* Cursor de mano */
+    transition: background 0.3s ease; /* Transición suave para el fondo al pasar el ratón */
+  }
+
+  /* --- Estilo al pasar el ratón (hover) sobre el botón --- */
+  button:hover {
+    background: #a000e6; /* Cambia el fondo a un morado más oscuro */
+  }
+
+  /* --- Media Query para ajustar estilos en pantallas pequeñas (móviles) --- */
+  /* --- Se aplica cuando el ancho de la pantalla es 850px o menos --- */
+  @media (max-width: 850px) {
+    /* --- Ajusta el contenedor principal para apilar las columnas --- */
+    .main-content-wrapper {
+      flex-direction: column; /* Apila logo y formulario verticalmente */
+      gap: 20px; /* Reduce el espacio entre ellos */
+      align-items: center; /* Centra los elementos apilados horizontalmente */
+    }
+
+    /* --- Ajusta la columna del logo en móviles --- */
+    .logo-column {
+      flex-basis: auto; /* Resetea la base flex para que el tamaño se base en el contenido */
+      width: 90%; /* Ancho del contenedor del logo */
+      max-width: 350px; /* Ancho máximo reducido para el logo en móvil */
+      margin-bottom: 10px; /* Espacio adicional opcional debajo del logo */
+    }
+
+    /* --- Ajusta el contenedor del formulario en móviles --- */
+    .contact-container {
+      flex-basis: auto; /* Resetea la base flex */
+      width: 95%; /* El formulario ocupa casi todo el ancho */
+      padding: 25px 15px; /* Reduce el padding interno */
+      /* max-width: none; */ /* Se podría quitar el max-width si se desea que ocupe más ancho */
+    }
+
+    /* --- Ajusta tamaños de fuente y padding internos en móviles --- */
+    label {
+      font-size: 0.85rem; /* Reduce tamaño de fuente de etiquetas */
+    }
+
+    input, textarea {
+      padding: 10px; /* Reduce padding de inputs/textarea */
+      font-size: 0.9rem; /* Reduce tamaño de fuente de inputs/textarea */
+    }
+
+    button {
+      padding: 10px; /* Reduce padding del botón */
+      font-size: 0.9rem; /* Reduce tamaño de fuente del botón */
+    }
+  }
+  /* --- Fin de los estilos responsivos --- */

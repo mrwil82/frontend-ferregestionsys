@@ -25,16 +25,49 @@ export class NavComponent {
     sessionStorage.setItem('Cargo', '');
     this.router.navigate(['/login']);
   }
-  buscar_modulo(modulo: string) {
-    this.router.navigate([modulo]);
-    Swal.fire({
-      icon: 'success',
-      title:'vamos a '+''+ modulo,
-      showConfirmButton: false,
-      position: 'center',
-      width: '32em',
-      padding: '2em',
-      timer: 1500,
-    });
+  // Método para verificar si el usuario tiene permiso para ver un módulo
+  puedeVerModulo(modulo: string): boolean {
+    const permisosPorCargo: { [key: string]: string[] } = {
+      'Administrador': ['dashboard', 'administracion', 'clientes','contabilidad', 'compras', 'empleados', 'inventario', 'pedidos', 'proveedores', 'soporte_tecnico', 'ventas', 'contactanos', 'configuracion'],
+      'Usuario': ['dashboard', 'clientes', 'compras','inventario', 'pedidos', 'proveedores'],
+      'Invitado': ['dashboard',],
+
+    };
+
+    const cargoUsuario = this.Cargo; // Cargo obtenido del sessionStorage
+    const modulosPermitidos = permisosPorCargo[cargoUsuario] || [];
+    return modulosPermitidos.includes(modulo);
   }
+//Metodo para navegar a los modulos
+  buscar_modulo(modulo: string) {
+    if (this.puedeVerModulo(modulo)) {
+      this.router.navigate([modulo]);
+      Swal.fire({
+        icon: 'success',
+        title: 'Vamos a ' + modulo,
+        showConfirmButton: false,
+        position: 'center',
+        width: '32em',
+        padding: '2em',
+        timer: 1500,
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Acceso denegado',
+        text: 'No tienes permiso para acceder a este módulo.',
+        showConfirmButton: true,
+        position: 'center',
+        width: '32em',
+        padding: '2em',
+      });
+    }
+  }
+  // Método para verificar si el usuario tiene permiso para ver un módulo
+  permisosPorCargo: { [key: string]: string[] } = {
+    'Administrador': ['dashboard', 'administracion', 'clientes','contabilidad', 'compras', 'empleados', 'inventario', 'pedidos', 'proveedores', 'soporte_tecnico', 'ventas', 'contactanos', 'configuracion'],
+    'Usuario': ['administracion', 'dashboard', 'clientes', 'contabilidad', 'compras', 'empleados', 'inventario', 'pedidos', 'proveedores', 'soporte_tecnico', 'ventas'],
+    'Invitado': ['dashboard',],
+
+  };
 }

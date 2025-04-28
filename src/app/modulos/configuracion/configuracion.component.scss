@@ -1,0 +1,547 @@
+/* --- Estilos para el contenedor principal que envuelve todo el contenido --- */
+.configuracion {
+    max-width:90%;
+    /* Ancho máximo del contenido */
+    margin: 40px auto;
+    /* Margen superior/inferior y centrado horizontal */
+    padding: 20px;
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
+    /* Sombra */
+    max-height: 100%;
+    /* Espaciado interno */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
+    padding: 20px;
+    margin: 40px auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: #f3efef;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* ======================================== */
+/*      Estilos Específicos para Header     */
+/* ======================================== */
+/* --- Estilos principales de la cabecera --- */
+.header {
+    display: flex;
+    /* Usa flexbox para alinear logos y saludo */
+    justify-content: space-between;
+    /* Separa los logos del saludo */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+    /* --- Usa las variables específicas del header para fondo, padding y sombra --- */
+    background-color: #1e3963;
+    padding: 15px 30px;
+    /* Espaciado interno */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    margin-bottom: 40px;
+    /* Separación inferior con respecto al contenido */
+    box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
+    /* Sombra */
+}
+
+/* --- Estilos para las imágenes de logo dentro de la cabecera --- */
+.header .logo-container img {
+    height: 50px;
+    /* Altura fija para los logos */
+    margin-right: 15px;
+    /* Espacio a la derecha de cada logo */
+    vertical-align: middle;
+    /* Mejor alineación vertical con otros elementos */
+}
+
+/* --- Elimina el margen derecho del último logo --- */
+.header .logo-container img:last-child {
+    margin-right: 0;
+}
+
+/* --- Estilos para el texto del saludo (H2) en la cabecera --- */
+.header .greeting h2 {
+    margin: 0;
+    /* Elimina margen por defecto */
+    font-size: 24px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Peso de fuente (semibold) */
+    /* --- Usa la variable de color de texto del header --- */
+    color: #e6f1ff;
+}
+
+/* --- Media Query para ajustar el header en pantallas pequeñas (móviles) --- */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        /* Apila logos y saludo verticalmente */
+        gap: 15px;
+        /* Espacio entre logos y saludo */
+        text-align: center;
+        /* Centra el texto */
+        padding: 20px;
+        /* Ajusta el padding */
+    }
+
+    .header .logo-container {
+        margin-bottom: 10px;
+        /* Añade separación debajo de los logos */
+    }
+
+    .header .logo-container img {
+        height: 40px;
+    }
+
+    /* Reduce tamaño de logos */
+    .header .greeting h2 {
+        font-size: 20px;
+    }
+
+    /* Reduce tamaño del saludo */
+}
+
+/* ======================================== */
+/*    Fin Estilos Específicos para Header   */
+/* ======================================== */
+
+
+/* --- Estilos para la sección principal que contiene los bloques de configuración --- */
+.config-section {
+    display: grid;
+    /* Usa CSS Grid para organizar los bloques */
+    /* Define 2 columnas de igual tamaño */
+    grid-template-columns: repeat(2, 1fr);
+    /* Define las áreas nombradas del grid y su disposición */
+    grid-template-areas:
+        "estado perfil"
+        /* Fila 1: Estado a la izquierda, Perfil a la derecha */
+        "tiempo perfil"
+        /* Fila 2: Tiempo a la izquierda, Perfil sigue ocupando su espacio */
+        "tarjetas tarjetas";
+    /* Fila 3: Tarjetas horizontales ocupan ambas columnas */
+    gap: 25px;
+  
+    align-items: center;
+    /* Alinea contenido horizontalmente */
+    justify-content: center;
+    /* Alinea contenido verticalmente */
+    text-align: center;
+    /* Centra el texto */
+}
+
+/* --- Estilos base comunes para cada bloque/item de configuración (Estado, Perfil, Tiempo) --- */
+.config-item {
+    background-color: #172a46;
+    /* Color de fondo */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    padding: 25px;
+    /* Espaciado interno */
+    box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
+    /* Sombra */
+    display: flex;
+    /* Usa flexbox para alinear contenido interno */
+    flex-direction: column;
+    /* Apila elementos verticalmente */
+    transition: background-color 0.3s ease;
+    /* Transición suave al cambiar fondo en hover */
+}
+
+/* --- Efecto hover para los bloques de configuración --- */
+.config-item:hover {
+    background-color: #1f3a5f;
+    /* Cambia el fondo al pasar el ratón */
+}
+
+/* --- Asigna cada clase específica a su área definida en grid-template-areas --- */
+.estado-item {
+    grid-area: estado;
+}
+
+.perfil-item {
+    grid-area: perfil;
+    align-items: center;
+}
+
+/* Centra contenido horizontalmente */
+.tiempo-item {
+    grid-area: tiempo;
+    align-items: center;
+    /* Centra horizontalmente */
+    justify-content: center;
+    /* Centra verticalmente */
+    text-align: center;
+    /* Centra el texto */
+}
+
+/* --- Estilos para los títulos (H3) dentro de cada bloque de configuración --- */
+.config-item h3 {
+    color: #64ffda;
+    /* Usa el color de acento */
+    margin-top: 0;
+    /* Elimina margen superior */
+    margin-bottom: 20px;
+    /* Espacio debajo del título */
+    font-size: 18px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Peso (semibold) */
+    text-align: center;
+    /* Centra el texto */
+    border-bottom: 1px solid #2a4569;
+    /* Línea divisoria inferior */
+    padding-bottom: 10px;
+    /* Espacio entre texto y línea */
+}
+
+/* --- Estilos específicos para la imagen de vista previa del perfil --- */
+.perfil-item .perfil-preview img {
+    width: 130px;
+    /* Ancho fijo */
+    height: 130px;
+    /* Alto fijo */
+    border-radius: 50%;
+    /* Hace la imagen circular */
+    object-fit: cover;
+    /* Asegura que la imagen cubra el área sin deformarse */
+    margin-bottom: 20px;
+    /* Espacio debajo de la imagen */
+    border: 3px solid #2a4569;
+    /* Borde alrededor de la imagen */
+}
+
+/* --- Ajuste de margen inferior para el título del bloque 'Tiempo' --- */
+.tiempo-item h3 {
+    margin-bottom: 10px;
+}
+
+/* --- Estilos para el texto que muestra el tiempo de contratación --- */
+.tiempo-item #tiempo-contratacion {
+    font-size: 1.1em;
+    /* Ligeramente más grande */
+    font-weight: 600;
+    /* Semibold */
+    color: #576c88;
+    /* Color principal */
+}
+
+/* --- Estilos para los campos de texto (input type="text") --- */
+input[type="text"] {
+    width: 100%;
+    /* Ocupa todo el ancho disponible */
+    padding: 12px 15px;
+    /* Espaciado interno */
+    border: 1px solid #2a4569;
+    /* Borde */
+    background-color: #172a46;
+    /* Color de fondo */
+    color: #e6f1ff;
+    /* Color del texto ingresado */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    margin-bottom: 15px;
+    /* Espacio inferior */
+    box-sizing: border-box;
+    /* Asegura que padding y borde no aumenten el ancho total */
+    transition: border-color 0.3s ease;
+    /* Transición suave del color del borde */
+}
+
+/* --- Estilo al enfocar (hacer clic) en un campo de texto --- */
+input[type="text"]:focus {
+    outline: none;
+    /* Elimina el contorno por defecto del navegador */
+    border-color: #64ffda;
+    /* Cambia el color del borde al color de acento */
+}
+
+/* --- Estilo base unificado para todos los botones y enlaces estilizados como botones --- */
+.btn-general {
+    display: inline-block;
+    /* Permite aplicar padding y margen */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    border: none;
+    /* Sin borde */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    color: #ffffff;
+    /* Color de texto blanco por defecto */
+    cursor: pointer;
+    /* Muestra cursor de mano */
+    text-decoration: none;
+    /* Elimina subrayado (para enlaces <a>) */
+    text-align: center;
+    /* Centra el texto */
+    font-size: 14px;
+    /* Tamaño de fuente */
+    font-weight: 600;
+    /* Semibold */
+    /* Transiciones suaves para efectos hover y active */
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    margin: 5px;
+    /* Pequeño margen alrededor del botón */
+}
+
+/* --- Efecto hover para botones generales --- */
+.btn-general:hover {
+    transform: translateY(-2px);
+    /* Eleva ligeramente el botón */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    /* Añade sombra */
+}
+
+/* --- Efecto al hacer clic (active) en botones generales --- */
+.btn-general:active {
+    transform: translateY(0);
+    /* Devuelve el botón a su posición original */
+}
+
+/* --- Asigna colores de fondo específicos a cada tipo de botón --- */
+.btn-enviar-estado {
+    background-color: #28a745;
+}
+
+/* Verde */
+.btn-cambiar {
+    background-color: #007bff;
+}
+
+/* Azul (para el label que parece botón) */
+.btn-subir {
+    background-color: #28a745;
+}
+
+/* Verde */
+.btn-carta {
+    background-color: #007bff;
+}
+
+/* Azul */
+.btn-descargar {
+    background-color: #64ffda;
+    color: #172a46;
+}
+
+/* Acento (con texto oscuro) */
+
+/* --- Ajuste de margen superior para los botones en el bloque de perfil --- */
+.perfil-item .btn-cambiar,
+.perfil-item .btn-subir {
+    margin-top: 10px;
+}
+
+/* --- Estilos para el contenedor de las tarjetas inferiores (Afiliaciones, Certificado, Desprendibles) --- */
+.tarjetas-horizontales {
+    grid-area: tarjetas;
+    /* Asigna este contenedor al área 'tarjetas' del grid */
+    display: flex;
+    /* Usa flexbox para alinear las tarjetas horizontalmente */
+    gap: 25px;
+    /* Espacio entre las tarjetas */
+    margin-top: 20px;
+    /* Espacio superior respecto a los bloques anteriores */
+}
+
+/* --- Estilo base común para las tarjetas inferiores --- */
+.card-base {
+    background-color: #172a46;
+    /* Color de fondo */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    box-shadow: 0 5px 15px #2a4569;
+    /* Sombra */
+    flex: 1;
+    /* Permite que las tarjetas crezcan y ocupen el espacio disponible */
+    display: flex;
+    /* Usa flexbox para el contenido interno */
+    flex-direction: column;
+    /* Apila cabecera y cuerpo verticalmente */
+    overflow: hidden;
+    /* Oculta contenido que se desborde */
+    min-height: 250px;
+    /* Altura mínima para mantener consistencia */
+    transition: background-color 0.3s ease;
+    /* Transición suave en hover */
+}
+
+/* --- Efecto hover para las tarjetas base --- */
+.card-base:hover {
+    background-color: #1f3a5f;
+    /* Cambia fondo al pasar ratón */
+}
+
+/* --- Estilos para la cabecera (header) dentro de las tarjetas inferiores --- */
+.card-header {
+    background-color: #1f3a5f;
+    /* Fondo ligeramente diferente */
+    color: var(--accent-color);
+    /* Color de texto de acento */
+    padding: 12px 15px;
+    /* Espaciado interno */
+    text-align: center;
+    /* Centra texto */
+    font-weight: 600;
+    /* Semibold */
+    font-size: 16px;
+    /* Tamaño de fuente */
+    margin: 0;
+    /* Sin margen */
+    border-bottom: 1px solid #2a4569;
+    /* Línea divisoria inferior */
+}
+
+/* --- Estilos específicos para el H4 dentro de la cabecera de tarjeta --- */
+.card-header h4 {
+    margin: 0;
+    /* Sin margen */
+    font-weight: 600;
+    /* Semibold */
+    font-size: 16px;
+    /* Tamaño fuente */
+}
+
+/* --- Estilos para el cuerpo (body) dentro de las tarjetas inferiores --- */
+.card-body {
+    padding: 20px;
+    /* Espaciado interno */
+    font-size: 14px;
+    /* Tamaño de fuente */
+    color: #e6f1ff;
+    /* Color de texto secundario */
+    flex-grow: 1;
+    /* Permite que el cuerpo crezca para llenar el espacio restante */
+    display: flex;
+    /* Usa flexbox */
+    flex-direction: column;
+    /* Apila elementos verticalmente */
+}
+
+/* --- Estilos para los párrafos (p) dentro del cuerpo de la tarjeta --- */
+.card-body p {
+    margin-bottom: 12px;
+    /* Espacio inferior entre párrafos */
+    line-height: 1.5;
+    /* Interlineado */
+}
+
+/* --- Estilos para el texto en negrita (strong) dentro de los párrafos --- */
+.card-body p strong {
+    color: #e6f1ff;
+    /* Color de texto principal */
+    display: block;
+    /* Hace que ocupe su propia línea */
+    margin-bottom: 4px;
+    /* Pequeño espacio debajo */
+}
+
+/* --- Clase de utilidad para centrar contenido vertical y horizontalmente usando flexbox --- */
+.centered-content {
+    justify-content: center;
+    /* Centra verticalmente (en flex-direction: column) */
+    align-items: center;
+    /* Centra horizontalmente */
+    text-align: center;
+    /* Centra el texto (útil para botones) */
+}
+
+/* --- Estilos específicos para botones cuando están dentro de un contenedor con clase .list-items --- */
+.list-items .btn-general {
+    display: block;
+    /* Hace que el botón ocupe todo el ancho */
+    width: 80%;
+    /* Ancho del 80% del contenedor */
+    margin: 10px auto;
+    /* Margen vertical y centrado horizontal */
+}
+
+/* --- Estilo General para Iconos (si se usan Font Awesome u otros) --- */
+/* --- Ajusta el tamaño y espaciado de iconos genéricos si los añades --- */
+.configuracion-container i.fas,
+.configuracion-container i.far,
+.configuracion-container i.fab {
+    /* --- Selectores para diferentes tipos de iconos FA --- */
+    font-size: 1.2em;
+    /* Ligeramente más grandes que el texto */
+    margin-right: 8px;
+    /* Espacio a la derecha si preceden texto */
+    vertical-align: middle;
+    /* Mejor alineación vertical */
+    /* --- Puedes descomentar esto para darles un color por defecto --- */
+    /* color: var(--accent-color); */
+}
+
+/* ======================================== */
+/*             Responsividad                */
+/* ======================================== */
+
+/* --- Media Query para pantallas medianas (tablets, laptops pequeñas) --- */
+@media (max-width: 900px) {
+
+    /* --- Reajusta el grid principal a 2 columnas pero apilando bloques diferentes --- */
+    .config-section {
+        grid-template-columns: 1fr 1fr;
+        /* Mantiene 2 columnas */
+        /* --- Cambia la disposición de las áreas --- */
+        grid-template-areas:
+            "estado estado"
+            /* Estado ocupa toda la fila 1 */
+            "perfil perfil"
+            /* Perfil ocupa toda la fila 2 */
+            "tiempo tiempo"
+            /* Tiempo ocupa toda la fila 3 */
+            "tarjetas tarjetas";
+        /* Tarjetas siguen ocupando toda la fila 4 */
+    }
+
+    /* --- Apila las tarjetas inferiores verticalmente --- */
+    .tarjetas-horizontales {
+        flex-direction: column;
+        /* Cambia la dirección de flexbox a columna */
+        align-items: stretch;
+        /* Hace que las tarjetas se estiren al ancho completo */
+    }
+
+    /* --- Elimina la altura mínima fija de las tarjetas para que se ajusten al contenido --- */
+    .card-base {
+        min-height: auto;
+        font-size: 10px;
+        /* Tamaño de fuente */
+        line-height: 1.2;
+        /* Interlineado */
+    }
+}
+
+/* --- Media Query para pantallas pequeñas (móviles) --- */
+@media (max-width: 600px) {
+
+    /* --- Los estilos responsivos del Header ya están definidos arriba --- */
+    /* --- Cambia el grid principal a una sola columna --- */
+    .config-section {
+        grid-template-columns: 1fr;
+        /* Una sola columna */
+        /* --- Define las áreas para una sola columna --- */
+        grid-template-areas:
+            "estado"
+            "perfil"
+            "tiempo"
+            "tarjetas";
+        gap: 5px;
+        /* Reduce el espacio entre bloques */
+        margin: 10px;
+        /* Ajusta el margen */
+        width: 100%;
+        /* Ancho 100% */
+        height: 100%;
+        /* Altura 100% */
+        font-size: 10px;
+        /* Tamaño de fuente */
+        
+    }
+
+    /* --- Las tarjetas horizontales ya están en columna por la media query anterior --- */
+}

@@ -1,162 +1,64 @@
-<nav aria-label="ruta de navegación">
-  <ol class="seccion breadcrumb">
-    <li class="breadcrumb-item"><a href="/">Inicio</a></li>
-    <li class="breadcrumb-item active text-white aria-current=" page>Administración</li>
-  </ol>
-</nav>
-<hr />
+<!-- --- Cabecera principal que contiene el título de la sección --- */ -->
+<div class="container">
 
-<div class="container-fluid mt-4">
-  <div class="row">
-    <div class="col-12 text-center color-primary">
-      <h4 class="text-center fw-bold display-4">ADMINISTRACIÓN</h4>
-      <hr />
-    </div>
-  </div>
+    <div class="admin-container">
+        <!-- --- Cabecera principal que contiene el título de la sección --- -->
+        <header class="admin-header">
+            <!-- --- Título principal de la página de Administración --- -->
+            <h1>ADMINISTRACIÓN</h1>
+        </header>
 
-  <div class="container text-center">
-    <button
-      class="btn btn-outline-primary btn-lg"
-      (click)="mostrar_formulario('ver')"
-    >
-      <i class="bi bi-plus-circle"></i> Insertar Datos
-    </button>
-  </div>
+        <!-- --- Contenedor que utiliza CSS Grid para organizar las tarjetas de opciones --- -->
+        <div class="admin-grid">
+            <!-- --- Tarjeta de presentación con el logo y nombre del sistema --- -->
+            <div class="admin-card logo-card">
+                <!-- --- Contenedor para el icono principal del logo --- -->
+                <div class="icon-container">
+                    <i class="fas fa-wrench"></i>
+                </div>
+                <!-- --- Contenedor para el texto dentro de la tarjeta del logo --- -->
+                <div class="card-text" routerLink="/">
+                    <h2>DASHBOARD</h2>
+                    <h2>FERREGESTIONSYS</h2>
+                    <p>SOFTWARE DE GESTIÓN</p>
+                </div>
+            </div>
 
-  <!-- Formulario de ingreso de datos -->
+            <!-- --- Tarjeta para acceder a la gestión de Sedes --- -->
+            <div class="admin-card " routerLink="/gestion-de-sedes">
+                <!-- --- Contenedor para el icono de Sedes --- -->
+                <div class="icon-container">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Gestión de Sedes</h3>
+            </div>
 
-  <div id="formulario" class="formulario" *ngIf="mostrar == true">
-    <div class="row">
-      <div class="col-lg-4">
-        <label for="Empresa" class="form-label">Empresa</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nombre de la empresa"
-          [(ngModel)]="obj_admin.Empresa"
-        />
-        <span style="color: red" *ngIf="validar_Empresa == false"
-          >Insertar empresa</span
-        >
-      </div>
-      <div class="col-lg-4">
-        <label for="Nit" class="form-label">Nit</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Nit de la empresa"
-          [(ngModel)]="obj_admin.Nit"
-        />
-        <span style="color: red" *ngIf="validar_Nit == false"
-          >Insertar nit</span
-        >
-      </div>
-      <div class="col-lg-4">
-        <label for="Direccion" class="form-label">Dirección</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Dirección de la empresa"
-          [(ngModel)]="obj_admin.Direccion"
-        />
-        <span style="color: red" *ngIf="validar_Direccion == false"
-          >Insertar direccion</span
-        >
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-4">
-        <label for="Telefono" class="form-label">Telefono</label>
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Telefono de la empresa"
-          [(ngModel)]="obj_admin.Telefono"
-        />
-        <span style="color: red" *ngIf="validar_Telefono == false"
-          >Insertar Telefono</span
-        >
-      </div>
-    </div>
-    <hr />
-    <!-- Botones de formulario -->
-    <div class="container mt-3">
-      <div class="row g-3 justify-content-center align-items-center">
-        <div class="col-12 col-md-4">
-          <button
-            type="button"
-            class="btn btn-outline-primary w-100 d-flex align-items-center justify-content-center gap-2"
-            value="Insertar"
-            (click)="validar('guardar')"
-            *ngIf="botones_formulario == false"
-          >
-            <i class="bi bi-plus-circle me-1"></i>
-            Guardar
-          </button>
+            <!-- --- Tarjeta para acceder a la gestión de Usuarios --- -->
+            <div class="admin-card" routerLink="/usuarios">
+                <!-- --- Contenedor para el icono de Usuarios --- -->
+                <div class="icon-container">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Gestión de Usuarios</h3>
+            </div>
+
+            <!-- --- Tarjeta para acceder a las configuraciones de Seguridad --- -->
+            <div class="admin-card" routerLink="/configuracion-seguridad">
+                <!-- --- Contenedor para el icono de Seguridad --- -->
+                <div class="icon-container">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Configuraciones de Seguridad</h3>
+            </div>
+
+            <!-- --- Tarjeta ancha para acceder a la configuración general del sistema --- -->
+            <div class="admin-card wide-card" routerLink="/configuracion-general">
+                <!-- --- Contenedor para el icono de Configuración General --- -->
+                <div class="icon-container">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3>Configuración general de la empresa</h3>
+            </div>
         </div>
-        <div class="col-12 col-md-4">
-          <button
-            type="button"
-            class="btn btn-outline-success w-100 d-flex align-items-center justify-content-center gap-2"
-            value="Editar"
-            (click)="validar('editar')"
-            *ngIf="botones_formulario == true"
-          >
-            <i class="bi bi-pencil-square me-1"></i>
-            Editar
-          </button>
-        </div>
-        <div class="col-12 col-md-4">
-          <button
-            type="button"
-            class="btn btn-outline-secondary w-100 d-flex align-items-center justify-content-center gap-2"
-            value="Cancelar"
-            (click)="mostrar_formulario('no ver')"
-          >
-            <i class="bi bi-x-circle me-1"></i>
-            Cancelar
-          </button>
-        </div>
-      </div>
     </div>
-    <hr />
-  </div>
-  <br />
-  <!-- Tabla -->
-  <div class="container-fluid" id="tabla">
-    <div class="table-responsive">
-      <table class="table table-success table-hover table-striped">
-        <thead>
-          <tr>
-            <th>Empresa</th>
-            <th>Nit</th>
-            <th>Direccion</th>
-            <th>Telefono</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of admin">
-            <td>{{ item.Empresa }}</td>
-            <td>{{ item.Nit }}</td>
-            <td>{{ item.Direccion }}</td>
-            <td>{{ item.Telefono }}</td>
-
-            <td class="text-center">
-              <span
-                class="bi bi-pencil me-3"
-                style="color: blue; cursor: pointer" title="Editar"
-                (click)="cargar_datos(item, item.id_administracion)"
-              ></span>
-              <span
-                class="bi bi-trash me-3"
-                style="color: red; cursor: pointer" title="Eliminar"
-                (click)="eliminar(item.id_administracion)"
-              ></span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
 </div>

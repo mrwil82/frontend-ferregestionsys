@@ -1,0 +1,352 @@
+
+/* --- Estilos generales aplicados al body: fuente, fondo, color base, etc. --- */
+.body {
+    font-family: 'Poppins', sans-serif; /* Fuente principal */
+    background-color:#f8f9fa; /* Aplica el color de fondo general */
+    color: #333; /* Color de texto por defecto */
+    margin: 0; /* Elimina márgenes por defecto */
+    padding: 0; /* Elimina padding por defecto */
+    line-height: 1.5; /* Interlineado estándar */
+    font-size: 15px; /* Tamaño de fuente base */
+}
+
+/* --- Estilos para el contenedor principal de la interfaz administrativa --- */
+.admin-container {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 30px auto; /* Margen superior/inferior y centrado horizontal */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* --- Estilos para la cabecera de la página (título y botones Volver/Nuevo) --- */
+.page-header {
+    display: flex; /* Usa Flexbox para alinear elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Asegura espacio entre los elementos */
+    gap: 15px; /* Espacio entre botones y título si están juntos */
+    margin-bottom: 30px; /* Espacio debajo de la cabecera */
+    padding-bottom: 15px; /* Espacio debajo de la línea divisoria */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria inferior */
+}
+
+/* --- Estilos para el título principal H1 de la página --- */
+.page-header h1 {
+    font-size: 26px; /* Tamaño del título */
+    font-weight: 600; /* Peso semibold */
+    color: #212529; /* Color del título */
+    margin: 0 auto; /* Centra el título si hay espacio a los lados */
+}
+/* --- Alinea el botón Volver a la izquierda --- */
+.page-header .btn-volver {
+    margin-right: auto; /* Empuja otros elementos a la derecha */
+}
+/* --- Alinea el botón Nueva Sede a la derecha --- */
+.page-header .btn-nuevo {
+    margin-left: auto; /* Empuja este botón hacia el extremo derecho */
+}
+
+
+/* --- Estilos base generales para todos los botones (.btn) --- */
+.btn {
+    display: inline-flex; /* Permite alinear icono y texto */
+    align-items: center; /* Centra verticalmente contenido */
+    justify-content: center; /* Centra horizontalmente contenido */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    text-align: center; /* Alineación de texto */
+    text-decoration: none; /* Sin subrayado */
+    vertical-align: middle; /* Alineación vertical */
+    cursor: pointer; /* Cursor de mano */
+    user-select: none; /* Evita selección de texto */
+    background-color: transparent; /* Fondo transparente por defecto */
+    border: 1px solid transparent; /* Borde transparente por defecto */
+    padding: 0.4rem 0.8rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño de fuente de botones */
+    border-radius: 0.3rem; /* Bordes redondeados */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; /* Transiciones suaves */
+}
+/* --- Estilos para iconos dentro de botones --- */
+.btn i { margin-right: 6px; } /* Espacio a la derecha del icono */
+/* --- Definición de colores específicos para variantes de botones --- */
+.btn-primary { color: #fff; background-color: #0d6efd; border-color: #0d6efd; } /* Botón azul primario */
+.btn-primary:hover { background-color: #0b5ed7; border-color: #0a58ca; } /* Hover primario */
+.btn-secondary { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Botón gris secundario */
+.btn-secondary:hover { background-color: #5c636a; border-color: #565e64; } /* Hover secundario */
+.btn-danger { color: #fff; background-color: #dc3545; border-color: #dc3545; } /* Botón rojo de peligro */
+.btn-danger:hover { background-color: #bb2d3b; border-color: #b02a37; } /* Hover peligro */
+.btn-info { color: #000; background-color: #0dcaf0; border-color: #0dcaf0; } /* Botón azul claro informativo */
+.btn-info:hover { color: #000; background-color: #31d2f2; border-color: #25cff2;} /* Hover informativo */
+.btn-outline-secondary { color: #6c757d; border-color: #6c757d; } /* Botón secundario con borde */
+.btn-outline-secondary:hover { color: #fff; background-color: #6c757d; border-color: #6c757d; } /* Hover secundario con borde */
+/* --- Estilo Específico para el Botón Volver (ROJO) --- */
+.btn-volver { color: #dc3545; border-color: #dc3545; background-color: transparent;} /* Estilo base rojo */
+.btn-volver:hover { color: #ffffff; background-color: #dc3545; border-color: #dc3545; } /* Hover rojo */
+/* --- Estilos para botones pequeños (usados en acciones de tabla) --- */
+.btn-sm { padding: 0.25rem 0.5rem; font-size: 0.8rem; border-radius: 0.2rem; } /* Más pequeños */
+.btn-sm i { margin-right: 0; } /* Iconos en botones pequeños no tienen margen */
+
+
+/* --- Estilos para la Barra de Búsqueda --- */
+.search-bar {
+    display: flex; /* Alinea input y botón horizontalmente */
+    gap: 10px; /* Espacio entre input y botón */
+    margin-bottom: 25px; /* Espacio debajo de la barra */
+    padding: 15px; /* Padding interno opcional */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil */
+    border: 1px solid #dee2e6; /* Borde claro */
+}
+/* --- Estilos para el input dentro de la barra de búsqueda --- */
+.search-bar .form-control {
+    flex-grow: 1; /* El input ocupa el espacio restante */
+}
+/* --- Estilos para el botón dentro de la barra de búsqueda --- */
+.search-bar .btn-buscar {
+    flex-shrink: 0; /* Evita que el botón se encoja */
+}
+
+/* --- Estilos para el Contenedor del Formulario de Agregar/Editar Sede --- */
+.formulario-container {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 25px; /* Espaciado interno */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra más pronunciada */
+    border: 1px solid #dee2e6; /* Borde claro */
+    margin-bottom: 25px; /* Espacio debajo del formulario */
+}
+/* --- Estilos para la cabecera del formulario (título y botón cerrar) --- */
+.form-header {
+    display: flex; /* Alinea título y botón */
+    justify-content: space-between; /* Separa título y botón */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 20px; /* Espacio debajo */
+    padding-bottom: 10px; /* Espacio bajo la línea */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria */
+}
+/* --- Estilos para el título H2 dentro del formulario --- */
+.form-header h2 {
+    font-size: 1.25rem; /* Tamaño de fuente */
+    font-weight: 600; /* Peso semibold */
+    color: #0d6efd; /* Color azul */
+    margin: 0; /* Sin margen */
+}
+/* --- Estilos para el botón 'X' para cerrar el formulario --- */
+.btn-close-form {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    font-size: 1.5rem; /* Tamaño del icono 'X' */
+    color: #6c757d; /* Color gris */
+    cursor: pointer; /* Cursor de mano */
+    padding: 0; /* Sin padding */
+    line-height: 1; /* Ajuste de línea */
+}
+/* --- Estilo hover para el botón 'X' --- */
+.btn-close-form:hover {
+    color: #333; /* Cambia a color de título */
+}
+/* --- Estilos para el contenedor de botones (Cancelar/Guardar) del formulario --- */
+.form-buttons {
+    display: flex; /* Alinea botones horizontalmente */
+    justify-content: flex-end; /* Alinea botones a la derecha */
+    gap: 10px; /* Espacio entre botones */
+    margin-top: 20px; /* Espacio sobre los botones */
+    grid-column: 1 / -1; /* Asegura que ocupe todo el ancho si está dentro de un grid */
+}
+
+/* --- Estilos reutilizados para Formularios --- */
+/* --- Layout de Grid para organizar campos del formulario --- */
+.form-grid {
+    display: grid;
+    /* Columnas automáticas con ancho mínimo de 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px 20px; /* Espacio vertical y horizontal entre campos */
+}
+/* --- Estilos para un grupo de campo (Label + Input) --- */
+.setting-group {
+    display: flex;
+    flex-direction: column; /* Apila label sobre input */
+    gap: 5px; /* Espacio entre label e input */
+}
+/* --- Modificador para que un grupo ocupe todo el ancho del grid --- */
+.setting-group.full-width { grid-column: 1 / -1; }
+/* --- Estilos para las etiquetas (label) --- */
+.setting-group > label {
+    font-weight: 500; /* Peso medio */
+    color: #6c757d; /* Color gris */
+    margin-bottom: 0; /* Sin margen inferior */
+    font-size: 0.9rem; /* Tamaño de fuente */
+}
+/* --- Estilos base para inputs, textareas, etc. --- */
+.form-control {
+    display: block; /* Ocupa todo el ancho */
+    width: 100%; /* Ancho completo */
+    padding: 0.375rem 0.75rem; /* Padding interno */
+    font-size: 0.9rem; /* Tamaño fuente */
+    font-weight: 400; /* Peso normal */
+    line-height: 1.5; /* Interlineado */
+    color: #212529; /* Color de texto */
+    background-color: #ffffff; /* Fondo blanco */
+    background-clip: padding-box; /* Control de recorte de fondo */
+    border: 1px solid #dee2e6; /* Borde */
+    appearance: none; /* Quita estilos nativos */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; /* Transición foco */
+}
+/* --- Estilo al enfocar un control de formulario --- */
+.form-control:focus {
+    border-color: #0d6efd; /* Borde azul */
+    outline: 0; /* Sin contorno */
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25); /* Sombra de realce */
+}
+
+/* --- Estilos para el Contenedor de la Tabla de Sedes --- */
+.table-container {
+    padding: 15px; /* Padding interno */
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil */
+    border: 1px solid #dee2e6; /* Borde claro */
+}
+/* --- Estilos para el wrapper de la tabla que permite scroll --- */
+.table-wrapper {
+    overflow-x: auto; /* Scroll horizontal si es necesario */
+    border: none; /* Sin borde propio, el contenedor ya tiene */
+    border-radius: 0; /* Sin bordes redondeados propios */
+    margin-bottom: 0; /* Sin margen inferior */
+}
+/* --- Estilos base para la tabla de datos --- */
+.data-table {
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Bordes colapsados */
+    color: #212529; /* Color de texto */
+    min-width: 600px; /* Ancho mínimo para legibilidad */
+    background-color: transparent; /* Fondo transparente (el contenedor ya lo tiene) */
+}
+/* --- Estilos para la cabecera (thead) de la tabla --- */
+.data-table thead th {
+    background-color: #e1f0ed; /* Fondo verde-azulado claro */
+    font-weight: 600; /* Texto en negrita */
+    padding: 12px 15px; /* Padding */
+    text-align: left; /* Alineación izquierda */
+    border-bottom: 2px solid #dee2e6; /* Borde inferior */
+    white-space: nowrap; /* Evita salto de línea */
+    color: #1e404a; /* Color de texto específico */
+}
+/* --- Estilos para las celdas (td) del cuerpo (tbody) de la tabla --- */
+.data-table tbody td {
+    padding: 10px 15px; /* Padding */
+    border-top: 1px solid #dee2e6; /* Borde superior */
+    vertical-align: middle; /* Alineación vertical */
+    background-color: transparent; /* Fondo transparente */
+    color: #333; /* Color de texto */
+}
+/* --- Estilo hover para las filas de la tabla --- */
+.data-table tbody tr:hover td {
+    background-color: #f1f5f9; /* Fondo gris claro al pasar ratón */
+}
+/* --- Estilos para la celda de acciones (botones editar/eliminar) --- */
+.data-table .acciones {
+    text-align: right; /* Alinea botones a la derecha */
+    white-space: nowrap; /* Evita que los botones salten de línea */
+}
+/* --- Estilos para los botones dentro de la celda de acciones --- */
+.data-table .acciones .btn {
+    margin-left: 5px; /* Espacio entre botones de acción */
+}
+
+/* --- Estilos para el Modal de Confirmación --- */
+.modal {
+    position: fixed; /* Posición fija en la pantalla */
+    inset: 0; /* Ocupa toda la pantalla (top, right, bottom, left = 0) */
+    background-color: #1e404a; /* Fondo oscuro semi-transparente */
+    display: flex; /* Usa flexbox para centrar contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    z-index: 1050; /* Asegura que esté por encima de otros elementos */
+    padding: 15px; /* Padding por si el contenido es grande */
+    overflow-y: auto; /* Permite scroll si el contenido excede la altura */
+}
+/* --- Estilos para el contenido del modal --- */
+.modal-content {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra */
+    border: 1px solid #dee2e6; /* Borde claro */
+    max-width: 500px; /* Ancho máximo */
+    width: 100%; /* Ancho adaptable */
+    display: flex; /* Usa flexbox */
+    flex-direction: column; /* Apila header, body, buttons */
+}
+/* --- Estilos para la cabecera del modal --- */
+.modal-header {
+    display: flex; /* Alinea título y botón cerrar */
+    justify-content: space-between; /* Separa título y botón */
+    align-items: center; /* Centra verticalmente */
+    padding: 1rem 1.5rem; /* Padding interno */
+    border-bottom: 1px solid #dee2e6; /* Línea divisoria */
+}
+/* --- Estilos para el título H3 del modal --- */
+.modal-header h3 {
+    margin: 0; /* Sin margen */
+    font-size: 1.25rem; /* Tamaño fuente */
+    font-weight: 600; /* Peso semibold */
+    color: #0d6efd; /* Color de título */
+}
+/* --- Estilos para el botón 'X' de cerrar modal --- */
+.btn-close-modal {
+    background: none; border: none; font-size: 1.5rem; /* Estilo básico */
+    color: #6c757d; cursor: pointer; padding: 0; line-height: 1; /* Color y comportamiento */
+}
+.btn-close-modal:hover { color: #333; } /* Hover */
+
+/* --- Estilos para el cuerpo del modal --- */
+.modal-body {
+    padding: 1.5rem; /* Padding interno */
+    line-height: 1.6; /* Interlineado */
+    color: #444; /* Color de texto */
+}
+/* --- Estilos para párrafos dentro del cuerpo del modal --- */
+.modal-body p { margin: 0; } /* Sin margen en párrafos */
+/* --- Estilos para el contenedor de botones del modal --- */
+.modal-buttons {
+    display: flex; /* Alinea botones horizontalmente */
+    justify-content: flex-end; /* Alinea botones a la derecha */
+    gap: 10px; /* Espacio entre botones */
+    padding: 1rem 1.5rem; /* Padding */
+    border-top: 1px solid #dee2e6; /* Línea divisoria superior */
+}
+
+/* --- Clase de utilidad para Ocultar Elementos --- */
+.hidden {
+    display: none !important; /* Oculta el elemento (importante para sobreescribir) */
+}
+
+
+/* --- Responsividad: Ajustes para diferentes tamaños de pantalla --- */
+/* --- Media Query para pantallas medianas --- */
+@media (max-width: 992px) {
+    /* --- Ajusta ancho máximo del contenedor --- */
+    .admin-container { max-width: 960px; }
+}
+
+/* --- Media Query para pantallas pequeñas (móviles) --- */
+@media (max-width: 768px) {
+    /* --- Reduce tamaño de fuente base --- */
+    body { font-size: 14px; }
+    /* --- Reduce padding del contenedor --- */
+    .admin-container { padding: 15px; }
+    /* --- Ajusta la cabecera para apilar y centrar --- */
+    .page-header { flex-wrap: wrap; justify-content: center; text-align: center; }
+    .page-header h1 { font-size: 22px; width: 100%; order: 1; margin-bottom: 10px; } /* Título primero */
+    .page-header .btn-volver { order: 2; margin: 0 5px; } /* Botón Volver después */
+    .page-header .btn-nuevo { order: 3; margin: 0 5px; } /* Botón Nuevo al final */
+
+    /* --- Apila la barra de búsqueda --- */
+    .search-bar { flex-direction: column; align-items: stretch; }
+
+    /* --- Ajusta el grid del formulario a una columna --- */
+    .form-grid { grid-template-columns: 1fr; gap: 15px;}
+    /* --- Ajusta el margen del contenido del modal --- */
+    .modal-content { margin: 10px; }
+}
+/* --- Fin de estilos para Responsividad --- */

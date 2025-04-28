@@ -32,75 +32,71 @@
             </div>
           </div>
           <hr />
-          
-        <li class="dropdown-item">
-          <a [routerLink]="['/dashboard']" class="sidebar-link " title="Dashboard">
+
+        <li class="dropdown-item" *ngIf="puedeVerModulo('dashboard')">
+          <a [routerLink]="['/dashboard']" class="sidebar-link " title="Dashboard" (click)="buscar_modulo('dashboard')">
             <i class="bi bi-house me-4"></i><span class="text">Dashboard</span>
           </a>
         </li>
 
-        <li class="dropdown-item">
-          <a [routerLink]="['/administracion']" class="sidebar-link" title="Administración">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('administracion')" >
+          <a [routerLink]="['/administracion']" class="sidebar-link" title="Administración" (click)="buscar_modulo('administracion')">
             <i class="bi bi-gear me-4"></i><span class="text">Administración</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/usuarios']" class="sidebar-link" title="Usuarios">
-            <i class="bi bi-person-plus me-4"></i><span class="text">Usuarios</span>
-          </a>
-        </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/pedidos']" class="sidebar-link" title="pedidos">
+
+        <li class="dropdown-item" *ngIf="puedeVerModulo('pedidos')">
+          <a [routerLink]="['/pedidos']" class="sidebar-link" title="pedidos" (click)="buscar_modulo('pedidos')">
             <i class="bi bi-list-check me-4"></i><span class="text">Pedidos</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/empleados']" class="sidebar-link" title="Empleados">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('empleados')">
+          <a [routerLink]="['/empleados']" class="sidebar-link" title="Empleados" (click)="buscar_modulo('empleados')">
             <i class="bi bi-people me-4"></i><span class="text">Empleados</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/contabilidad']" class="sidebar-link" title="Contabilidad">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('contabilidad')">
+          <a [routerLink]="['/contabilidad']" class="sidebar-link" title="Contabilidad" (click)="buscar_modulo('contabilidad')">
             <i class="bi bi-cash me-4"></i><span class="text">Contabilidad</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/inventario']" class="sidebar-link" title="Inventario">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('inventario')">
+          <a [routerLink]="['/inventario']" class="sidebar-link" title="Inventario" (click)="buscar_modulo('inventario')">
             <i class="bi bi-archive me-4"></i><span class="text">Inventario</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/clientes']" class="sidebar-link" title="Clientes">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('clientes')">
+          <a [routerLink]="['/clientes']" class="sidebar-link" title="Clientes" (click)="buscar_modulo('clientes')">
             <i class="bi bi-people me-4"></i><span class="text">Clientes</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/proveedores']" class="sidebar-link" title="Proveedores">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('proveedores')">
+          <a [routerLink]="['/proveedores']" class="sidebar-link" title="Proveedores" (click)="buscar_modulo('proveedores')">
             <i class="bi bi-truck me-4"></i><span class="text">Proveedores</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/compras']" class="sidebar-link" title="Compras">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('compras')">
+          <a [routerLink]="['/compras']" class="sidebar-link" title="Compras" (click)="buscar_modulo('compras')">
             <i class="bi bi-cart me-4"></i><span class="text">Compras</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/ventas']" class="sidebar-link" title="Ventas">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('ventas')">
+          <a [routerLink]="['/ventas']" class="sidebar-link" title="Ventas" (click)="buscar_modulo('ventas')">
             <i class="bi bi-basket me-4"></i><span class="text">Ventas</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/soporte_tecnico']" class="sidebar-link" title="Soporte Técnico">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('soporte_tecnico')">
+          <a [routerLink]="['/soporte_tecnico']" class="sidebar-link" title="Soporte Técnico" (click)="buscar_modulo('soporte_tecnico')">
             <i class="bi bi-tools me-4"></i><span class="text">Soporte Técnico</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/configuracion']" class="sidebar-link" title="Configuración">
-            <i class="bi bi-toggle-on me-4"></i><span class="text">Configuración</span>
+        <li class="dropdown-item" *ngIf="puedeVerModulo('configuracion')">
+          <a [routerLink]="['/configuracion']" class="sidebar-link" title="Configuración" (click)="buscar_modulo('configuracion')">
+            <i class="bi bi-toggle-on me-4"></i><span class="text">Configuración de usuario</span>
           </a>
         </li>
-        <li class="dropdown-item">
-          <a [routerLink]="['/contactanos']" class="sidebar-link" title="Contáctanos">
+        <li class="dropdown-item" *ngIf="puedeVerModulo('contactanos')">
+          <a [routerLink]="['/contactanos']" class="sidebar-link" title="Contáctanos" (click)="buscar_modulo('contactanos')">
             <i class="bi bi-telephone me-4"></i><span class="text">Contáctanos</span>
           </a>
         </li>
@@ -109,7 +105,7 @@
 
     <h3 class="d-block text-align-right me-4 fw-bold"
               style="text-align: center; font-weight: bold; font-size: 18px; color: white; margin: 0; padding: 0;">
-              Bienvenido: {{ Nombre }}
+              Bienvenido: {{ Nombre }} {{ Cargo }}
             </h3>
     <button class="navbar-toggler" type="button" style="transform: scale(0.5);" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
