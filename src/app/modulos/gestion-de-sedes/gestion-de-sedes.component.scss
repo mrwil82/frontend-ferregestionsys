@@ -61,7 +61,7 @@
     border: 1px solid transparent; /* Borde transparente por defecto */
     padding: 0.4rem 0.8rem; /* Padding interno */
     font-size: 0.9rem; /* Tamaño de fuente de botones */
-    border-radius: 0.3rem; /* Bordes redondeados */
+    border-radius: 40px; /* Bordes redondeados */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out; /* Transiciones suaves */
 }
 /* --- Estilos para iconos dentro de botones --- */
@@ -92,13 +92,15 @@
     margin-bottom: 25px; /* Espacio debajo de la barra */
     padding: 15px; /* Padding interno opcional */
     background-color: #ffffff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 40px; /* Bordes redondeados */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra sutil */
     border: 1px solid #dee2e6; /* Borde claro */
 }
 /* --- Estilos para el input dentro de la barra de búsqueda --- */
 .search-bar .form-control {
-    flex-grow: 1; /* El input ocupa el espacio restante */
+    flex-grow: 45%; /* El input ocupa el espacio restante */
+    border-radius: 40px; /* Bordes redondeados */
+
 }
 /* --- Estilos para el botón dentro de la barra de búsqueda --- */
 .search-bar .btn-buscar {
@@ -166,6 +168,7 @@
     display: flex;
     flex-direction: column; /* Apila label sobre input */
     gap: 5px; /* Espacio entre label e input */
+    grid-column: 1 / -1; /* Asegura que ocupe todo el ancho si está dentro de un grid */
 }
 /* --- Modificador para que un grupo ocupe todo el ancho del grid --- */
 .setting-group.full-width { grid-column: 1 / -1; }

@@ -18,7 +18,9 @@
   height: 100%;
   position: relative;
 }
-
+.password-toggle {
+  cursor: pointer;
+}
 /* Efecto de overlay para mejorar contraste */
 .login-background::before {
   content: "";

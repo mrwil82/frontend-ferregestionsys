@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 interface Sede {
   id: number;
@@ -80,13 +83,13 @@ export class GestionDeSedesComponent {
         id: this.sedes.length ? Math.max(...this.sedes.map(s => s.id)) + 1 : 1
       };
       this.sedes.push(nuevaSede);
-      alert('Sede creada correctamente (simulación)');
+      Swal.fire('Sede creada correctamente');
     } else {
       // Editar sede existente
       const idx = this.sedes.findIndex(s => s.id === this.sedeEditando!.id);
       if (idx !== -1) {
         this.sedes[idx] = { ...this.sedeEditando };
-        alert('Sede actualizada correctamente (simulación)');
+        Swal.fire('Sede actualizada correctamente');
       }
     }
     this.cerrarForm();
@@ -105,7 +108,7 @@ export class GestionDeSedesComponent {
   eliminarSede() {
     if (this.sedeIdAEliminar !== null) {
       this.sedes = this.sedes.filter(s => s.id !== this.sedeIdAEliminar);
-      alert('Sede eliminada correctamente (simulación)');
+      Swal.fire('Sede eliminada correctamente');
     }
     this.cerrarModal();
   }

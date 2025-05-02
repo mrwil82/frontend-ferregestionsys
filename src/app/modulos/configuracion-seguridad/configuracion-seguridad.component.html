@@ -1,273 +1,674 @@
 <div class="main-container">
-<!-- --- Contenedor principal para toda la interfaz de la página --- */ -->
-<div class="admin-container">
-    <!-- --- Cabecera de la página con título y botón de Volver --- */ -->
-    <header class="page-header">
-        <!-- --- Enlace estilizado como botón (con estilo rojo 'btn-volver') para regresar --- */ -->
-        <a href="administracion.html" routerLink="/administracion" class="btn btn-outline-secondary btn-volver"><i class="fas fa-arrow-left"></i> Volver</a>
-        <!-- --- Título principal de la sección --- */ -->
-        <h1>CONFIGURACIÓN DE SEGURIDAD DEL SISTEMA</h1>
-    </header>
+    <!-- --- Contenedor principal para toda la interfaz de la página --- */ -->
+    <div class="admin-container">
+        <!-- --- Cabecera de la página con título y botón de Volver --- */ -->
+        <header class="page-header">
+            <!-- --- Enlace estilizado como botón (con estilo rojo 'btn-volver') para regresar --- */ -->
+            <a href="administracion.html" routerLink="/administracion" class="btn btn-outline-secondary btn-volver"><i
+                    class="fas fa-arrow-left"></i> Volver</a>
+            <!-- --- Título principal de la sección --- */ -->
+            <h1>CONFIGURACIÓN DE SEGURIDAD DEL SISTEMA</h1>
+        </header>
 
-    <!-- --- Contenedor para las diferentes tarjetas de configuración de seguridad --- */ -->
-    <div class="security-container">
+        <!-- --- Contenedor para las diferentes tarjetas de configuración de seguridad --- */ -->
+        <div class="security-container">
 
-        <!-- --- Tarjeta para la configuración de Permisos por Rol --- */ -->
-        <div class="security-card">
-            <!-- --- Título de la tarjeta de Permisos --- */ -->
-            <h2><i class="fas fa-shield-alt"></i> Permisos por Rol</h2>
+            <!-- --- Tarjeta para la configuración de Permisos por Rol --- */ -->
+            <div class="security-card">
+                <!-- --- Título de la tarjeta de Permisos --- */ -->
+                <h2><i class="fas fa-shield-alt"></i> Permisos por Rol</h2>
 
-            <!-- --- Contenedor wrapper para la tabla, permite scroll horizontal --- */ -->
-            <div class="table-wrapper">
-                <!-- --- Tabla para asignar permisos a roles en diferentes módulos --- */ -->
-                <table class="permisos-table data-table">
-                    <!-- --- Cabecera de la tabla con los nombres de los módulos y roles --- */ -->
-                    <thead>
-                        <tr>
-                            <th>Módulo / Función</th>
-                            <th>Admin General</th>
-                            <th>Admin Sede</th>
-                            <th>Inventario</th>
-                            <th>Ventas</th>
-                            <th>Compras</th>
-                            <th>Contabilidad</th>
-                            <th>Soporte Técnico</th>
-                        </tr>
-                    </thead>
-                    <!-- --- Cuerpo de la tabla con las filas de módulos y selects de permisos --- */ -->
-                    <tbody>
-                        <!-- --- Fila de ejemplo: Permisos para el módulo Administración --- */ -->
-                        <tr>
-                            <td>Administración (Submódulos)</td>
-                            <!-- --- Select para asignar permiso al rol Admin General --- */ -->
-                            <td><select class="form-select permission-select" name="perm[admin][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <!-- --- Selects para los demás roles en este módulo --- */ -->
-                            <td><select class="form-select permission-select" name="perm[admin][admin_sede]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[admin][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[admin][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[admin][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[admin][contabilidad]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[admin][soporte]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                        </tr>
-                        <!-- --- Fila de ejemplo: Permisos para Gestión de Usuarios --- */ -->
-                         <tr>
-                            <td>Gestión de Usuarios</td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][contabilidad]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[usuarios][soporte]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                        </tr>
-                        <!-- --- (Se omiten comentarios para las filas restantes de módulos para brevedad, estructura idéntica) --- */ -->
-                        <tr>
-                            <td>Pedidos</td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][cajero_ventas]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[pedidos][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                        <tr>
-                            <td>Empleados</td>
-                            <td><select class="form-select permission-select" name="perm[empleados][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][admin_sede]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none" >Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][contabilidad]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[empleados][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                         <tr>
-                            <td>Contabilidad</td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][admin_sede]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none" >Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][compras]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][contabilidad]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[contabilidad_mod][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                        <tr>
-                            <td>Inventario</td>
-                            <td><select class="form-select permission-select" name="perm[inventario][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][inventario]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][cajero_ventas]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][compras]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[inventario][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                         <tr>
-                            <td>Clientes</td>
-                            <td><select class="form-select permission-select" name="perm[clientes][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][cajero_ventas]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[clientes][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                        <tr>
-                            <td>Proveedores</td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][inventario]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none" >Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][compras]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[proveedores][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                         <tr>
-                            <td>Compras</td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][inventario]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][compras]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[compras_mod][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                         <tr>
-                            <td>Ventas</td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][admin_sede]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][cajero_ventas]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[ventas_mod][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                         <tr>
-                            <td>Reportes</td>
-                            <td><select class="form-select permission-select" name="perm[reportes][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][admin_sede]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][inventario]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][cajero_ventas]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][compras]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][contabilidad]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[reportes][soporte]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                        </tr>
-                        <!-- --- Fila final: Permisos para este mismo módulo de Configurar Seguridad --- */ -->
-                        <tr>
-                            <td>Configurar Seguridad</td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][admin_general]"><option value="all" selected>Control Total</option><option value="view">Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][admin_sede]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][inventario]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][cajero_ventas]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][compras]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][contabilidad]"><option value="all">Control Total</option><option value="view">Solo Ver</option><option value="none" selected>Sin Acceso</option></select></td>
-                            <td><select class="form-select permission-select" name="perm[config_seguridad][soporte]"><option value="all">Control Total</option><option value="view" selected>Solo Ver</option><option value="none">Sin Acceso</option></select></td>
-                        </tr>
+                <!-- --- Contenedor wrapper para la tabla, permite scroll horizontal --- */ -->
+                <div class="table-wrapper">
+                    <!-- --- Tabla para asignar permisos a roles en diferentes módulos --- */ -->
+                    <table class="permisos-table data-table">
+                        <!-- --- Cabecera de la tabla con los nombres de los módulos y roles --- */ -->
+                        <thead>
+                            <tr>
+                                <th>Módulo / Función</th>
+                                <th>Admin General</th>
+                                <th>Admin Sede</th>
+                                <th>Inventario</th>
+                                <th>Ventas</th>
+                                <th>Compras</th>
+                                <th>Contabilidad</th>
+                                <th>Soporte Técnico</th>
+                            </tr>
+                        </thead>
+                        <!-- --- Cuerpo de la tabla con las filas de módulos y selects de permisos --- */ -->
+                        <tbody>
+                            <!-- --- Fila de ejemplo: Permisos para el módulo Administración --- */ -->
+                            <tr>
+                                <td>Administración (Submódulos)</td>
+                                <!-- --- Select para asignar permiso al rol Admin General --- */ -->
+                                <td><select class="form-select permission-select" name="perm[admin][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <!-- --- Selects para los demás roles en este módulo --- */ -->
+                                <td><select class="form-select permission-select" name="perm[admin][admin_sede]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[admin][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[admin][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[admin][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[admin][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[admin][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <!-- --- Fila de ejemplo: Permisos para Gestión de Usuarios --- */ -->
+                            <tr>
+                                <td>Gestión de Usuarios</td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[usuarios][soporte]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <!-- --- (Se omiten comentarios para las filas restantes de módulos para brevedad, estructura idéntica) --- */ -->
+                            <tr>
+                                <td>Pedidos</td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][cajero_ventas]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[pedidos][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Empleados</td>
+                                <td><select class="form-select permission-select" name="perm[empleados][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][admin_sede]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[empleados][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Contabilidad</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][admin_sede]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][contabilidad]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[contabilidad_mod][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Inventario</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[inventario][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[inventario][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[inventario][inventario]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[inventario][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[inventario][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[inventario][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[inventario][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Clientes</td>
+                                <td><select class="form-select permission-select" name="perm[clientes][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][cajero_ventas]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[clientes][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Proveedores</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[proveedores][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[proveedores][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[proveedores][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[proveedores][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[proveedores][compras]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[proveedores][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[proveedores][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Compras</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[compras_mod][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[compras_mod][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[compras_mod][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[compras_mod][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[compras_mod][compras]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[compras_mod][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[compras_mod][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Ventas</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[ventas_mod][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[ventas_mod][admin_sede]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[ventas_mod][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[ventas_mod][cajero_ventas]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[ventas_mod][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[ventas_mod][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[ventas_mod][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td>Reportes</td>
+                                <td><select class="form-select permission-select" name="perm[reportes][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][admin_sede]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select" name="perm[reportes][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                            </tr>
+                            <!-- --- Fila final: Permisos para este mismo módulo de Configurar Seguridad --- */ -->
+                            <tr>
+                                <td>Configurar Seguridad</td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][admin_general]">
+                                        <option value="all" selected>Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][admin_sede]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][inventario]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][cajero_ventas]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][compras]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][contabilidad]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view">Solo Ver</option>
+                                        <option value="none" selected>Sin Acceso</option>
+                                    </select></td>
+                                <td><select class="form-select permission-select"
+                                        name="perm[config_seguridad][soporte]">
+                                        <option value="all">Control Total</option>
+                                        <option value="view" selected>Solo Ver</option>
+                                        <option value="none">Sin Acceso</option>
+                                    </select></td>
+                            </tr>
 
-                    </tbody>
-                </table>
-            </div> <!-- --- Fin del wrapper de la tabla de permisos --- */ -->
-            <!-- --- Contenedor para el botón de guardar permisos --- */ -->
-            <div class="card-actions">
-                <button class="btn btn-primary btn-guardar-permisos" (click)="guardarPermisos()">Guardar Configuración de Permisos</button>
-            </div>
-        </div>
-        <!-- --- Fin de la Tarjeta de Permisos --- */ -->
-
-        <!-- --- Tarjeta para mostrar el Historial de Accesos --- */ -->
-        <div class="security-card">
-            <!-- --- Título de la tarjeta de Historial --- */ -->
-            <h2><i class="fas fa-history"></i> Historial de Accesos</h2>
-            <!-- --- Contenedor para los filtros del historial (usuario, fecha) --- */ -->
-            <div class="access-filter form-inline">
-                <label for="filter-user">Usuario:</label>
-                <select id="filter-user" class="form-select">
-                    <option value="todos">Todos</option>
-                    <option value="1">Juan Pérez</option>
-                    <option value="2">María López</option>
-                    <!-- ... más usuarios ... -->
-                </select>
-                <label for="filter-date">Fecha:</label>
-                <input type="date" id="filter-date" class="form-control">
-                <button class="btn btn-secondary btn-filtrar" (click)="filtrarHistorial()">Filtrar</button>
-            </div>
-            <!-- --- Contenedor wrapper para la tabla de historial --- */ -->
-            <div class="table-wrapper">
-                <!-- --- Tabla que muestra el historial de accesos --- */ -->
-                <table class="access-history-table data-table">
-                    <thead>
-                        <tr>
-                            <th>Usuario</th>
-                            <th>Acción</th>
-                            <th>Fecha</th>
-                            <th>Hora</th>
-                            <th>IP</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- --- Filas de ejemplo del historial --- */ -->
-                        <tr><td>Juan Pérez</td><td>Inicio de sesión</td><td>24/04/2025</td><td>08:45:12</td><td>192.168.1.15</td></tr>
-                        <tr><td>María López</td><td>Inicio de sesión</td><td>24/04/2025</td><td>09:10:05</td><td>192.168.1.22</td></tr>
-                        <tr><td>Juan Pérez</td><td>Edición de producto</td><td>24/04/2025</td><td>08:52:37</td><td>192.168.1.15</td></tr>
-                        <tr><td>María López</td><td>Venta realizada</td><td>24/04/2025</td><td>09:25:18</td><td>192.168.1.22</td></tr>
-                        <!-- ... más registros ... -->
-                    </tbody>
-                </table>
-             </div>
-             <!-- --- Contenedor para el botón de exportar historial --- */ -->
-             <div class="card-actions">
-                <button class="btn btn-secondary btn-exportar" (click)="exportarHistorial()">Exportar Historial</button>
-            </div>
-        </div>
-         <!-- --- Fin de la Tarjeta de Historial de Accesos --- */ -->
-
-        <!-- --- Tarjeta para la Configuración General de Seguridad (contraseñas, sesiones) --- */ -->
-        <div class="security-card">
-            <!-- --- Título de la tarjeta de Configuración --- */ -->
-            <h2><i class="fas fa-cog"></i> Configuración de Seguridad</h2>
-            <!-- --- Contenedor del formulario con layout de grid --- */ -->
-            <div class="security-settings form-grid">
-                <!-- --- Grupo: Tiempo de expiración de sesión --- */ -->
-                <div class="setting-group">
-                    <label for="tiempo-sesion">Tiempo expiración sesión (min):</label>
-                    <input type="number" id="tiempo-sesion" value="30" min="5" max="120" class="form-control">
+                        </tbody>
+                    </table>
+                </div> <!-- --- Fin del wrapper de la tabla de permisos --- */ -->
+                <!-- --- Contenedor para el botón de guardar permisos --- */ -->
+                <div class="card-actions">
+                    <button class="btn btn-primary btn-guardar-permisos" (click)="guardarPermisos()"><i
+                            class="fas fa-save"></i> Guardar
+                        Configuración de Permisos</button>
                 </div>
-                <!-- --- Grupo: Intentos máximos de login --- */ -->
-                <div class="setting-group">
-                    <label for="intentos-login">Intentos máx. login:</label>
-                    <input type="number" id="intentos-login" value="3" min="1" max="10" class="form-control">
+            </div>
+            <!-- --- Fin de la Tarjeta de Permisos --- */ -->
+
+            <!-- --- Tarjeta para mostrar el Historial de Accesos --- */ -->
+            <div class="security-card">
+                <!-- --- Título de la tarjeta de Historial --- */ -->
+                <h2><i class="fas fa-history"></i> Historial de Accesos</h2>
+                <!-- --- Contenedor para los filtros del historial (usuario, fecha) --- */ -->
+                <div class="access-filter form-inline">
+                    <label for="filter-user">Usuario:</label>
+                    <select id="filter-user" class="form-select">
+                        <option value="todos">Todos</option>
+                        <option value="1">Juan Pérez</option>
+                        <option value="2">María López</option>
+                        <!-- ... más usuarios ... -->
+                    </select>
+                    <label for="filter-date">Fecha:</label>
+                    <input type="date" id="filter-date" class="form-control">
+                    <button class="btn btn-secondary btn-filtrar" (click)="filtrarHistorial()">Filtrar</button>
                 </div>
-                <!-- --- Grupo: Requisitos de complejidad de contraseña (ocupa ancho completo) --- */ -->
-                <div class="setting-group full-width">
-                    <label>Complejidad de contraseña requerida:</label>
-                    <!-- --- Grid para organizar los checkboxes de complejidad --- */ -->
-                    <div class="checkbox-grid">
-                        <div class="checkbox-group"><input type="checkbox" id="req-mayusculas" class="form-check-input" checked><label for="req-mayusculas" class="form-check-label">Mayúsculas.</label></div>
-                        <div class="checkbox-group"><input type="checkbox" id="req-numeros" class="form-check-input" checked><label for="req-numeros" class="form-check-label">Números.</label></div>
-                        <div class="checkbox-group"><input type="checkbox" id="req-especiales" class="form-check-input" checked><label for="req-especiales" class="form-check-label">Especiales.</label></div>
-                        <div class="checkbox-group"><input type="checkbox" id="req-longitud" class="form-check-input" checked><label for="req-longitud" class="form-check-label">Mínimo 8 caracteres.</label></div>
+                <!-- --- Contenedor wrapper para la tabla de historial --- */ -->
+                <div class="table-wrapper">
+                    <!-- --- Tabla que muestra el historial de accesos --- */ -->
+                    <table class="access-history-table data-table">
+                        <thead>
+                            <tr>
+                                <th>Usuario</th>
+                                <th>Acción</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>IP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- --- Filas de ejemplo del historial --- */ -->
+                            <tr>
+                                <td>Juan Pérez</td>
+                                <td>Inicio de sesión</td>
+                                <td>24/04/2025</td>
+                                <td>08:45:12</td>
+                                <td>192.168.1.15</td>
+                            </tr>
+                            <tr>
+                                <td>María López</td>
+                                <td>Inicio de sesión</td>
+                                <td>24/04/2025</td>
+                                <td>09:10:05</td>
+                                <td>192.168.1.22</td>
+                            </tr>
+                            <tr>
+                                <td>Juan Pérez</td>
+                                <td>Edición de producto</td>
+                                <td>24/04/2025</td>
+                                <td>08:52:37</td>
+                                <td>192.168.1.15</td>
+                            </tr>
+                            <tr>
+                                <td>María López</td>
+                                <td>Venta realizada</td>
+                                <td>24/04/2025</td>
+                                <td>09:25:18</td>
+                                <td>192.168.1.22</td>
+                            </tr>
+                            <!-- ... más registros ... -->
+                        </tbody>
+                    </table>
+                </div>
+                <!-- --- Contenedor para el botón de exportar historial --- */ -->
+                <div class="card-actions">
+                    <button class="btn btn-secondary btn-exportar" (click)="exportarHistorial()"><i
+                            class="fas fa-file-excel"></i> Exportar
+                        Historial</button>
+                </div>
+            </div>
+            <!-- --- Fin de la Tarjeta de Historial de Accesos --- */ -->
+
+            <!-- --- Tarjeta para la Configuración General de Seguridad (contraseñas, sesiones) --- */ -->
+            <div class="security-card">
+                <!-- --- Título de la tarjeta de Configuración --- */ -->
+                <h2><i class="fas fa-cog"></i> Configuración de Seguridad</h2>
+                <!-- --- Contenedor del formulario con layout de grid --- */ -->
+                <div class="security-settings form-grid">
+                    <!-- --- Grupo: Tiempo de expiración de sesión --- */ -->
+                    <div class="setting-group">
+                        <label for="tiempo-sesion">Tiempo expiración sesión (min):</label>
+                        <input type="number" id="tiempo-sesion" value="30" min="5" max="120" class="form-control">
+                    </div>
+                    <!-- --- Grupo: Intentos máximos de login --- */ -->
+                    <div class="setting-group">
+                        <label for="intentos-login">Intentos máx. login:</label>
+                        <input type="number" id="intentos-login" value="3" min="1" max="10" class="form-control">
+                    </div>
+                    <!-- --- Grupo: Requisitos de complejidad de contraseña (ocupa ancho completo) --- */ -->
+                    <div class="setting-group full-width">
+                        <label>Complejidad de contraseña requerida:</label>
+                        <!-- --- Grid para organizar los checkboxes de complejidad --- */ -->
+                        <div class="checkbox-grid">
+                            <div class="checkbox-group"><input type="checkbox" id="req-mayusculas"
+                                    class="form-check-input" checked><label for="req-mayusculas"
+                                    class="form-check-label">Mayúsculas.</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="req-numeros" class="form-check-input"
+                                    checked><label for="req-numeros" class="form-check-label">Números.</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="req-especiales"
+                                    class="form-check-input" checked><label for="req-especiales"
+                                    class="form-check-label">Especiales.</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="req-longitud"
+                                    class="form-check-input" checked><label for="req-longitud"
+                                    class="form-check-label">Mínimo 8 caracteres.</label></div>
+                        </div>
+                    </div>
+                    <!-- --- Grupo: Opciones adicionales de seguridad (ocupa ancho completo) --- */ -->
+                    <div class="setting-group full-width">
+                        <label>Opciones adicionales:</label>
+                        <!-- --- Grid para organizar los checkboxes adicionales --- */ -->
+                        <div class="checkbox-grid">
+                            <div class="checkbox-group"><input type="checkbox" id="req-cambio" class="form-check-input"
+                                    checked><label for="req-cambio" class="form-check-label">Cambio cada 3
+                                    meses.</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="req-unico" class="form-check-input"
+                                    checked><label for="req-unico" class="form-check-label">No reutilizar últimas 5
+                                    contraseñas.</label></div>
+                            <div class="checkbox-group"><input type="checkbox" id="req-bloqueo" class="form-check-input"
+                                    checked><label for="req-bloqueo" class="form-check-label">Bloquear tras
+                                    fallos.</label></div>
+                        </div>
                     </div>
                 </div>
-                <!-- --- Grupo: Opciones adicionales de seguridad (ocupa ancho completo) --- */ -->
-                <div class="setting-group full-width">
-                    <label>Opciones adicionales:</label>
-                     <!-- --- Grid para organizar los checkboxes adicionales --- */ -->
-                     <div class="checkbox-grid">
-                        <div class="checkbox-group"><input type="checkbox" id="req-cambio" class="form-check-input" checked><label for="req-cambio" class="form-check-label">Cambio cada 3 meses.</label></div>
-                        <div class="checkbox-group"><input type="checkbox" id="req-unico" class="form-check-input" checked><label for="req-unico" class="form-check-label">No reutilizar últimas 5 contraseñas.</label></div>
-                        <div class="checkbox-group"><input type="checkbox" id="req-bloqueo" class="form-check-input" checked><label for="req-bloqueo" class="form-check-label">Bloquear tras fallos.</label></div>
-                    </div>
+                <!-- --- Contenedor para el botón de guardar configuración de seguridad --- */ -->
+                <div class="card-actions">
+                    <button class="btn btn-primary btn-guardar-seguridad" (click)="guardarSeguridad()"> <i
+                            class="fas fa-save"></i> Guardar
+                        Configuración de Seguridad</button>
                 </div>
             </div>
-             <!-- --- Contenedor para el botón de guardar configuración de seguridad --- */ -->
-             <div class="card-actions">
-                <button class="btn btn-primary btn-guardar-seguridad" (click)="guardarSeguridad()">Guardar Configuración de Seguridad</button>
-            </div>
-        </div>
-        <!-- --- Fin de la Tarjeta de Configuración General --- */ -->
+            <!-- --- Fin de la Tarjeta de Configuración General --- */ -->
 
-    </div> <!-- --- Fin del contenedor de tarjetas de seguridad --- */ -->
-</div> <!-- --- Fin del contenedor principal --- */ -->
-
-<!-- --- Bloque de JavaScript para simular acciones de botones --- */ -->
-
+        </div> <!-- --- Fin del contenedor de tarjetas de seguridad --- */ -->
+    </div> <!-- --- Fin del contenedor principal --- */ -->
 </div>

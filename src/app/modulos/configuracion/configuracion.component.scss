@@ -5,7 +5,7 @@
     margin: 40px auto;
     /* Margen superior/inferior y centrado horizontal */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 40px;
     /* Bordes redondeados */
     box-shadow: 0 5px 15px rgba(2, 12, 27, 0.7);
     /* Sombra */
@@ -39,7 +39,7 @@
     background-color: #1e3963;
     padding: 15px 30px;
     /* Espaciado interno */
-    border-radius: 10px;
+    border-radius:40px;
     /* Bordes redondeados */
     margin-bottom: 40px;
     /* Separación inferior con respecto al contenido */
@@ -55,6 +55,7 @@
     /* Espacio a la derecha de cada logo */
     vertical-align: middle;
     /* Mejor alineación vertical con otros elementos */
+    border-radius: 10px;
 }
 
 /* --- Elimina el margen derecho del último logo --- */
@@ -137,7 +138,7 @@
 .config-item {
     background-color: #172a46;
     /* Color de fondo */
-    border-radius: 10px;
+    border-radius: 40px;
     /* Bordes redondeados */
     padding: 25px;
     /* Espaciado interno */
@@ -241,7 +242,7 @@ input[type="text"] {
     /* Color de fondo */
     color: #e6f1ff;
     /* Color del texto ingresado */
-    border-radius: 8px;
+    border-radius: 40px;
     /* Bordes redondeados */
     margin-bottom: 15px;
     /* Espacio inferior */
@@ -267,7 +268,7 @@ input[type="text"]:focus {
     /* Espaciado interno */
     border: none;
     /* Sin borde */
-    border-radius: 8px;
+    border-radius: 40px;
     /* Bordes redondeados */
     color: #ffffff;
     /* Color de texto blanco por defecto */
@@ -351,7 +352,7 @@ input[type="text"]:focus {
 .card-base {
     background-color: #172a46;
     /* Color de fondo */
-    border-radius: 10px;
+    border-radius: 40px;
     /* Bordes redondeados */
     box-shadow: 0 5px 15px #2a4569;
     /* Sombra */

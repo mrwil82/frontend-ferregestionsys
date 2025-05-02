@@ -16,37 +16,37 @@
         <label for="username" class="form-label text-white fw-bold mb-3">Datos de acceso</label>
         <div class="input-group mb-4">
           <span class="input-group-text"><i class="fas fa-user"></i></span>
-          <input type="email" class="form-control custom-input" id="username" 
+          <input type="email" class="form-control custom-input" id="username"
             placeholder="Ingrese su correo electrónico" [(ngModel)]="Correo" name="Correo" #emailInput />
         </div>
-        
+
         <div class="input-group mb-4">
           <span class="input-group-text"><i class="fas fa-lock"></i></span>
-          <input type="password" class="form-control custom-input" id="password"
+          <input [type]="mostrarPassword ? 'text' : 'password'" class="form-control custom-input" id="password"
             placeholder="Ingrese su contraseña" [(ngModel)]="clave" name="clave" #passwordInput />
-          <span class="input-group-text password-toggle" id="togglePassword">
-            <i class="fas fa-eye" title="Mostrar contraseña"></i>
+          <span class="input-group-text password-toggle" (click)="togglePassword()">
+            <i class="fas" [ngClass]="mostrarPassword ? 'fa-eye-slash' : 'fa-eye'"
+              title="Mostrar/Ocultar contraseña"></i>
           </span>
         </div>
-        
+
         <!-- Mensaje de error (aparece condicionalmente) -->
         <div class="alert alert-danger" *ngIf="error === true">
           <i class="fas fa-exclamation-circle me-2"></i>
           Credenciales incorrectas. Por favor, intente de nuevo.
         </div>
       </div>
-      
+
       <div class="divider"></div>
-      
+
       <!-- Botón de acceso con efecto de hover mejorado -->
-      <button type="button" class="btn btn-primary login-btn w-100 py-3"
-        value="Iniciar Sesión" (click)="consulta('')">
+      <button type="button" class="btn btn-primary login-btn w-100 py-3" value="Iniciar Sesión" (click)="consulta('')">
         <i class="fas fa-sign-in-alt me-2"></i>
         Iniciar Sesión
       </button>
-      
+
       <div class="divider"></div>
-      
+
       <!-- Pie de página -->
       <div class="footer-text">
         <small><i>Copyright © 2025 FerreGestionSys</i></small>

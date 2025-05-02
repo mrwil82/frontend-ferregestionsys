@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   error = false;
   usuario: any;
   isLoading = false; // Variable para controlar estado de carga
-  
   // Modelo de usuario
   user = {
     Nombre: '',
@@ -26,8 +25,9 @@ export class LoginComponent implements OnInit {
     Documento: '',
     clave: '',
   };
-  
-  constructor(private slogin: LoginService, private router: Router) {}
+  mostrarPassword = false;
+
+  constructor(private slogin: LoginService, private router: Router) { }
 
   /**
    * Inicialización del componente
@@ -39,11 +39,11 @@ export class LoginComponent implements OnInit {
     sessionStorage.setItem('Nombre', '');
     sessionStorage.setItem('Correo', '');
     sessionStorage.setItem('Cargo', '');
-    
+
     // Inicializar el evento de mostrar/ocultar contraseña
     this.initPasswordToggle();
   }
-  
+
   /**
    * Inicializa el comportamiento del botón para mostrar/ocultar contraseña
    */
@@ -51,21 +51,27 @@ export class LoginComponent implements OnInit {
     setTimeout(() => {
       const toggleBtn = document.getElementById('togglePassword');
       const passwordInput = document.getElementById('password') as HTMLInputElement;
-      
+
       if (toggleBtn && passwordInput) {
         toggleBtn.addEventListener('click', () => {
           // Cambiar entre mostrar y ocultar contraseña
-          const type = passwordInput.type === 'password' ? 'text' : 'password';
-          passwordInput.type = type;
-          
+          this.togglePassword();
+
           // Cambiar icono según estado
           const icon = toggleBtn.querySelector('i');
           if (icon) {
-            icon.className = type === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash';
+            icon.className = this.mostrarPassword ? 'fas fa-eye' : 'fas fa-eye-slash';
           }
         });
       }
     }, 100);
+  }
+
+  /**
+   * Método para alternar la visibilidad de la contraseña
+   */
+  togglePassword() {
+    this.mostrarPassword = !this.mostrarPassword;
   }
 
   /**
@@ -77,7 +83,7 @@ export class LoginComponent implements OnInit {
       // Activar indicador de carga
       this.isLoading = true;
       this.error = false;
-      
+
       this.slogin
         .consultar(this.Correo, this.clave)
         .subscribe(
@@ -91,18 +97,18 @@ export class LoginComponent implements OnInit {
               sessionStorage.setItem('Nombre', this.usuario[0]['Nombre']);
               sessionStorage.setItem('Correo', this.usuario[0]['Correo']);
               sessionStorage.setItem('Cargo', this.usuario[0]['Cargo']);
-              
+
               // Redireccionar al dashboard
               this.router.navigate(['/dashboard']);
             } else {
               console.log('No se encontro el usuario');
               this.error = true;
-              
+
               // Limpiar campos en caso de error
               this.Correo = '';
               this.clave = '';
             }
-            
+
             // Desactivar indicador de carga
             this.isLoading = false;
           },

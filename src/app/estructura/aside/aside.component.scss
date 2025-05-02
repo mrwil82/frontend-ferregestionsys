@@ -1,0 +1,93 @@
+/* Aside estilo administración, minimizable */
+.aside-admin {
+  background: linear-gradient(to right, rgba(29, 33, 80, 0.95), rgba(15, 18, 55, 1));
+  color: #e6f1ff;
+  border-right: 2px solid #007bff;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  width: 250px;
+  min-width: 70px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-admin.minimized {
+  width: 70px;
+}
+
+.aside-header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #007bff;
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  color: #e6f1ff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  outline: none;
+  margin-right: 1rem;
+}
+.user-info {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  font-size: 2.2rem;
+  margin-right: 0.7rem;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+.user-name {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.user-role {
+  font-size: 0.95rem;
+  color: #8ab4f8;
+}
+.aside-nav {
+  flex: 1;
+  padding: 1rem 0 0 0;
+}
+.aside-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.aside-nav li {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  color: #e6f1ff;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0.2rem 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.aside-nav li.active, .aside-nav li:hover {
+  background: #007bff;
+  color: #fff;
+}
+.aside-nav i {
+  font-size: 1.3rem;
+  margin-right: 1.2rem;
+  min-width: 22px;
+  text-align: center;
+}
+.aside-admin.minimized .user-info, .aside-admin.minimized .user-details, .aside-admin.minimized .user-name, .aside-admin.minimized .user-role, .aside-admin.minimized .aside-nav span {
+  display: none !important;
+}
+.aside-admin.minimized .aside-nav i {
+  margin-right: 0;
+  font-size: 1.5rem;
+}

@@ -71,7 +71,7 @@
     border: 1px solid transparent; /* Borde transparente por defecto */
     padding: 0.4rem 0.8rem; /* Padding interno */
     font-size: 0.9rem; /* Tamaño de fuente */
-    border-radius: 0.3rem; /* Bordes redondeados */
+    border-radius: 40px; /* Bordes redondeados */
     /* Transiciones suaves para efectos hover */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -112,7 +112,7 @@
 /* --- Estilos base para cada tarjeta de sección de configuración --- */
 .settings-card {
     background-color: #ffffff; /* Fondo blanco */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius:40px; /* Bordes redondeados */
     padding: 25px; /* Espaciado interno */
     box-shadow: 0 2px 10px rgba(0,0,0,0.07); /* Sombra sutil */
     border: 1px solid #dee2e6; /* Borde claro */
@@ -175,15 +175,27 @@
     color: #212529; /* Color del texto */
     background-color: #ffffff; /* Fondo blanco */
     background-clip: padding-box; /* Controla cómo se recorta el fondo */
-    border: 1px solid #dee2e6; /* Borde */
+    border: 1px solid #091f34; /* Borde */
     appearance: none; /* Quita estilos por defecto del navegador (importante para consistencia) */
-    border-radius: 0.25rem; /* Bordes redondeados pequeños */
+    border-radius: 40px; /* Bordes redondeados pequeños */
     /* Transición suave para el foco */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 /* --- Ajuste específico para inputs de tipo 'date' para asegurar que muestren el selector de fecha --- */
 .form-control[type="date"] {
     appearance: auto; /* Restaura la apariencia por defecto del navegador para este tipo */
+    border-radius: 40px;
+    background-color: #ffffff;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-clip: padding-box;
+    border: 1px solid #091f34;
+    appearance: none;
+    border-radius: 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.07);
 }
 /* --- Estilo al enfocar (hacer clic) en un control de formulario --- */
 .form-control:focus {
@@ -208,8 +220,8 @@
     background-repeat: no-repeat; /* No repetir la imagen */
     background-position: right 0.75rem center; /* Posición de la flecha */
     background-size: 16px 12px; /* Tamaño de la flecha */
-    border: 1px solid #dee2e6; /* Borde */
-    border-radius: 0.25rem; /* Bordes redondeados */
+    border: 1px solid #091f34; /* Borde */
+    border-radius: 40px; /* Bordes redondeados */
     appearance: none; /* Quita la flecha por defecto del navegador */
     /* Transición suave para el foco */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -255,7 +267,7 @@ textarea.form-control {
     background-size: contain; /* Ajustar tamaño de imagen de fondo */
     border: 1px solid rgba(0,0,0,.25); /* Borde sutil */
     appearance: none; /* Quita estilo por defecto */
-    border-radius: 0.25em; /* Bordes redondeados (ligeramente) */
+    border-radius: 40px; /* Bordes redondeados (ligeramente) */
 }
 /* --- Asegura bordes redondeados para tipo checkbox --- */
 .form-check-input[type=checkbox] { border-radius: 0.25em; }

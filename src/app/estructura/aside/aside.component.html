@@ -1,0 +1,26 @@
+<!-- Aside minimizable con módulos, iconos y colores del módulo administración -->
+<aside [ngClass]="{'minimized': isMinimized}" class="aside-admin">
+  <div class="aside-header">
+    <button class="toggle-btn" (click)="toggleAside()">
+      <i class="fas" [ngClass]="isMinimized ? 'fa-chevron-right' : 'fa-chevron-left'"></i>
+    </button>
+    <div class="user-info" *ngIf="!isMinimized">
+      <div class="avatar">
+        <i class="fas fa-user-circle"></i>
+      </div>
+      <div class="user-details">
+        <div class="user-name">{{ Nombre }}</div>
+        <div class="user-role">{{ Cargo }}</div>
+      </div>
+    </div>
+  </div>
+  <nav class="aside-nav">
+    <ul>
+      <li *ngFor="let modulo of modulos" [routerLinkActive]="'active'" [routerLink]="modulo.ruta"
+          [attr.title]="isMinimized ? modulo.nombre : null">
+        <i class="fas" [ngClass]="modulo.icono"></i>
+        <span *ngIf="!isMinimized">{{ modulo.nombre }}</span>
+      </li>
+    </ul>
+  </nav>
+</aside>

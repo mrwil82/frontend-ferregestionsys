@@ -52,7 +52,7 @@
     border: 1px solid transparent; /* Borde transparente por defecto */
     padding: 0.4rem 0.8rem; /* Padding interno */
     font-size: 0.9rem; /* Tamaño de fuente de los botones */
-    border-radius: 0.3rem; /* Bordes redondeados */
+    border-radius: 40px; /* Bordes redondeados */
     /* Transiciones suaves para efectos hover */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -167,8 +167,8 @@
     background-repeat: no-repeat; /* No repetir la imagen de la flecha */
     background-position: right 0.75rem center; /* Posición de la flecha */
     background-size: 16px 12px; /* Tamaño de la flecha */
-    border: 1px solid #ced4da; /* Borde */
-    border-radius: 0.25rem; /* Bordes redondeados */
+    border: 1px solid #031221; /* Borde */
+    border-radius: 40px; /* Bordes redondeados */
     appearance: none; /* Quita la apariencia nativa del navegador */
     /* Transición suave para el foco */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -196,8 +196,8 @@
     margin-bottom: 20px; /* Espacio debajo del bloque de filtros */
     padding: 15px; /* Padding interno */
     background-color: #f8f9fa; /* Fondo gris claro para diferenciar los filtros */
-    border-radius: 6px; /* Bordes redondeados */
-    border: 1px solid #dee2e6; /* Borde sutil */
+    border-radius: 40px; /* Bordes redondeados */
+    border: 1px solid #061523; /* Borde sutil */
 }
 /* --- Estilos para las etiquetas (label) dentro de los filtros --- */
 .access-filter label {
@@ -228,9 +228,9 @@
     color: #212529; /* Color del texto */
     background-color: #ffffff; /* Fondo blanco */
     background-clip: padding-box; /* Controla cómo se recorta el fondo */
-    border: 1px solid #ced4da; /* Borde */
+    border: 1px solid #061523; /* Borde */
     appearance: none; /* Quita estilos nativos */
-    border-radius: 0.25rem; /* Bordes redondeados */
+    border-radius: 40px; /* Bordes redondeados */
     /* Transición suave para el foco */
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -296,10 +296,10 @@
     background-size: contain; /* Ajustar tamaño de imagen */
     border: 1px solid rgba(0,0,0,.25); /* Borde sutil */
     appearance: none; /* Quita estilo nativo */
-    border-radius: 0.25em; /* Bordes ligeramente redondeados */
+    border-radius: 40px; /* Bordes ligeramente redondeados */
 }
 /* --- Asegura bordes redondeados para tipo checkbox explícitamente --- */
-.form-check-input[type=checkbox] { border-radius: 0.25em; }
+.form-check-input[type=checkbox] { border-radius: 40px; }
 /* --- Estilo cuando el checkbox está marcado (checked) --- */
 .form-check-input:checked {
     background-color: #0d6efd; /* Fondo azul */
