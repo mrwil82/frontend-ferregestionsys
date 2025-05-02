@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuariosService } from '../../servicios/usuarios.service';
 import { AdministracionService } from '../../servicios/administracion.service';
 import Swal from 'sweetalert2';
+// Si tienes problemas de optimización, puedes probar esta importación
 
 @Component({
   selector: 'app-usuarios',

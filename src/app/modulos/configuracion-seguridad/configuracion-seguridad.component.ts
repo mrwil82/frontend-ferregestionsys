@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+// Si tienes problemas de optimización, puedes probar:
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-configuracion-seguridad',
