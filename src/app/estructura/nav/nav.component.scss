@@ -1,119 +1,219 @@
-ul {
-  max-height: 600px; // Adjust the height as needed
-  overflow-y: auto; // Enable vertical scrolling
-}
-ul {
-  padding: 0;
-  margin: 0;
+// === Variables Reutilizables (Opcional) ===
+$menu-bg: #ffffff;
+$menu-border: #011121;
+$menu-hover-bg: #0f1237;
+$menu-color: #090000;
+$menu-hover-color: #e2eeee;
+$link-color: #007bff;
+
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 576px;
+
+// === Estilo del Menú Desplegable (Dropdown) ===
+.dropdown-menu {
+  max-height: 600px;
+  overflow-y: auto;
+  padding: 1rem;
   border: 2px solid #010b15;
   border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   list-style: none;
+  min-width: 250px;
 
-  li {
+  .dropdown-item {
     margin-bottom: 10px;
+    font-size: 12px;
+  }
 
-    a {
-      display: block;
-      width: 100%;
-      padding: 10px 15px;
-      background-color: #ffffff;
-      border: 2px solid #011121;
-      color: #090000;
+  .dropdown-item i {
+    margin-right: 10px;
+    color: $link-color;
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: $menu-bg;
+    border: 2px solid $menu-border;
+    color: $menu-color;
+    font-weight: bold;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+    &:hover {
+      background-color: $menu-hover-bg;
+      color: $menu-hover-color;
+      transform: translateX(5px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 2px solid $link-color;
+      text-decoration: none;
       font-weight: bold;
-      border-radius: 24px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-      &:hover {
-        background-color: #0f1237;
-        color: rgb(226, 238, 238);
-        transform: translateX(5px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        border: 2px solid #007bff;
-        text-decoration: none;
-        font-weight: bold;
-
-      }
-      
     }
+    &:active {
+      background-color: $menu-hover-bg;
+      color: $menu-hover-color;
+      transform: translateY(2px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li {
+        margin-bottom: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: $link-color;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
+// === Estilo General del Navbar ===
 .navbar {
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: #0f1237;
-  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    align-items: flex-center;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #0f1237;
+    box-shadow: none;
+  }
 }
 
-.navbar-brand {
+.navbar{
   font-size: 1.5rem;
   font-weight: bold;
+  color: white !important;
 }
 
 .nav-link {
   margin: 0 0.5rem;
   padding: 0.5rem 1rem;
+  color: white;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+// === Botón MENU Toggle ===
+.menu-button {
+  background-color: rgb(78, 78, 140);
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 6px 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0f1237;
+  }
 }
 
-@media (max-width: 768px) {
+// === Formulario de Búsqueda ===
+.navbar form {
+  width: auto;
+  display: flex;
+  align-items: center;
+  margin: 0.5rem 0;
+
+  input[type="search"] {
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+
+  button[type="submit"] {
+    border-radius: 15px;
+    font-size: 14px;
+  }
+}
+
+// === Botón Cerrar Sesión ===
+#logoutBtn {
+  background-color: rgb(78, 78, 140);
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 6px 12px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0f1237;
+  }
+}
+#navbarDropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+// === Media Queries Responsivas ===
+@media (max-width: $breakpoint-tablet) {
   .navbar {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   .nav-link {
     margin: 0.5rem 0;
+    width: 100%;
+    text-align: center;
   }
-}
 
-lu li i {
-  margin-right: 10px;
-  color: #007bff;
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-@media screen and (max-width: 768px) {
-  ul {
-    padding: 0;
+  .dropdown-menu {
+    max-width: 90vw;
+    width: 90%;
+  }
+  .menu-button {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 9px;
     margin: 0;
-    border: 1px solid #010b15;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    max-height: 600px; // Adjust the height as needed
-    max-width: 20px;
-    overflow-y: auto; // Enable vertical scrolling
-    li {
-      margin-bottom: 10px;
-      font-size: 12px;
-      h3 {
-        font-size: 9px;
-        margin: 0;
-        padding: 0;
-        color: #007bff;
-      }
-      i {
-        margin-right: 3px;
-        font-size: 12px;
-
-      }
-      a {
-        display: block;
-        width: 100%;
-        padding: 5px 10px;
-        background-color: #ffffff;
-        border: 2px solid #011121;
-        color: #090000;
-        font-weight: bold;
-      }
-    }
+    padding: 0;
+    color: $link-color;
+    font-weight: bold;
+    text-align: center;
   }
+  #navbarDropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
 }
+
